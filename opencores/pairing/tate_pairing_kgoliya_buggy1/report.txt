@@ -1,0 +1,354 @@
+Coverage Report by file with details
+
+=================================================================================
+=== File: tate_pairing_kgoliya_buggy1.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        14        14         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for file tate_pairing_kgoliya_buggy1.v --
+
+------------------------------------IF Branch------------------------------------
+    77                                       805     Count coming in to IF
+    77              1                          1             if (reset)
+    79              1                          2             else if (change | i[0])
+                                             802     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    84                                       805     Count coming in to IF
+    84              1                          1             if (reset)
+    89              1                          1             else if (change)
+                                             803     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    97                                       805     Count coming in to IF
+    97              1                          1             if (reset) 
+    99              1                          1             else if (finish) 
+                                             803     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    103                                      805     Count coming in to IF
+    103             1                          1      
+    105             1                        804             if (reset) f3m_reset <= 1;
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    109                                      805     Count coming in to IF
+    109             1                          1      
+    110             1                          1     // do Tate pairing, hahahaha
+    111             1                        803     module tate_pairing(clk, reset, x1, y1, x2, y2, done, out);
+Branch totals: 3 hits of 3 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       2         2         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for file tate_pairing_kgoliya_buggy1.v --
+
+----------------Focused Condition View-------------------
+Line       79 Item    1  (change | i[0])
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      29        29         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for file tate_pairing_kgoliya_buggy1.v --
+
+    1                                                /*
+    2                                                    Copyright 2011, City University of Hong Kong
+    3                                                    Author is Homer (Dongsheng) Hsing.
+    4                                                 
+    5                                                    This file is part of Tate Bilinear Pairing Core.
+    6                                                 
+    7                                                    Tate Bilinear Pairing Core is free software: you can redistribute it and/or modify
+    8                                                    it under the terms of the GNU Lesser General Public License as published by
+    9                                                    the Free Software Foundation, either version 3 of the License, or
+    10                                                   (at your option) any later version.
+    11                                                
+    12                                                   Tate Bilinear Pairing Core is distributed in the hope that it will be useful,
+    13                                                   but WITHOUT ANY WARRANTY; without even the implied warranty of
+    14                                                   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    15                                                   GNU Lesser General Public License for more details.
+    16                                                
+    17                                                   You should have received a copy of the GNU Lesser General Public License
+    18                                                   along with Tate Bilinear Pairing Core.  If not, see http://www.gnu.org/licenses/lgpl.txt
+    19                                               */
+    20                                                
+    21                                                // PX is the irreducible polynomial
+    22                                               // The Modified Duursma-Lee Algorithm
+    23                                               // out == e_({xp,yp}, {xr,yr})
+    24                                               module duursma_lee_algo(clk, reset, xp, yp, xr, yr, done, out);
+    25                                                   `define ZERO {(2*`M){1'b0}}
+    26                                                   `define TWO {(2*`M-2){1'b0}},2'b10
+    27                                                   `define M     97          // M is the degree of the irreducible polynomial
+    28                                                   `define WIDTH (2*`M-1)    // width for a GF(3^M) element
+    29                                                   `define W2    (4*`M-1)    // width for a GF(3^{2*M}) element
+    30                                                   `define W3    (6*`M-1)    // width for a GF(3^{3*M}) element
+    31                                                   `define W6    (12*`M-1)   // width for a GF(3^{6*M}) element
+    32                                                   `define PX    196'h4000000000000000000000000000000000000000001000002
+    33                                                   input clk, reset;
+    34                                                   input [`WIDTH:0] xp, yp, xr, yr;
+    35                                                   output reg done;
+    36                                                   output reg [`W6:0] out;
+    37                                                
+    38                                                   reg [`W6:0] t;
+    39                                                   reg [`WIDTH:0] a, b, y;
+    40                                                   reg [1:0] d;
+    41                                                   reg [`M:0] i;
+    42                                                   reg f3m_reset, delay1, delay2;
+    43                                                   wire [`W6:0] g,v7,v8;
+    44                                                   wire [`WIDTH:0] mu /* my name is "mew" */,nmu,ny,
+    45                                                                   x,v2,v3,v4,v5,v6;
+    46                                                   wire [1:0] v9;
+    47                                                   wire f36m_reset, dummy, f3m_done, f36m_done, finish, change;
+    48                                                
+    49              1                          5         assign g = {`ZERO,`TWO,`ZERO,nmu,v6,v5};
+    50              1                          4         assign finish = i[0];
+    51                                                
+    52                                                   f3m_cubic
+    53                                                       ins1 (xr, x), // x == {x_r}^3
+    54                                                       ins2 (yr, v2); // v2 == {y_r}^3
+    55                                                   f3m_nine
+    56                                                       ins3 (clk, a, v3), // v3 == a^9
+    57                                                       ins4 (clk, b, v4); // v4 == b^9
+    58                                                   f3m_add3
+    59                                                       ins5 (v3, x, {{(2*`M-2){1'b0}},d}, mu); // mu == a^9+x+d
+    60                                                   f3m_neg
+    61                                                       ins6 (mu, nmu), // nmu == -mu
+    62                                                       ins7 (y,  ny);  // ny  == -y
+    63                                                   f3m_mult
+    64                                                       ins8 (clk, delay2, mu, nmu, v5, f3m_done), // v5 == - mu^2
+    65                                                       ins9 (clk, delay2, v4, ny,  v6, dummy); // v6 == - (b^9)*y
+    66                                                   f36m_cubic
+    67                                                       ins10 (clk, t, v7); // v7 == t^3
+    68                                                   f36m_mult
+    69                                                       ins11 (clk, f36m_reset, v7, g, v8, f36m_done); // v8 == v7*g = (t^3)*g
+    70                                                   func6
+    71                                                       ins12 (clk, reset, f36m_done, change),
+    72                                                       ins13 (clk, reset, f3m_done, f36m_reset);
+    73                                                   f3_sub1
+    74                                                       ins14 (d, v9); // v9 == d-1
+    75                                                
+    76              1                        805         always @ (posedge clk)
+    77                                                       if (reset)
+    78              1                          1                 i <= {1'b1, {`M{1'b0}}};
+    79                                                       else if (change | i[0])
+    80              1                          2                 i <= i > 1;
+    81                                                
+    82              1                        805         always @ (posedge clk)
+    83                                                     begin
+    84                                                       if (reset)
+    85                                                         begin
+    86              1                          1                 a <= xp; b <= yp; t <= 1; 
+    86              2                          1     
+    86              3                          1     
+    87              1                          1                 y <= v2; d <= 1;
+    87              2                          1     
+    88                                                         end
+    89                                                       else if (change)
+    90                                                         begin
+    91              1                          1                 a <= v3; b <= v4; t <= v8;
+    91              2                          1     
+    91              3                          1     
+    92              1                          1                 y <= ny; d <= v9;
+    92              2                          1     
+    93                                                         end
+    94                                                     end
+    95                                                
+    96              1                        805         always @ (posedge clk)
+    97                                                       if (reset) 
+    98              1                          1               begin done <= 0; end
+    99                                                       else if (finish) 
+    100             1                          1               begin done <= 1; out <= v8; end
+    100             2                          1     
+    101                                               
+    102             1                        805         always @ (posedge clk)
+    103                                                      if (reset)
+    104             1                          1               begin delay1 <= 1; delay2 <= 1; end
+    104             2                          1     
+    105                                                      else
+    106             1                        804               begin delay2 <= delay1; delay1 <= f3m_reset; end
+    106             2                        804     
+    107                                               
+    108             1                        805         always @ (posedge clk)
+    109             1                          1             if (reset) f3m_reset <= 1;
+    110             1                          1             else if (change) f3m_reset <= 1;
+    111             1                        803             else f3m_reset <= 0;
+    112                                                  input clk, reset;
+    113                                                  input [`WIDTH:0] x1, y1, x2, y2;
+    114                                                  output reg done;
+    115                                                  output reg [`W6:0] out;
+    116                                               
+    117                                                  reg delay1, rst1;
+    118                                                  wire done1, rst2, done2;
+    119                                                  wire [`W6:0] out1, out2;
+    120                                                  reg [2:0] K;
+    121                                               
+    122                                                  duursma_lee_algo 
+    123                                                      ins1 (clk, rst1, x1, y1, x2, y2, done1, out1);
+    124                                                  second_part
+    125                                                      ins2 (clk, rst2, out1, out2, done2);
+    126                                                  func6
+    127                                                      ins3 (clk, reset, done1, rst2);
+    128                                               
+    129                                                  always @ (posedge clk)
+    130                                                      if (reset)
+    131                                                        begin
+    132                                                          rst1 <= 1; delay1 <= 1;
+    133                                                        end
+    134                                                      else
+    135                                                        begin
+    136                                                          rst1 <= delay1; delay1 <= reset;
+    137                                                        end
+    138                                               
+    139                                                  always @ (posedge clk)
+    140                                                      if (reset) K <= 3'b100;
+    141                                                      else if ((K[2]&rst2)|(K[1]&done2)|K[0])
+    142                                                          K <= K >> 1;
+    143                                               
+    144                                                  always @ (posedge clk)
+    145                                                      if (reset) done <= 0;
+    146                                                      else if (K[0]) begin done <= 1; out <= out2; end
+    147                                              endmodule
+    148                                               
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        228        27       201    11.84%
+
+================================Toggle Details================================
+
+Toggle Coverage for File tate_pairing_kgoliya_buggy1.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+         35                                   done           0           1       50.00 
+         40                                   d[1]           0           0        0.00 
+         40                                   d[0]           1           0       50.00 
+         41                                   i[9]           0           0        0.00 
+         41                                  i[97]           1           0       50.00 
+         41                                  i[96]           0           0        0.00 
+         41                                  i[95]           0           0        0.00 
+         41                                  i[94]           0           0        0.00 
+         41                                  i[93]           0           0        0.00 
+         41                                  i[92]           0           0        0.00 
+         41                                  i[91]           0           0        0.00 
+         41                                  i[90]           0           0        0.00 
+         41                                   i[8]           0           0        0.00 
+         41                                  i[89]           0           0        0.00 
+         41                                  i[88]           0           0        0.00 
+         41                                  i[87]           0           0        0.00 
+         41                                  i[86]           0           0        0.00 
+         41                                  i[85]           0           0        0.00 
+         41                                  i[84]           0           0        0.00 
+         41                                  i[83]           0           0        0.00 
+         41                                  i[82]           0           0        0.00 
+         41                                  i[81]           0           0        0.00 
+         41                                  i[80]           0           0        0.00 
+         41                                   i[7]           0           0        0.00 
+         41                                  i[79]           0           0        0.00 
+         41                                  i[78]           0           0        0.00 
+         41                                  i[77]           0           0        0.00 
+         41                                  i[76]           0           0        0.00 
+         41                                  i[75]           0           0        0.00 
+         41                                  i[74]           0           0        0.00 
+         41                                  i[73]           0           0        0.00 
+         41                                  i[72]           0           0        0.00 
+         41                                  i[71]           0           0        0.00 
+         41                                  i[70]           0           0        0.00 
+         41                                   i[6]           0           0        0.00 
+         41                                  i[69]           0           0        0.00 
+         41                                  i[68]           0           0        0.00 
+         41                                  i[67]           0           0        0.00 
+         41                                  i[66]           0           0        0.00 
+         41                                  i[65]           0           0        0.00 
+         41                                  i[64]           0           0        0.00 
+         41                                  i[63]           0           0        0.00 
+         41                                  i[62]           0           0        0.00 
+         41                                  i[61]           0           0        0.00 
+         41                                  i[60]           0           0        0.00 
+         41                                   i[5]           0           0        0.00 
+         41                                  i[59]           0           0        0.00 
+         41                                  i[58]           0           0        0.00 
+         41                                  i[57]           0           0        0.00 
+         41                                  i[56]           0           0        0.00 
+         41                                  i[55]           0           0        0.00 
+         41                                  i[54]           0           0        0.00 
+         41                                  i[53]           0           0        0.00 
+         41                                  i[52]           0           0        0.00 
+         41                                  i[51]           0           0        0.00 
+         41                                  i[50]           0           0        0.00 
+         41                                   i[4]           0           0        0.00 
+         41                                  i[49]           0           0        0.00 
+         41                                  i[48]           0           0        0.00 
+         41                                  i[47]           0           0        0.00 
+         41                                  i[46]           0           0        0.00 
+         41                                  i[45]           0           0        0.00 
+         41                                  i[44]           0           0        0.00 
+         41                                  i[43]           0           0        0.00 
+         41                                  i[42]           0           0        0.00 
+         41                                  i[41]           0           0        0.00 
+         41                                  i[40]           0           0        0.00 
+         41                                   i[3]           0           0        0.00 
+         41                                  i[39]           0           0        0.00 
+         41                                  i[38]           0           0        0.00 
+         41                                  i[37]           0           0        0.00 
+         41                                  i[36]           0           0        0.00 
+         41                                  i[35]           0           0        0.00 
+         41                                  i[34]           0           0        0.00 
+         41                                  i[33]           0           0        0.00 
+         41                                  i[32]           0           0        0.00 
+         41                                  i[31]           0           0        0.00 
+         41                                  i[30]           0           0        0.00 
+         41                                   i[2]           0           0        0.00 
+         41                                  i[29]           0           0        0.00 
+         41                                  i[28]           0           0        0.00 
+         41                                  i[27]           0           0        0.00 
+         41                                  i[26]           0           0        0.00 
+         41                                  i[25]           0           0        0.00 
+         41                                  i[24]           0           0        0.00 
+         41                                  i[23]           0           0        0.00 
+         41                                  i[22]           0           0        0.00 
+         41                                  i[21]           0           0        0.00 
+         41                                  i[20]           0           0        0.00 
+         41                                   i[1]           0           0        0.00 
+         41                                  i[19]           0           0        0.00 
+         41                                  i[18]           0           0        0.00 
+         41                                  i[17]           0           0        0.00 
+         41                                  i[16]           0           0        0.00 
+         41                                  i[15]           0           0        0.00 
+         41                                  i[14]           0           0        0.00 
+         41                                  i[13]           0           0        0.00 
+         41                                  i[12]           0           0        0.00 
+         41                                  i[11]           0           0        0.00 
+         41                                  i[10]           0           0        0.00 
+         46                                  v9[1]           0           1       50.00 
+         46                                  v9[0]           0           0        0.00 
+         47                              f36m_done           0           1       50.00 
+
+Total Node Count     =        114 
+Toggled Node Count   =         11 
+Untoggled Node Count =        103 
+
+Toggle Coverage      =      11.84% (27 of 228 bins)
+
+
+Total Coverage By File (code coverage only, filtered view): 77.96%
+

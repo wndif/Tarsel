@@ -1,0 +1,11 @@
+vsim -do collectCoverage5s.do
+vsim -do collectCoverage15s.do
+vsim -do collectCoverage25s.do
+vsim -do collectCoverage35s.do
+vsim -do collectCoverage45s.do
+vsim -do collectCoverage55s.do
+vsim -do collectCoverage65s.do
+vsim -do collectCoverage75s.do
+vsim -do collectCoverage85s.do
+vsim -do collectCoverage95s.do
+vsim -do collectCoverage105s.do

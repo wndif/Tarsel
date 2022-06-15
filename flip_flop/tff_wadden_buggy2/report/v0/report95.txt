@@ -1,0 +1,72 @@
+Coverage Report by file with details
+
+=================================================================================
+=== File: tff_wadden_buggy2.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         3         1         2    33.33%
+
+================================Branch Details================================
+
+Branch Coverage for file tff_wadden_buggy2.v --
+
+------------------------------------IF Branch------------------------------------
+    7                                          1     Count coming in to IF
+    7               1                          1         if (rstn) 
+    10              1                    ***0***           if (t)
+    12              1                    ***0***           else
+Branch totals: 1 hit of 3 branches = 33.33%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       4         2         2    50.00%
+
+================================Statement Details================================
+
+Statement Coverage for file tff_wadden_buggy2.v --
+
+    1                                                module tff (   input clk,
+    2                                                               input 	  rstn,
+    3                                                               input 	  t,
+    4                                                               output reg q);
+    5                                                   
+    6               1                          1        always @ (posedge clk) begin
+    7                                                    if (rstn) 
+    8               1                          1           q <= 0;
+    9                                                    else
+    10                                                     if (t)
+    11              1                    ***0***             q <= q;
+    12                                                     else
+    13              1                    ***0***             q <= ~q;
+    14                                                  end
+    15                                               endmodule
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                          8         1         7    12.50%
+
+================================Toggle Details================================
+
+Toggle Coverage for File tff_wadden_buggy2.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+          1                                    clk           1           0       50.00 
+          2                                   rstn           0           0        0.00 
+          3                                      t           0           0        0.00 
+          4                                      q           0           0        0.00 
+
+Total Node Count     =          4 
+Toggled Node Count   =          0 
+Untoggled Node Count =          4 
+
+Toggle Coverage      =      12.50% (1 of 8 bins)
+
+
+Total Coverage By File (code coverage only, filtered view): 31.94%
+

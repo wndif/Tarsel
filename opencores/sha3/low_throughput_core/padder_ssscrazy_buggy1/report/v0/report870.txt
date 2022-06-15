@@ -1,0 +1,431 @@
+Coverage Report by file with details
+
+=================================================================================
+=== File: padder_ssscrazy_buggy1.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        15         5        10    33.33%
+
+================================Branch Details================================
+
+Branch Coverage for file padder_ssscrazy_buggy1.v --
+
+------------------------------------IF Branch------------------------------------
+    46                                         1     Count coming in to IF
+    46              1                    ***0***           if (reset)
+    48              1                          1           else if (update)
+                                         ***0***     All False Count
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    52                                         1     Count coming in to IF
+    52              1                    ***0***           if (reset)
+    54              1                          1           else if (f_ack | update)
+                                         ***0***     All False Count
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    60                                         1     Count coming in to IF
+    60              1                    ***0***           if (reset)
+    62              1                    ***0***           else if (is_last)
+                                               1     All False Count
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    66                                         1     Count coming in to IF
+    66              1                    ***0***           if (reset)
+    68              1                    ***0***           else if (state & out_ready)
+                                               1     All False Count
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    75                                         2     Count coming in to IF
+    75              1                    ***0***             if (state)
+    80              1                          2             else if (is_last == 0)
+    82              1                    ***0***             else
+Branch totals: 1 hit of 3 branches = 33.33%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       5         0         5     0.00%
+
+================================Condition Details================================
+
+Condition Coverage for file padder_ssscrazy_buggy1.v --
+
+----------------Focused Condition View-------------------
+Line       54 Item    1  (f_ack | update)
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       f_ack         N  No hits                  Hit '_0' and '_1'
+      update         N  '_0' not hit             Hit '_0'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  f_ack_0               ~update                       
+  Row   2:    ***0***  f_ack_1               ~update                       
+  Row   3:    ***0***  update_0              ~f_ack                        
+  Row   4:          1  update_1              ~f_ack                        
+
+----------------Focused Condition View-------------------
+Line       68 Item    1  (state & out_ready)
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       state         N  No hits                  Hit '_0' and '_1'
+   out_ready         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  state_0               out_ready                     
+  Row   2:    ***0***  state_1               out_ready                     
+  Row   3:    ***0***  out_ready_0           state                         
+  Row   4:    ***0***  out_ready_1           state                         
+
+----------------Focused Condition View-------------------
+Line       80 Item    1  (is_last == 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (is_last == 0)         N  '_0' not hit             Hit '_0'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (is_last == 0)_0      -                             
+  Row   2:          1  (is_last == 0)_1      -                             
+
+
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                     10         0        10     0.00%
+
+================================Expression Details================================
+
+Expression Coverage for file padder_ssscrazy_buggy1.v --
+
+----------------Focused Expression View-----------------
+Line       42 Item    1  ((~state & in_ready) & ~buffer_full)
+Expression totals: 0 of 3 input terms covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+        state         N  No hits                  Hit '_0' and '_1'
+     in_ready         N  No hits                  Hit '_0' and '_1'
+  buffer_full         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  state_0               (~buffer_full && in_ready)    
+  Row   2:    ***0***  state_1               (~buffer_full && in_ready)    
+  Row   3:    ***0***  in_ready_0            (~buffer_full && ~state)      
+  Row   4:    ***0***  in_ready_1            (~buffer_full && ~state)      
+  Row   5:    ***0***  buffer_full_0         (~state & in_ready)           
+  Row   6:    ***0***  buffer_full_1         (~state & in_ready)           
+
+----------------Focused Expression View-----------------
+Line       43 Item    1  ((accept | state) & ~done)
+Expression totals: 0 of 3 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+      accept         N  No hits                  Hit '_0' and '_1'
+       state         N  No hits                  Hit '_0' and '_1'
+        done         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  accept_0              (~done && ~state)             
+  Row   2:    ***0***  accept_1              (~done && ~state)             
+  Row   3:    ***0***  state_0               (~done && ~accept)            
+  Row   4:    ***0***  state_1               (~done && ~accept)            
+  Row   5:    ***0***  done_0                (accept | state)              
+  Row   6:    ***0***  done_1                (accept | state)              
+
+----------------Focused Expression View-----------------
+Line       78 Item    1  (v1[7] | i[16])
+Expression totals: 0 of 2 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       v1[7]         N  No hits                  Hit '_0' and '_1'
+       i[16]         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  v1[7]_0               ~i[16]                        
+  Row   2:    ***0***  v1[7]_1               ~i[16]                        
+  Row   3:    ***0***  i[16]_0               ~v1[7]                        
+  Row   4:    ***0***  i[16]_1               ~v1[7]                        
+
+----------------Focused Expression View-----------------
+Line       85 Item    1  (v1[7] | i[16])
+Expression totals: 0 of 2 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       v1[7]         N  No hits                  Hit '_0' and '_1'
+       i[16]         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  v1[7]_0               ~i[16]                        
+  Row   2:    ***0***  v1[7]_1               ~i[16]                        
+  Row   3:    ***0***  i[16]_0               ~v1[7]                        
+  Row   4:    ***0***  i[16]_1               ~v1[7]                        
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      22         8        14    36.36%
+
+================================Statement Details================================
+
+Statement Coverage for file padder_ssscrazy_buggy1.v --
+
+    1                                                /*
+    2                                                 * Copyright 2013, Homer Hsing <homer.hsing@gmail.com>
+    3                                                 *
+    4                                                 * Licensed under the Apache License, Version 2.0 (the "License");
+    5                                                 * you may not use this file except in compliance with the License.
+    6                                                 * You may obtain a copy of the License at
+    7                                                 *
+    8                                                 * http://www.apache.org/licenses/LICENSE-2.0
+    9                                                 *
+    10                                                * Unless required by applicable law or agreed to in writing, software
+    11                                                * distributed under the License is distributed on an "AS IS" BASIS,
+    12                                                * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    13                                                * See the License for the specific language governing permissions and
+    14                                                * limitations under the License.
+    15                                                */
+    16                                               
+    17                                               /* "is_last" == 0 means byte number is 4, no matter what value "byte_num" is. */
+    18                                               /* if "in_ready" == 0, then "is_last" should be 0. */
+    19                                               /* the user switch to next "in" only if "ack" == 1. */
+    20                                               
+    21                                               module padder(clk, reset, in, in_ready, is_last, byte_num, buffer_full, out, out_ready, f_ack);
+    22                                                   input              clk, reset;
+    23                                                   input      [31:0]  in;
+    24                                                   input              in_ready, is_last;
+    25                                                   input      [1:0]   byte_num;
+    26                                                   output             buffer_full; /* to "user" module */
+    27                                                   output reg [575:0] out;         /* to "f_permutation" module */
+    28                                                   output             out_ready;   /* to "f_permutation" module */
+    29                                                   input              f_ack;       /* from "f_permutation" module */
+    30                                                   
+    31                                                   reg                state;       /* state == 0: user will send more input data
+    32                                                                                    * state == 1: user will not send any data */
+    33                                                   reg                done;        /* == 1: out_ready should be 0 */
+    34                                                   reg        [17:0]  i;           /* length of "out" buffer */
+    35                                                   wire       [31:0]  v0;          /* output of module "padder1" */
+    36                                                   reg        [31:0]  v1;          /* to be shifted into register "out" */
+    37                                                   wire               accept,      /* accept user input? */
+    38                                                                      update;
+    39                                                   
+    40              1                    ***0***         assign buffer_full = i[17];
+    41              1                    ***0***         assign out_ready = buffer_full;
+    42              1                    ***0***         assign accept = (~ state) & in_ready & (~ buffer_full); // if state == 1, do not eat input
+    43              1                    ***0***         assign update = (accept | (state)) & (~ done); // don't fill buffer if done
+    44                                               
+    45              1                          1         always @ (posedge clk)
+    46                                                     if (reset)
+    47              1                    ***0***             out <= 0;
+    48                                                     else if (update)
+    49              1                          1             out <= {out[575-32:0], v1};
+    50                                               
+    51              1                          1         always @ (posedge clk)
+    52                                                     if (reset)
+    53              1                    ***0***             i <= 0;
+    54                                                     else if (f_ack | update)
+    55              1                          1             i <= {i[16:0], 1'b1} & {18{~ f_ack}};
+    56                                               /*    if (f_ack)  i <= 0; */
+    57                                               /*    if (update) i <= {i[16:0], 1'b1}; // increase length */
+    58                                               
+    59              1                          1         always @ (posedge clk)
+    60                                                     if (reset)
+    61              1                    ***0***             state <= 0;
+    62                                                     else if (is_last)
+    63              1                    ***0***             state <= 1;
+    64                                               
+    65              1                          1         always @ (posedge clk)
+    66                                                     if (reset)
+    67              1                    ***0***             done <= 0;
+    68                                                     else if (state & out_ready)
+    69              1                    ***0***             done <= 1;
+    70                                               
+    71                                                   padder1 p0 (in, byte_num, v0);
+    72                                                   
+    73              1                          2         always @ (*)
+    74                                                     begin
+    75                                                       if (state)
+    76                                                         begin
+    77              1                    ***0***                 v1 = 0;
+    78              1                    ***0***                 v1[7] = v1[7] | i[16]; // "v1[7]" is the MSB of the last byte of "v1"
+    79                                                         end
+    80                                                       else if (is_last == 0)
+    81              1                          2               v1 = in;
+    82                                                       else
+    83                                                         begin
+    84              1                    ***0***                 v1 = v0;
+    85              1                    ***0***                 v1[7] = v1[7] | i[16];
+    86                                                         end
+    87                                                     end
+    88                                               endmodule
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        254        50       204    19.68%
+
+================================Toggle Details================================
+
+Toggle Coverage for File padder_ssscrazy_buggy1.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+         22                                  reset           0           0        0.00 
+         22                                    clk           1           0       50.00 
+         23                                  in[9]           1           0       50.00 
+         23                                  in[8]           0           1       50.00 
+         23                                  in[7]           0           1       50.00 
+         23                                  in[6]           0           0        0.00 
+         23                                  in[5]           0           0        0.00 
+         23                                  in[4]           1           0       50.00 
+         23                                  in[3]           0           0        0.00 
+         23                                 in[31]           0           1       50.00 
+         23                                 in[30]           0           0        0.00 
+         23                                  in[2]           0           1       50.00 
+         23                                 in[29]           0           0        0.00 
+         23                                 in[28]           0           0        0.00 
+         23                                 in[27]           0           0        0.00 
+         23                                 in[26]           0           0        0.00 
+         23                                 in[25]           1           0       50.00 
+         23                                 in[24]           0           0        0.00 
+         23                                 in[23]           0           1       50.00 
+         23                                 in[22]           0           0        0.00 
+         23                                 in[21]           0           0        0.00 
+         23                                 in[20]           1           0       50.00 
+         23                                  in[1]           0           1       50.00 
+         23                                 in[19]           0           1       50.00 
+         23                                 in[18]           1           0       50.00 
+         23                                 in[17]           0           1       50.00 
+         23                                 in[16]           0           1       50.00 
+         23                                 in[15]           0           1       50.00 
+         23                                 in[14]           0           0        0.00 
+         23                                 in[13]           0           0        0.00 
+         23                                 in[12]           1           0       50.00 
+         23                                 in[11]           0           1       50.00 
+         23                                 in[10]           0           0        0.00 
+         23                                  in[0]           0           1       50.00 
+         24                                is_last           0           0        0.00 
+         24                               in_ready           0           0        0.00 
+         25                            byte_num[1]           0           0        0.00 
+         25                            byte_num[0]           0           0        0.00 
+         26                            buffer_full           0           0        0.00 
+         28                              out_ready           0           0        0.00 
+         29                                  f_ack           0           0        0.00 
+         31                                  state           0           0        0.00 
+         33                                   done           0           0        0.00 
+         34                                   i[9]           0           0        0.00 
+         34                                   i[8]           0           0        0.00 
+         34                                   i[7]           0           0        0.00 
+         34                                   i[6]           0           0        0.00 
+         34                                   i[5]           0           0        0.00 
+         34                                   i[4]           0           0        0.00 
+         34                                   i[3]           0           0        0.00 
+         34                                   i[2]           0           0        0.00 
+         34                                   i[1]           0           0        0.00 
+         34                                  i[17]           0           0        0.00 
+         34                                  i[16]           0           0        0.00 
+         34                                  i[15]           0           0        0.00 
+         34                                  i[14]           0           0        0.00 
+         34                                  i[13]           0           0        0.00 
+         34                                  i[12]           0           0        0.00 
+         34                                  i[11]           0           0        0.00 
+         34                                  i[10]           0           0        0.00 
+         34                                   i[0]           0           0        0.00 
+         35                                  v0[9]           1           0       50.00 
+         35                                  v0[8]           0           1       50.00 
+         35                                  v0[7]           0           0        0.00 
+         35                                  v0[6]           0           0        0.00 
+         35                                  v0[5]           0           0        0.00 
+         35                                  v0[4]           0           0        0.00 
+         35                                  v0[3]           0           0        0.00 
+         35                                 v0[31]           0           1       50.00 
+         35                                 v0[30]           0           0        0.00 
+         35                                  v0[2]           0           0        0.00 
+         35                                 v0[29]           0           0        0.00 
+         35                                 v0[28]           0           0        0.00 
+         35                                 v0[27]           0           0        0.00 
+         35                                 v0[26]           0           0        0.00 
+         35                                 v0[25]           1           0       50.00 
+         35                                 v0[24]           0           0        0.00 
+         35                                 v0[23]           0           1       50.00 
+         35                                 v0[22]           0           0        0.00 
+         35                                 v0[21]           0           0        0.00 
+         35                                 v0[20]           1           0       50.00 
+         35                                  v0[1]           0           0        0.00 
+         35                                 v0[19]           0           1       50.00 
+         35                                 v0[18]           1           0       50.00 
+         35                                 v0[17]           0           1       50.00 
+         35                                 v0[16]           0           1       50.00 
+         35                                 v0[15]           0           1       50.00 
+         35                                 v0[14]           0           0        0.00 
+         35                                 v0[13]           0           0        0.00 
+         35                                 v0[12]           1           0       50.00 
+         35                                 v0[11]           0           1       50.00 
+         35                                 v0[10]           0           0        0.00 
+         35                                  v0[0]           0           0        0.00 
+         36                                  v1[9]           1           0       50.00 
+         36                                  v1[8]           0           1       50.00 
+         36                                  v1[7]           0           1       50.00 
+         36                                  v1[6]           0           0        0.00 
+         36                                  v1[5]           0           0        0.00 
+         36                                  v1[4]           1           0       50.00 
+         36                                  v1[3]           0           0        0.00 
+         36                                 v1[31]           0           1       50.00 
+         36                                 v1[30]           0           0        0.00 
+         36                                  v1[2]           0           1       50.00 
+         36                                 v1[29]           0           0        0.00 
+         36                                 v1[28]           0           0        0.00 
+         36                                 v1[27]           0           0        0.00 
+         36                                 v1[26]           0           0        0.00 
+         36                                 v1[25]           1           0       50.00 
+         36                                 v1[24]           0           0        0.00 
+         36                                 v1[23]           0           1       50.00 
+         36                                 v1[22]           0           0        0.00 
+         36                                 v1[21]           0           0        0.00 
+         36                                 v1[20]           1           0       50.00 
+         36                                  v1[1]           0           1       50.00 
+         36                                 v1[19]           0           1       50.00 
+         36                                 v1[18]           1           0       50.00 
+         36                                 v1[17]           0           1       50.00 
+         36                                 v1[16]           0           1       50.00 
+         36                                 v1[15]           0           1       50.00 
+         36                                 v1[14]           0           0        0.00 
+         36                                 v1[13]           0           0        0.00 
+         36                                 v1[12]           1           0       50.00 
+         36                                 v1[11]           0           1       50.00 
+         36                                 v1[10]           0           0        0.00 
+         36                                  v1[0]           0           1       50.00 
+         37                                 accept           0           0        0.00 
+         38                                 update           0           0        0.00 
+
+Total Node Count     =        127 
+Toggled Node Count   =          0 
+Untoggled Node Count =        127 
+
+Toggle Coverage      =      19.68% (50 of 254 bins)
+
+
+Total Coverage By File (code coverage only, filtered view): 17.87%
+

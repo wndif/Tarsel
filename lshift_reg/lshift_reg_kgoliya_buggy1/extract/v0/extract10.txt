@@ -1,0 +1,11 @@
+lshift_reg_kgoliya_buggy1-12-1 1
+lshift_reg_kgoliya_buggy1-14-1 1
+lshift_reg_kgoliya_buggy1-20-1 0
+lshift_reg_kgoliya_buggy1-22-1 0
+lshift_reg_kgoliya_buggy1-22-2 0
+lshift_reg_kgoliya_buggy1-23-1 0
+lshift_reg_kgoliya_buggy1-25-1 0
+lshift_reg_kgoliya_buggy1-13-1 1
+lshift_reg_kgoliya_buggy1-15-1 0
+lshift_reg_kgoliya_buggy1-19-1 0
+lshift_reg_kgoliya_buggy1-21-1 0

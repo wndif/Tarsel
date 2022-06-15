@@ -1,0 +1,73 @@
+Coverage Report by file with details
+
+=================================================================================
+=== File: mux_4_1_kgoliya_buggy1.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         5         4         1    80.00%
+
+================================Branch Details================================
+
+Branch Coverage for file mux_4_1_kgoliya_buggy1.v --
+
+------------------------------------CASE Branch------------------------------------
+    11                                         8     Count coming in to CASE
+    12              1                          2              2'b00 : out <= a;
+    13              1                          2              2'b01 : out <= b;
+    14              1                          2              2'b10 : out <= c;
+    15              1                          2              2'b11 : out <= d;
+                                         ***0***     All False Count
+Branch totals: 4 hits of 5 branches = 80.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       5         5         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for file mux_4_1_kgoliya_buggy1.v --
+
+    1                                                module mux_4to1_case ( input [3:0] a,                 // 4-bit input called a
+    2                                                                       input [3:0] b,                 // 4-bit input called b
+    3                                                                       input [3:0] c,                 // 4-bit input called c
+    4                                                                       input [3:0] d,                 // 4-bit input called d
+    5                                                                       input [1:0] sel,               // input sel used to select between a,b,c,d
+    6                                                                       output reg out);               // 4-bit output based on input sel
+    7                                                
+    8                                                   // This always block gets executed whenever a/b/c/d/sel changes value
+    9                                                   // When that happens, based on value in sel, output is assigned to either a/b/c/d
+    10              1                          8        always @ (a or b or c or d or sel) begin
+    11                                                     case (sel)
+    12              1                          2              2'b00 : out <= a;
+    13              1                          2              2'b01 : out <= b;
+    14              1                          2              2'b10 : out <= c;
+    15              1                          2              2'b11 : out <= d;
+    16                                                     endcase
+    17                                                  end
+    18                                               endmodule
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                          2         2         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for File mux_4_1_kgoliya_buggy1.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+
+Total Node Count     =          1 
+Toggled Node Count   =          1 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (2 of 2 bins)
+
+
+Total Coverage By File (code coverage only, filtered view): 93.33%
+

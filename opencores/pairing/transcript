@@ -1,0 +1,41 @@
+# //  ModelSim SE-64 2019.2 Apr 17 2019
+# //
+# //  Copyright 1991-2019 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do {.\collectCoverage.do}
+# Model Technology ModelSim SE-64 vmap 2019.2 Lib Mapping Utility 2019.04 Apr 17 2019
+# vmap work work 
+# Modifying D:/modeltech64_2019.2/win64/modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 22:55:08 on May 12,2022
+# vlog -reportprogress 300 tate_pairing.v "+cover=sbcet" -coveropt 1 
+# -- Compiling module duursma_lee_algo
+# ** Error (suppressible): tate_pairing.v(29): (vlog-2892) Net type of 'xp' was not explicitly declared.
+# ** Error (suppressible): tate_pairing.v(29): (vlog-2892) Net type of 'yp' was not explicitly declared.
+# ** Error (suppressible): tate_pairing.v(29): (vlog-2892) Net type of 'xr' was not explicitly declared.
+# ** Error (suppressible): tate_pairing.v(29): (vlog-2892) Net type of 'yr' was not explicitly declared.
+# ** Error (suppressible): tate_pairing.v(28): (vlog-2892) Net type of 'clk' was not explicitly declared.
+# ** Error (suppressible): tate_pairing.v(28): (vlog-2892) Net type of 'reset' was not explicitly declared.
+# -- Compiling module tate_pairing
+# ** Error (suppressible): tate_pairing.v(112): (vlog-2892) Net type of 'x1' was not explicitly declared.
+# ** Error (suppressible): tate_pairing.v(112): (vlog-2892) Net type of 'y1' was not explicitly declared.
+# ** Error (suppressible): tate_pairing.v(112): (vlog-2892) Net type of 'x2' was not explicitly declared.
+# ** Error (suppressible): tate_pairing.v(112): (vlog-2892) Net type of 'y2' was not explicitly declared.
+# ** Error (suppressible): tate_pairing.v(111): (vlog-2892) Net type of 'clk' was not explicitly declared.
+# ** Error (suppressible): tate_pairing.v(111): (vlog-2892) Net type of 'reset' was not explicitly declared.
+# End time: 22:55:08 on May 12,2022, Elapsed time: 0:00:00
+# Errors: 12, Warnings: 0
+# ** Error: D:/modeltech64_2019.2/win64/vlog failed.
+# Error in macro ././collectCoverage.do line 3
+# D:/modeltech64_2019.2/win64/vlog failed.
+#     while executing
+# "vlog tate_pairing.v +cover=sbcet -coveropt 1"

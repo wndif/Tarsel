@@ -1,0 +1,67 @@
+m255
+K4
+z2
+!s11f vlog 2019.2 2019.04, Apr 17 2019
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/modeltech64_2019.2/examples/verilog_FL_3/sdram_controller/sdram_controller_kgoliya_buggy2
+T_opt
+!s110 1651914744
+V4T2COTa9@ma<=cNaV7mbJ0
+04 19 4 work sdram_controller_tb fast 0
+=1-2cf05d3424e2-627637f7-6c-3650
+o-quiet -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2019.2;69
+R0
+vsdram_controller
+!s110 1652269673
+!i10b 1
+!s100 l?]UES`Dg<FZ^nC1XH:@=0
+!s11b =cT:b7E8]f8?o=SWS<@>:2
+IaX^0^W<^zP`UB0849Ne6i1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1641312281
+8sdram_controller_kgoliya_buggy2.v
+Fsdram_controller_kgoliya_buggy2.v
+L0 25
+Z4 OL;L;2019.2;69
+r1
+!s85 0
+31
+!s108 1652269673.000000
+!s107 sdram_controller_kgoliya_buggy2.v|
+!s90 -reportprogress|300|sdram_controller_kgoliya_buggy2.v|+cover=sbcet|-coveropt|1|
+!i113 0
+Z5 !s102 +cover=sbcet -coveropt 1
+Z6 o+cover=sbcet -coveropt 1 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vsdram_controller_tb
+!s110 1652269674
+!i10b 1
+!s100 A[4L;gDn9bM=0S4GNbh=B0
+!s11b ?=4K_8e_SBKhj0?DkX6Zj1
+IWnTFGj_;e@IoSnVH;n8nU2
+R2
+R0
+R3
+8sdram_controller_tb_t1.v
+Fsdram_controller_tb_t1.v
+L0 7
+R4
+r1
+!s85 0
+31
+!s108 1652269674.000000
+!s107 sdram_controller_tb_t1.v|
+!s90 -reportprogress|300|sdram_controller_tb_t1.v|+cover=sbcet|-coveropt|1|
+!i113 0
+R5
+R6
+R1

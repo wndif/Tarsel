@@ -1,0 +1,307 @@
+Coverage Report by file with details
+
+=================================================================================
+=== File: out_stage_ssscrazy_buggy1.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        18         5        13    27.77%
+
+================================Branch Details================================
+
+Branch Coverage for file out_stage_ssscrazy_buggy1.v --
+
+------------------------------------IF Branch------------------------------------
+    56                                         1     Count coming in to IF
+    56              1                    ***0***     	if(reset)
+    62              1                          1     	else
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    67                                         1     Count coming in to IF
+    67              1                    ***0***     			if(&cnt8)
+    69              1                          1     			else
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    76                                         1     Count coming in to IF
+    76              1                    ***0***     	if(reset)
+    86              1                          1     	else
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------CASE Branch------------------------------------
+    88                                         1     Count coming in to CASE
+    90              1                          1     			1:begin  // operation is running
+    106             1                    ***0***     			default:begin    /// idle state
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    91                                         1     Count coming in to IF
+    91              1                    ***0***     				if (CE)
+                                               1     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    93                                   ***0***     Count coming in to IF
+    93              1                    ***0***     							if(RdAdd == 187)
+    98              1                    ***0***     							else	
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    107                                  ***0***     Count coming in to IF
+    107             1                    ***0***     				if(CE)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    113                                  ***0***     Count coming in to IF
+    113             1                    ***0***     				if(DONE)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    120                                  ***0***     Count coming in to IF
+    120             1                    ***0***     				if(F && CE)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       3         0         3     0.00%
+
+================================Condition Details================================
+
+Condition Coverage for file out_stage_ssscrazy_buggy1.v --
+
+----------------Focused Condition View-------------------
+Line       93 Item    1  (RdAdd == 187)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (RdAdd == 187)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (RdAdd == 187)_0      -                             
+  Row   2:    ***0***  (RdAdd == 187)_1      -                             
+
+----------------Focused Condition View-------------------
+Line       120 Item    1  (F && CE)
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+           F         N  No hits                  Hit '_0' and '_1'
+          CE         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  F_0                   -                             
+  Row   2:    ***0***  F_1                   CE                            
+  Row   3:    ***0***  CE_0                  F                             
+  Row   4:    ***0***  CE_1                  F                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      28         5        23    17.85%
+
+================================Statement Details================================
+
+Statement Coverage for file out_stage_ssscrazy_buggy1.v --
+
+    1                                                /* This program is free software: you can redistribute it and/or modify
+    2                                                   it under the terms of the GNU General Public License as published by
+    3                                                   the Free Software Foundation, either version 3 of the License, or
+    4                                                   (at your option) any later version.
+    5                                                
+    6                                                   This program is distributed in the hope that it will be useful,
+    7                                                   but WITHOUT ANY WARRANTY; without even the implied warranty of
+    8                                                   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    9                                                   GNU General Public License for more details.
+    10                                               
+    11                                                  You should have received a copy of the GNU General Public License
+    12                                                  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    13                                                  
+    14                                                  Email : semiconductors@varkongroup.com
+    15                                                  Tel   : 1-732-447-8611
+    16                                                  
+    17                                               */
+    18                                               
+    19                                               
+    20                                               
+    21                                               module out_stage
+    22                                               /////  generate output bytes from pipeling memories
+    23                                               (
+    24                                               
+    25                                               input clk, // input clock planned to be 56 Mhz
+    26                                               input reset, // active high asynchronous reset
+    27                                               
+    28                                               // active high flag for one clock to indicate that the block should work
+    29                                               input DONE, 
+    30                                               
+    31                                               output reg RE,  /// RE for input memories 
+    32                                               
+    33                                               output reg [7:0] RdAdd,
+    34                                               
+    35                                               input [7:0] In_byte,
+    36                                               //////////////////////////////////////
+    37                                               output reg [7:0] Out_byte,
+    38                                               output reg CEO,
+    39                                               output reg Valid_out,
+    40                                               //////////////////////////////////////
+    41                                               output reg out_done
+    42                                               
+    43                                               );
+    44                                               
+    45                                               reg CE;
+    46                                               reg [2:0] cnt8;
+    47                                               
+    48                                               
+    49                                               reg state;  //// 0 or 1
+    50                                               
+    51                                               reg F;  /// flag to control translation from state 0 to state1
+    52                                               
+    53                                               ////// CE generation///////////
+    54              1                          1     always@(posedge clk or posedge reset)
+    55                                               begin
+    56                                               	if(reset)
+    57                                               		begin
+    58              1                    ***0***     			CE<=0;
+    59              1                    ***0***     			cnt8<=0;
+    60              1                    ***0***     			CEO<=0;
+    61                                               		end
+    62                                               	else
+    63                                               		begin
+    64              1                          1     			cnt8<=cnt8+1;
+    65              1                          1     			CEO <= CE;
+    66                                               			
+    67                                               			if(&cnt8)
+    68              1                    ***0***     				CE<=1;
+    69                                               			else
+    70              1                          1     				CE<=0;
+    71                                               		end
+    72                                               end
+    73                                               //////////////////////////////////////////////////////////
+    74              1                          1     always@(posedge clk)
+    75                                               begin
+    76                                               	if(reset)
+    77                                               		begin
+    78              1                    ***0***     			RE<=0;
+    79              1                    ***0***     			RdAdd<=0;
+    80              1                    ***0***     			out_done<=0;
+    81              1                    ***0***     			state<=0;
+    82              1                    ***0***     			Valid_out<=0;
+    83              1                    ***0***     			Out_byte<=0;
+    84              1                    ***0***     			F<=0;
+    85                                               		end
+    86                                               	else
+    87                                               		begin
+    88                                               			case(state)
+    89                                               			////////////////////////////////////////////////
+    90                                               			1:begin  // operation is running
+    91                                               				if (CE)
+    92                                               						begin
+    93                                               							if(RdAdd == 187)
+    94                                               								begin
+    95              1                    ***0***     									state<=0;
+    96              1                    ***0***     									out_done<=1;
+    97                                               								end
+    98                                               							else	
+    99              1                    ***0***     								RdAdd<=RdAdd+1;
+    100                                              								
+    101             1                    ***0***     								Out_byte<=In_byte;
+    102             1                    ***0***     								Valid_out<=1;
+    103                                              						end	
+    104                                              			end
+    105                                              			///////////////////////////////////////////////
+    106                                              			default:begin    /// idle state
+    107                                              				if(CE)
+    108             1                    ***0***     					Valid_out<=0;
+    109                                              				
+    110                                              				
+    111             1                    ***0***     				out_done<=0;
+    112                                              				
+    113                                              				if(DONE)
+    114                                              					begin
+    115             1                    ***0***     						F<=1;
+    116             1                    ***0***     						RE<=~RE;
+    117             1                    ***0***     						RdAdd<=0;
+    118                                              					end
+    119                                              				
+    120                                              				if(F && CE)
+    121                                              					begin
+    122             1                    ***0***     						state<=1;
+    123             1                    ***0***     						F<=0;
+    124                                              					end
+    125                                              			end
+    126                                              			/////////////////////////////////////////////////////////////////////
+    127                                              			endcase
+    128                                              		end
+    129                                              end
+    130                                              
+    131                                              endmodule 
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         74         1        73     1.35%
+
+================================Toggle Details================================
+
+Toggle Coverage for File out_stage_ssscrazy_buggy1.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+         25                                    clk           1           0       50.00 
+         26                                  reset           0           0        0.00 
+         29                                   DONE           0           0        0.00 
+         31                                     RE           0           0        0.00 
+         33                               RdAdd[7]           0           0        0.00 
+         33                               RdAdd[6]           0           0        0.00 
+         33                               RdAdd[5]           0           0        0.00 
+         33                               RdAdd[4]           0           0        0.00 
+         33                               RdAdd[3]           0           0        0.00 
+         33                               RdAdd[2]           0           0        0.00 
+         33                               RdAdd[1]           0           0        0.00 
+         33                               RdAdd[0]           0           0        0.00 
+         35                             In_byte[7]           0           0        0.00 
+         35                             In_byte[6]           0           0        0.00 
+         35                             In_byte[5]           0           0        0.00 
+         35                             In_byte[4]           0           0        0.00 
+         35                             In_byte[3]           0           0        0.00 
+         35                             In_byte[2]           0           0        0.00 
+         35                             In_byte[1]           0           0        0.00 
+         35                             In_byte[0]           0           0        0.00 
+         37                            Out_byte[7]           0           0        0.00 
+         37                            Out_byte[6]           0           0        0.00 
+         37                            Out_byte[5]           0           0        0.00 
+         37                            Out_byte[4]           0           0        0.00 
+         37                            Out_byte[3]           0           0        0.00 
+         37                            Out_byte[2]           0           0        0.00 
+         37                            Out_byte[1]           0           0        0.00 
+         37                            Out_byte[0]           0           0        0.00 
+         38                                    CEO           0           0        0.00 
+         39                              Valid_out           0           0        0.00 
+         41                               out_done           0           0        0.00 
+         45                                     CE           0           0        0.00 
+         46                                cnt8[2]           0           0        0.00 
+         46                                cnt8[1]           0           0        0.00 
+         46                                cnt8[0]           0           0        0.00 
+         49                                  state           0           0        0.00 
+         51                                      F           0           0        0.00 
+
+Total Node Count     =         37 
+Toggled Node Count   =          0 
+Untoggled Node Count =         37 
+
+Toggle Coverage      =       1.35% (1 of 74 bins)
+
+
+Total Coverage By File (code coverage only, filtered view): 11.74%
+

@@ -1,0 +1,233 @@
+Coverage Report by file with details
+
+=================================================================================
+=== File: keccak_wadden_buggy1.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         8         3         5    37.50%
+
+================================Branch Details================================
+
+Branch Coverage for file keccak_wadden_buggy1.v --
+
+------------------------------------IF Branch------------------------------------
+    51                                         1     Count coming in to IF
+    51              1                    ***0***           if (reset)
+    53              1                          1           else
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    57                                         1     Count coming in to IF
+    57              1                    ***0***           if (reset)
+    59              1                    ***0***           else if (is_last)
+                                               1     All False Count
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    85                                         1     Count coming in to IF
+    85              1                    ***0***           if (reset)
+    87              1                    ***0***           else if (i[22])
+                                               1     All False Count
+Branch totals: 1 hit of 3 branches = 33.33%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      12         5         7    41.66%
+
+================================Statement Details================================
+
+Statement Coverage for file keccak_wadden_buggy1.v --
+
+    1                                                /*
+    2                                                 * Copyright 2013, Homer Hsing <homer.hsing@gmail.com>
+    3                                                 *
+    4                                                 * Licensed under the Apache License, Version 2.0 (the "License");
+    5                                                 * you may not use this file except in compliance with the License.
+    6                                                 * You may obtain a copy of the License at
+    7                                                 *
+    8                                                 * http://www.apache.org/licenses/LICENSE-2.0
+    9                                                 *
+    10                                                * Unless required by applicable law or agreed to in writing, software
+    11                                                * distributed under the License is distributed on an "AS IS" BASIS,
+    12                                                * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    13                                                * See the License for the specific language governing permissions and
+    14                                                * limitations under the License.
+    15                                                */
+    16                                               
+    17                                               /* "is_last" == 0 means byte number is 8, no matter what value "byte_num" is. */
+    18                                               /* if "in_ready" == 0, then "is_last" should be 0. */
+    19                                               /* the user switch to next "in" only if "ack" == 1. */
+    20                                               
+    21                                               `define low_pos(w,b)      ((w)*64 + (b)*8)
+    22                                               `define low_pos2(w,b)     `low_pos(w,7-b)
+    23                                               `define high_pos(w,b)     (`low_pos(w,b) + 7)
+    24                                               `define high_pos2(w,b)    (`low_pos2(w,b) + 7)
+    25                                               
+    26                                               module keccak(clk, reset, in, in_ready, is_last, byte_num, buffer_full, out, out_ready);
+    27                                                   input              clk, reset;
+    28                                                   input      [31:0]  in;
+    29                                                   input              in_ready, is_last;
+    30                                                   input      [1:0]   byte_num;
+    31                                                   output             buffer_full; /* to "user" module */
+    32                                                   output     [511:0] out;
+    33                                                   output reg         out_ready;
+    34                                               
+    35                                                   reg                state;     /* state == 0: user will send more input data
+    36                                                                                  * state == 1: user will not send any data */
+    37                                                   wire       [575:0] padder_out,
+    38                                                                      padder_out_1; /* before reorder byte */
+    39                                                   wire               padder_out_ready;
+    40                                                   wire               f_ack;
+    41                                                   wire      [1599:0] f_out;
+    42                                                   wire               f_out_ready;
+    43                                                   wire       [511:0] out1;      /* before reorder byte */
+    44                                                   reg        [22:0]  i;         /* gen "out_ready" */
+    45                                               
+    46                                                   genvar w, b;
+    47                                               
+    48              1                    ***0***         assign out1 = f_out[1599:1599-511];
+    49                                               
+    50              1                          1         always @ (posedge clk)
+    51                                                     if (reset)
+    52              1                    ***0***             i <= 0;
+    53                                                     else
+    54              1                          1             i <= {i[21:0], state & f_ack};
+    55                                               
+    56              1                          1         always @ (posedge clk)
+    57                                                     if (reset)
+    58              1                    ***0***             state <= 0;
+    59                                                     else if (is_last)
+    60              1                    ***0***             state <= 1;
+    61                                               
+    62                                                   /* reorder byte ~ ~ */
+    63                                                   generate
+    64                                                     for(w=0; w<8; w=w+1)
+    65                                                       begin : L0
+    66                                                         for(b=0; b<8; b=b+1)
+    67                                                           begin : L1
+    68              1                    ***0***                   assign out[`high_pos(w,b):`low_pos(w,b)] = out1[`high_pos2(w,b):`low_pos2(w,b)];
+    69                                                           end
+    70                                                       end
+    71                                                   endgenerate
+    72                                               
+    73                                                   /* reorder byte ~ ~ */
+    74                                                   generate
+    75                                                     for(w=0; w<8; w=w+1)
+    76                                                       begin : L2
+    77                                                         for(b=0; b<8; b=b+1)
+    78                                                           begin : L3
+    79              1                         27                   assign padder_out[`high_pos(w,b):`low_pos(w,b)] = padder_out_1[`high_pos2(w,b):`low_pos2(w,b)];
+    80                                                           end
+    81                                                       end
+    82                                                   endgenerate
+    83                                               
+    84              1                          1         always @ (posedge clk)
+    85                                                     if (reset)
+    86              1                    ***0***             out_ready <= 0;
+    87                                                     else if (i[22])
+    88              1                    ***0***             out_ready <= 1;
+    89                                               
+    90                                                   padder
+    91                                                     padder_ (clk, reset, in, in_ready, is_last, byte_num, buffer_full, padder_out_1, padder_out_ready, f_ack);
+    92                                               
+    93                                                   f_permutation
+    94                                                     f_permutation_ (clk, reset, padder_out, padder_out_ready, f_ack, f_out, f_out_ready);
+    95                                               endmodule
+    96                                               
+    97                                               `undef low_pos
+    98                                               `undef low_pos2
+    99                                               `undef high_pos
+    100                                              `undef high_pos2
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        134        11       123     8.20%
+
+================================Toggle Details================================
+
+Toggle Coverage for File keccak_wadden_buggy1.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+         27                                  reset           0           0        0.00 
+         27                                    clk           1           0       50.00 
+         28                                  in[9]           0           1       50.00 
+         28                                  in[8]           0           0        0.00 
+         28                                  in[7]           0           0        0.00 
+         28                                  in[6]           0           0        0.00 
+         28                                  in[5]           0           0        0.00 
+         28                                  in[4]           0           0        0.00 
+         28                                  in[3]           0           0        0.00 
+         28                                 in[31]           0           0        0.00 
+         28                                 in[30]           0           0        0.00 
+         28                                  in[2]           0           1       50.00 
+         28                                 in[29]           0           0        0.00 
+         28                                 in[28]           0           1       50.00 
+         28                                 in[27]           1           0       50.00 
+         28                                 in[26]           0           0        0.00 
+         28                                 in[25]           0           0        0.00 
+         28                                 in[24]           0           1       50.00 
+         28                                 in[23]           0           0        0.00 
+         28                                 in[22]           1           0       50.00 
+         28                                 in[21]           0           0        0.00 
+         28                                 in[20]           1           0       50.00 
+         28                                  in[1]           0           1       50.00 
+         28                                 in[19]           0           0        0.00 
+         28                                 in[18]           1           0       50.00 
+         28                                 in[17]           0           0        0.00 
+         28                                 in[16]           1           0       50.00 
+         28                                 in[15]           0           0        0.00 
+         28                                 in[14]           0           0        0.00 
+         28                                 in[13]           0           0        0.00 
+         28                                 in[12]           0           0        0.00 
+         28                                 in[11]           0           0        0.00 
+         28                                 in[10]           0           0        0.00 
+         28                                  in[0]           0           0        0.00 
+         29                                is_last           0           0        0.00 
+         29                               in_ready           0           0        0.00 
+         30                            byte_num[1]           0           0        0.00 
+         30                            byte_num[0]           0           0        0.00 
+         31                            buffer_full           0           0        0.00 
+         33                              out_ready           0           0        0.00 
+         35                                  state           0           0        0.00 
+         39                       padder_out_ready           0           0        0.00 
+         40                                  f_ack           0           0        0.00 
+         42                            f_out_ready           0           0        0.00 
+         44                                   i[9]           0           0        0.00 
+         44                                   i[8]           0           0        0.00 
+         44                                   i[7]           0           0        0.00 
+         44                                   i[6]           0           0        0.00 
+         44                                   i[5]           0           0        0.00 
+         44                                   i[4]           0           0        0.00 
+         44                                   i[3]           0           0        0.00 
+         44                                   i[2]           0           0        0.00 
+         44                                  i[22]           0           0        0.00 
+         44                                  i[21]           0           0        0.00 
+         44                                  i[20]           0           0        0.00 
+         44                                   i[1]           0           0        0.00 
+         44                                  i[19]           0           0        0.00 
+         44                                  i[18]           0           0        0.00 
+         44                                  i[17]           0           0        0.00 
+         44                                  i[16]           0           0        0.00 
+         44                                  i[15]           0           0        0.00 
+         44                                  i[14]           0           0        0.00 
+         44                                  i[13]           0           0        0.00 
+         44                                  i[12]           0           0        0.00 
+         44                                  i[11]           0           0        0.00 
+         44                                  i[10]           0           0        0.00 
+         44                                   i[0]           0           0        0.00 
+
+Total Node Count     =         67 
+Toggled Node Count   =          0 
+Untoggled Node Count =         67 
+
+Toggle Coverage      =       8.20% (11 of 134 bins)
+
+
+Total Coverage By File (code coverage only, filtered view): 29.12%
+

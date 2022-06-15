@@ -1,0 +1,176 @@
+m255
+K4
+z2
+!s11f vlog 2019.2 2019.04, Apr 17 2019
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/modeltech64_2019.2/examples/verilog_FL_3/opencores/i2c/i2c_slave_model_wadden_buggy2
+T_opt
+!s110 1652365302
+Va=m3Sf]j[29o8Xe<]3ja03
+04 13 4 work tst_bench_top fast 0
+=1-2cf05d3424e2-627d17f5-2fb-529c
+o-quiet -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2019.2;69
+R0
+vdelay
+Z2 !s110 1652418248
+!i10b 1
+!s100 gQcJ`W>9VlCUV77RTNhmo2
+!s11b ZUcKPPYa<D55g?V_6]5SP2
+I3zN<9MTg7YJFWIKJZDYbJ0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1641312281
+Z5 8tst_bench_top_t1.v
+Z6 Ftst_bench_top_t1.v
+L0 470
+Z7 OL;L;2019.2;69
+r1
+!s85 0
+31
+Z8 !s108 1652418248.000000
+!s107 timescale.v|tst_bench_top_t1.v|
+Z9 !s90 -reportprogress|300|tst_bench_top_t1.v|
+!i113 0
+Z10 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vi2c_master_bit_ctrl
+Z11 !s110 1652418247
+!i10b 1
+!s100 23jKonbl^Wd7WE85CkS4;0
+!s11b 5mHP<YNUnD]W?A141bOaG1
+IghII8NH1aO9O0YzG9h:CG2
+R3
+R0
+R4
+8i2c_master_bit_ctrl.v
+Fi2c_master_bit_ctrl.v
+L0 143
+R7
+r1
+!s85 0
+31
+Z12 !s108 1652418247.000000
+!s107 i2c_master_defines.v|timescale.v|i2c_master_bit_ctrl.v|
+!s90 -reportprogress|300|i2c_master_bit_ctrl.v|
+!i113 0
+R10
+R1
+vi2c_master_byte_ctrl
+R2
+!i10b 1
+!s100 28kl@ggk2_VP3DcXKkd0`2
+!s11b Y5=;zWJkFD]Z;lQ1];SQK3
+IAh`Ucjfj_@h3M<9b]9bdE3
+R3
+R0
+R4
+8i2c_master_byte_ctrl.v
+Fi2c_master_byte_ctrl.v
+L0 75
+R7
+r1
+!s85 0
+31
+R8
+!s107 i2c_master_defines.v|timescale.v|i2c_master_byte_ctrl.v|
+!s90 -reportprogress|300|i2c_master_byte_ctrl.v|
+!i113 0
+R10
+R1
+vi2c_master_top
+R11
+!i10b 1
+!s100 W5:3Dzi=fQod_625I3QmG2
+!s11b YKO4Y32c9TQN;]8@=HJfj0
+IKVMOf`@@iXA][i=FbhGR;3
+R3
+R0
+R4
+8i2c_master_top.v
+Fi2c_master_top.v
+L0 78
+R7
+r1
+!s85 0
+31
+R12
+!s107 i2c_master_defines.v|timescale.v|i2c_master_top.v|
+!s90 -reportprogress|300|i2c_master_top.v|
+!i113 0
+R10
+R1
+vi2c_slave_model
+R11
+!i10b 1
+!s100 8QZf6AdEmSNge<@]S^fcN3
+!s11b JHl42NdSkD5bo]2Qd0mzP1
+IXYj]]5ZW5m>?5loJK3E6Q0
+R3
+R0
+R4
+8i2c_slave_model_wadden_buggy2.v
+Fi2c_slave_model_wadden_buggy2.v
+Z13 L0 71
+R7
+r1
+!s85 0
+31
+R12
+!s107 timescale.v|i2c_slave_model_wadden_buggy2.v|
+!s90 -reportprogress|300|i2c_slave_model_wadden_buggy2.v|+cover=sbcet|-coveropt|1|
+!i113 0
+!s102 +cover=sbcet -coveropt 1
+o+cover=sbcet -coveropt 1 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vtst_bench_top
+R2
+!i10b 1
+!s100 dY_Z`4cGL0SNg6i`=0?2^3
+!s11b Pn1J99TJFa4gk]z73EkhA3
+IlX`MOmhEke5jDjnnFmTo=3
+R3
+R0
+R4
+R5
+R6
+R13
+R7
+r1
+!s85 0
+31
+R8
+Z14 !s107 timescale.v|tst_bench_top_t1.v|
+R9
+!i113 0
+R10
+R1
+vwb_master_model
+R11
+!i10b 1
+!s100 FT2nM>[=LYgIMgz`<Nng?1
+!s11b 8Z^[D;ifWkW4DKOk8Oo5<1
+ILf_?oEU:SfN2JdTRG?P8Q1
+R3
+R0
+R4
+8wb_master_model.v
+Fwb_master_model.v
+L0 52
+R7
+r1
+!s85 0
+31
+R12
+!s107 timescale.v|wb_master_model.v|
+!s90 -reportprogress|300|wb_master_model.v|
+!i113 0
+R10
+R1

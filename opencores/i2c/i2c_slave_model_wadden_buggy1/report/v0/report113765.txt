@@ -1,0 +1,733 @@
+Coverage Report by file with details
+
+=================================================================================
+=== File: i2c_slave_model_wadden_buggy1.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        46         0        46     0.00%
+
+================================Branch Details================================
+
+Branch Coverage for file i2c_slave_model_wadden_buggy1.v --
+
+------------------------------------IF Branch------------------------------------
+    139                                  ***0***     Count coming in to IF
+    139             1                    ***0***     	  else
+    141             1                    ***0***     
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    158                                  ***0***     Count coming in to IF
+    158             1                    ***0***     	        sta   <= #1 1'b1;
+    167             1                    ***0***     
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    164                                  ***0***     Count coming in to IF
+    164             1                    ***0***     	    end
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    175                                  ***0***     Count coming in to IF
+    175             1                    ***0***     	       sta <= #1 1'b0;
+    183             1                    ***0***     
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    180                                  ***0***     Count coming in to IF
+    180             1                    ***0***     	    end
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    191                                  ***0***     Count coming in to IF
+    191             1                    ***0***     	        state <= #1 idle; // reset statemachine
+    198             1                    ***0***     	        // initial settings
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------CASE Branch------------------------------------
+    204                                  ***0***     Count coming in to CASE
+    205             1                    ***0***     	                    state <= #1 slave_ack;
+    230             1                    ***0***     	                    begin
+    243             1                    ***0***     	                    state <= #1 gma_ack;
+    254             1                    ***0***     	                  ld    <= #1 1'b1;
+    260             1                    ***0***     	                    sda_o <= #1 mem_do[7];
+    289             1                    ***0***     
+Branch totals: 0 hits of 6 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    206                                  ***0***     Count coming in to IF
+    206             1                    ***0***     	                    rw <= #1 sr[0];
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    213                                  ***0***     Count coming in to IF
+    213             1                    ***0***     	                      $display("DEBUG i2c_slave; command byte received (write) at %t", $time);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    215                                  ***0***     Count coming in to IF
+    215             1                    ***0***     	                    if(rw)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    218                                  ***0***     Count coming in to IF
+    218             1                    ***0***     
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    232                                  ***0***     Count coming in to IF
+    232             1                    ***0***     	                        sda_o <= #1 mem_do[7];
+    237             1                    ***0***     	                  ld    <= #1 1'b1;
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    244                                  ***0***     Count coming in to IF
+    244             1                    ***0***     	                    mem_adr <= #1 sr; // store memory address
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    262                                  ***0***     Count coming in to IF
+    262             1                    ***0***     	                  if(acc_done)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    265                                  ***0***     Count coming in to IF
+    265             1                    ***0***     	                        mem_adr <= #2 mem_adr + 8'h1;
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    271                                  ***0***     Count coming in to IF
+    271             1                    ***0***     
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    279                                  ***0***     Count coming in to IF
+    279             1                    ***0***     
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    293                                  ***0***     Count coming in to IF
+    293             1                    ***0***     	                          state <= #1 idle;
+    304             1                    ***0***     	                          sda_o <= #1 mem_do[7];
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    294                                  ***0***     Count coming in to IF
+    294             1                    ***0***     	                          sda_o <= #1 1'b1;
+    299             1                    ***0***     	                          sda_o <= #1 mem_do[7];
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    316                                  ***0***     Count coming in to IF
+    316             1                    ***0***     	// read data from memory
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    320                                  ***0***     Count coming in to IF
+    320             1                    ***0***     
+    320             2                    ***0***     
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                      11         0        11     0.00%
+
+================================Condition Details================================
+
+Condition Coverage for file i2c_slave_model_wadden_buggy1.v --
+
+----------------Focused Condition View-------------------
+Line       191 Item    1  (sto || (sta && !d_sta))
+Condition totals: 0 of 3 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+         sto         N  No hits                  Hit '_0' and '_1'
+         sta         N  No hits                  Hit '_0' and '_1'
+       d_sta         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  sto_0                 ~(sta && !d_sta)              
+  Row   2:    ***0***  sto_1                 -                             
+  Row   3:    ***0***  sta_0                 ~sto                          
+  Row   4:    ***0***  sta_1                 (~sto && ~d_sta)              
+  Row   5:    ***0***  d_sta_0               (~sto && sta)                 
+  Row   6:    ***0***  d_sta_1               (~sto && sta)                 
+
+----------------Focused Condition View-------------------
+Line       206 Item    1  (acc_done && my_adr)
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+    acc_done         N  No hits                  Hit '_0' and '_1'
+      my_adr         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  acc_done_0            -                             
+  Row   2:    ***0***  acc_done_1            my_adr                        
+  Row   3:    ***0***  my_adr_0              acc_done                      
+  Row   4:    ***0***  my_adr_1              acc_done                      
+
+----------------Focused Condition View-------------------
+Line       213 Item    1  (debug && rw)
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       debug         N  No hits                  Hit '_0' and '_1'
+          rw         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  debug_0               -                             
+  Row   2:    ***0***  debug_1               rw                            
+  Row   3:    ***0***  rw_0                  debug                         
+  Row   4:    ***0***  rw_1                  debug                         
+
+----------------Focused Condition View-------------------
+Line       215 Item    1  (debug && !rw)
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       debug         N  No hits                  Hit '_0' and '_1'
+          rw         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  debug_0               -                             
+  Row   2:    ***0***  debug_1               ~rw                           
+  Row   3:    ***0***  rw_0                  debug                         
+  Row   4:    ***0***  rw_1                  debug                         
+
+----------------Focused Condition View-------------------
+Line       316 Item    1  (!acc_done && rw)
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+    acc_done         N  No hits                  Hit '_0' and '_1'
+          rw         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  acc_done_0            rw                            
+  Row   2:    ***0***  acc_done_1            -                             
+  Row   3:    ***0***  rw_0                  ~acc_done                     
+  Row   4:    ***0***  rw_1                  ~acc_done                     
+
+
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                      5         0         5     0.00%
+
+================================Expression Details================================
+
+Expression Coverage for file i2c_slave_model_wadden_buggy1.v --
+
+----------------Focused Expression View-----------------
+Line       133 Item    1  (sr[7:1] == 16)
+Expression totals: 0 of 1 input term covered = 0.00%
+
+       Input Term   Covered  Reason for no coverage   Hint
+      -----------  --------  -----------------------  --------------
+  (sr[7:1] == 16)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (sr[7:1] == 16)_0     -                             
+  Row   2:    ***0***  (sr[7:1] == 16)_1     -                             
+
+----------------Focused Expression View-----------------
+Line       187 Item    1  (sta || sto)
+Expression totals: 0 of 2 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+         sta         N  No hits                  Hit '_0' and '_1'
+         sto         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  sta_0                 ~sto                          
+  Row   2:    ***0***  sta_1                 -                             
+  Row   3:    ***0***  sto_0                 ~sta                          
+  Row   4:    ***0***  sto_1                 ~sta                          
+
+----------------Focused Expression View-----------------
+Line       269 Item    1  (rw && (mem_adr <= 15))
+Expression totals: 0 of 2 input terms covered = 0.00%
+
+       Input Term   Covered  Reason for no coverage   Hint
+      -----------  --------  -----------------------  --------------
+               rw         N  No hits                  Hit '_0' and '_1'
+  (mem_adr <= 15)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  rw_0                  -                             
+  Row   2:    ***0***  rw_1                  (mem_adr <= 15)               
+  Row   3:    ***0***  (mem_adr <= 15)_0     rw                            
+  Row   4:    ***0***  (mem_adr <= 15)_1     rw                            
+
+----------------Focused Expression View-----------------
+Line       320 Item    1  (sda_o? 1'bZ: 1'b0)
+Expression totals: 0 of 0 input terms covered = 100.00% (all terms are excluded)
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      66         0        66     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for file i2c_slave_model_wadden_buggy1.v --
+
+    1                                                /////////////////////////////////////////////////////////////////////
+    2                                                ////                                                             ////
+    3                                                ////  WISHBONE rev.B2 compliant synthesizable I2C Slave model    ////
+    4                                                ////                                                             ////
+    5                                                ////                                                             ////
+    6                                                ////  Authors: Richard Herveille (richard@asics.ws) www.asics.ws ////
+    7                                                ////           John Sheahan (jrsheahan@optushome.com.au)         ////
+    8                                                ////                                                             ////
+    9                                                ////  Downloaded from: http://www.opencores.org/projects/i2c/    ////
+    10                                               ////                                                             ////
+    11                                               /////////////////////////////////////////////////////////////////////
+    12                                               ////                                                             ////
+    13                                               //// Copyright (C) 2001,2002 Richard Herveille                   ////
+    14                                               ////                         richard@asics.ws                    ////
+    15                                               ////                                                             ////
+    16                                               //// This source file may be used and distributed without        ////
+    17                                               //// restriction provided that this copyright statement is not   ////
+    18                                               //// removed from the file and that any derivative work contains ////
+    19                                               //// the original copyright notice and the associated disclaimer.////
+    20                                               ////                                                             ////
+    21                                               ////     THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY     ////
+    22                                               //// EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED   ////
+    23                                               //// TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS   ////
+    24                                               //// FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL THE AUTHOR      ////
+    25                                               //// OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,         ////
+    26                                               //// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES    ////
+    27                                               //// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE   ////
+    28                                               //// GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR        ////
+    29                                               //// BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF  ////
+    30                                               //// LIABILITY, WHETHER IN  CONTRACT, STRICT LIABILITY, OR TORT  ////
+    31                                               //// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT  ////
+    32                                               //// OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE         ////
+    33                                               //// POSSIBILITY OF SUCH DAMAGE.                                 ////
+    34                                               ////                                                             ////
+    35                                               /////////////////////////////////////////////////////////////////////
+    36                                               
+    37                                               //  CVS Log
+    38                                               //
+    39                                               //  $Id: i2c_slave_model.v,v 1.7 2006-09-04 09:08:51 rherveille Exp $
+    40                                               //
+    41                                               //  $Date: 2006-09-04 09:08:51 $
+    42                                               //  $Revision: 1.7 $
+    43                                               //  $Author: rherveille $
+    44                                               //  $Locker:  $
+    45                                               //  $State: Exp $
+    46                                               //
+    47                                               // Change History:
+    48                                               //               $Log: not supported by cvs2svn $
+    49                                               //               Revision 1.6  2005/02/28 11:33:48  rherveille
+    50                                               //               Fixed Tsu:sta timing check.
+    51                                               //               Added Thd:sta timing check.
+    52                                               //
+    53                                               //               Revision 1.5  2003/12/05 11:05:19  rherveille
+    54                                               //               Fixed slave address MSB='1' bug
+    55                                               //
+    56                                               //               Revision 1.4  2003/09/11 08:25:37  rherveille
+    57                                               //               Fixed a bug in the timing section. Changed 'tst_scl' into 'tst_sto'.
+    58                                               //
+    59                                               //               Revision 1.3  2002/10/30 18:11:06  rherveille
+    60                                               //               Added timing tests to i2c_model.
+    61                                               //               Updated testbench.
+    62                                               //
+    63                                               //               Revision 1.2  2002/03/17 10:26:38  rherveille
+    64                                               //               Fixed some race conditions in the i2c-slave model.
+    65                                               //               Added debug information.
+    66                                               //               Added headers.
+    67                                               //
+    68                                               
+    69                                               `include "timescale.v"
+    70                                               
+    71                                               module i2c_slave_model (scl, sda);
+    72                                               
+    73                                               	//
+    74                                               	// parameters
+    75                                               	//
+    76                                               	parameter I2C_ADR = 7'b001_0000;
+    77                                               
+    78                                               	//
+    79                                               	// input && outpus
+    80                                               	//
+    81                                               	input scl;
+    82                                               	inout sda;
+    83                                               
+    84                                               	//
+    85                                               	// Variable declaration
+    86                                               	//
+    87              1                    ***0***     	wire debug = 1'b1;
+    88                                               
+    89                                               	reg [7:0] mem [3:0]; // initiate memory
+    90                                               	reg [7:0] mem_adr;   // memory address
+    91                                               	reg [7:0] mem_do;    // memory data output
+    92                                               
+    93                                               	reg sta, d_sta;
+    94                                               	reg sto, d_sto;
+    95                                               
+    96                                               	reg [7:0] sr;        // 8bit shift register
+    97                                               	reg       rw;        // read/write direction
+    98                                               
+    99                                               	wire      my_adr;    // my address called ??
+    100                                              	wire      i2c_reset; // i2c-statemachine reset
+    101                                              	reg [2:0] bit_cnt;   // 3bit downcounter
+    102                                              	wire      acc_done;  // 8bits transfered
+    103                                              	reg       ld;        // load downcounter
+    104                                              
+    105                                              	reg       sda_o;     // sda-drive level
+    106                                              	wire      sda_dly;   // delayed version of sda
+    107                                              
+    108                                              	// statemachine declaration
+    109                                              	parameter idle        = 3'b000;
+    110                                              	parameter slave_ack   = 3'b001;
+    111                                              	parameter get_mem_adr = 3'b010;
+    112                                              	parameter gma_ack     = 3'b011;
+    113                                              	parameter data        = 3'b100;
+    114                                              	parameter data_ack    = 3'b101;
+    115                                              
+    116                                              	reg [2:0] state; // synopsys enum_state
+    117                                              
+    118                                              	//
+    119                                              	// module body
+    120                                              	//
+    121                                              
+    122                                              	initial
+    123                                              	begin
+    124             1                    ***0***     	   sda_o = 1'b1;
+    125             1                    ***0***     	   state = idle;
+    126                                              	end
+    127                                              
+    128                                              	// generate shift register
+    129             1                    ***0***     	always @(posedge scl)
+    130             1                    ***0***     	  sr <= #1 {sr[6:0],sda};
+    131                                              
+    132                                              	//detect my_address
+    133             1                    ***0***     	assign my_adr = (sr[7:1] == I2C_ADR);
+    134                                              	// FIXME: This should not be a generic assign, but rather
+    135                                              	// qualified on address transfer phase and probably reset by stop
+    136                                              
+    137                                              	//generate bit-counter
+    138             1                    ***0***     	always @(posedge scl)
+    139                                              	  if(ld)
+    140             1                    ***0***     	    bit_cnt <= #1 3'b111;
+    141                                              	  else
+    142             1                    ***0***     	    bit_cnt <= #1 bit_cnt - 3'h1;
+    143                                              
+    144                                              	//generate access done signal
+    145             1                    ***0***     	assign acc_done = !(|bit_cnt);
+    146                                              
+    147                                              	// generate delayed version of sda
+    148                                              	// this model assumes a hold time for sda after the falling edge of scl.
+    149                                              	// According to the Phillips i2c spec, there s/b a 0 ns hold time for sda
+    150                                              	// with regards to scl. If the data changes coincident with the clock, the
+    151                                              	// acknowledge is missed
+    152                                              	// Fix by Michael Sosnoski
+    153             1                    ***0***     	assign #1 sda_dly = sda;
+    154                                              
+    155                                              
+    156                                              	//detect start condition
+    157             1                    ***0***     	always @(posedge sda)
+    158                                              	  if(scl)
+    159                                              	    begin
+    160             1                    ***0***     	        sta   <= #1 1'b1;
+    161             1                    ***0***     		d_sta <= #1 1'b0;
+    162             1                    ***0***     		sto   <= #1 1'b0;
+    163                                              
+    164                                              	        if(debug)
+    165             1                    ***0***     	          $display("DEBUG i2c_slave; start condition detected at %t", $time);
+    166                                              	    end
+    167                                              	  else
+    168             1                    ***0***     	    sta <= #1 1'b0;
+    169                                              
+    170             1                    ***0***     	always @(posedge scl)
+    171             1                    ***0***     	  d_sta <= #1 sta;
+    172                                              
+    173                                              	// detect stop condition
+    174             1                    ***0***     	always @(posedge sda)
+    175                                              	  if(scl)
+    176                                              	    begin
+    177             1                    ***0***     	       sta <= #1 1'b0;
+    178             1                    ***0***     	       sto <= #1 1'b1;
+    179                                              
+    180                                              	       if(debug)
+    181             1                    ***0***     	         $display("DEBUG i2c_slave; stop condition detected at %t", $time);
+    182                                              	    end
+    183                                              	  else
+    184             1                    ***0***     	    sto <= #1 1'b0;
+    185                                              
+    186                                              	//generate i2c_reset signal
+    187             1                    ***0***     	assign i2c_reset = sta || sto;
+    188                                              
+    189                                              	// generate statemachine
+    190             1                    ***0***     	always @(negedge scl or posedge sto)
+    191                                              	  if (sto || (sta && !d_sta) )
+    192                                              	    begin
+    193             1                    ***0***     	        state <= #1 idle; // reset statemachine
+    194                                              
+    195             1                    ***0***     	        sda_o <= #1 1'b1;
+    196             1                    ***0***     	        ld    <= #1 1'b1;
+    197                                              	    end
+    198                                              	  else
+    199                                              	    begin
+    200                                              	        // initial settings
+    201             1                    ***0***     	        sda_o <= #1 1'b1;
+    202             1                    ***0***     	        ld    <= #1 1'b0;
+    203                                              
+    204                                              	        case(state) // synopsys full_case parallel_case
+    205                                              	            idle: // idle state
+    206                                              	              if (acc_done && my_adr)
+    207                                              	                begin
+    208             1                    ***0***     	                    state <= #1 slave_ack;
+    209             1                    ***0***     	                    rw <= #1 sr[0];
+    210             1                    ***0***     	                    sda_o <= #1 1'b0; // generate i2c_ack
+    211                                              
+    212             1                    ***0***     	                    #2;
+    213                                              	                    if(debug && rw)
+    214             1                    ***0***     	                      $display("DEBUG i2c_slave; command byte received (read) at %t", $time);
+    215                                              	                    if(debug && !rw)
+    216             1                    ***0***     	                      $display("DEBUG i2c_slave; command byte received (write) at %t", $time);
+    217                                              
+    218                                              	                    if(rw)
+    219                                              	                      begin
+    220             1                    ***0***     	                          mem_do <= #1 mem[mem_adr];
+    221                                              
+    222                                              	                        //   if(debug)
+    223                                              	                        //     begin
+    224                                              	                        //         #2 $display("DEBUG i2c_slave; data block read %x from address %x (1)", mem_do, mem_adr);
+    225                                              	                        //         #2 $display("DEBUG i2c_slave; memcheck [0]=%x, [1]=%x, [2]=%x", mem[4'h0], mem[4'h1], mem[4'h2]);
+    226                                              	                        //     end
+    227                                              	                      end
+    228                                              	                end
+    229                                              
+    230                                              	            slave_ack:
+    231                                              	              begin
+    232                                              	                  if(rw)
+    233                                              	                    begin
+    234             1                    ***0***     	                        state <= #1 data;
+    235             1                    ***0***     	                        sda_o <= #1 mem_do[7];
+    236                                              	                    end
+    237                                              	                  else
+    238             1                    ***0***     	                    state <= #1 get_mem_adr;
+    239                                              
+    240             1                    ***0***     	                  ld    <= #1 1'b1;
+    241                                              	              end
+    242                                              
+    243                                              	            get_mem_adr: // wait for memory address
+    244                                              	              if(acc_done)
+    245                                              	                begin
+    246             1                    ***0***     	                    state <= #1 gma_ack;
+    247             1                    ***0***     	                    mem_adr <= #1 sr; // store memory address
+    248             1                    ***0***     	                    sda_o <= #1 !(sr <= 15); // generate i2c_ack, for valid address
+    249                                              
+    250                                              	                //     if(debug)
+    251                                              	                //       #1 $display("DEBUG i2c_slave; address received. adr=%x, ack=%b", sr, sda_o);
+    252                                              	                end
+    253                                              
+    254                                              	            gma_ack:
+    255                                              	              begin
+    256             1                    ***0***     	                  state <= #1 data;
+    257             1                    ***0***     	                  ld    <= #1 1'b1;
+    258                                              	              end
+    259                                              
+    260                                              	            data: // receive or drive data
+    261                                              	              begin
+    262                                              	                  if(rw)
+    263             1                    ***0***     	                    sda_o <= #1 mem_do[7];
+    264                                              
+    265                                              	                  if(acc_done)
+    266                                              	                    begin
+    267             1                    ***0***     	                        state <= #1 data_ack;
+    268             1                    ***0***     	                        mem_adr <= #2 mem_adr + 8'h1;
+    269             1                    ***0***     	                        sda_o <= #1 (rw && (mem_adr <= 15) ); // send ack on write, receive ack on read
+    270                                              
+    271                                              	                        if(rw)
+    272                                              	                          begin
+    273             1                    ***0***     	                              #3 mem_do <= mem[mem_adr];
+    273             2                    ***0***     
+    274                                              
+    275                                              	                            //   if(debug)
+    276                                              	                            //     #5 $display("DEBUG i2c_slave; data block read %x from address %x (2)", mem_do, mem_adr);
+    277                                              	                          end
+    278                                              
+    279                                              	                        if(!rw)
+    280                                              	                          begin
+    281             1                    ***0***     	                              mem[ mem_adr[3:0] ] <= #1 sr; // store data in memory
+    282                                              
+    283                                              	                            //   if(debug)
+    284                                              	                            //     #2 $display("DEBUG i2c_slave; data block write %x to address %x", sr, mem_adr);
+    285                                              	                          end
+    286                                              	                    end
+    287                                              	              end
+    288                                              
+    289                                              	            data_ack:
+    290                                              	              begin
+    291             1                    ***0***     	                  ld <= #1 1'b1;
+    292                                              
+    293                                              	                  if(rw)
+    294                                              	                    if(sr[0]) // read operation && master send NACK
+    295                                              	                      begin
+    296             1                    ***0***     	                          state <= #1 idle;
+    297             1                    ***0***     	                          sda_o <= #1 1'b1;
+    298                                              	                      end
+    299                                              	                    else
+    300                                              	                      begin
+    301             1                    ***0***     	                          state <= #1 data;
+    302             1                    ***0***     	                          sda_o <= #1 mem_do[7];
+    303                                              	                      end
+    304                                              	                  else
+    305                                              	                    begin
+    306             1                    ***0***     	                        state <= #1 data;
+    307             1                    ***0***     	                        sda_o <= #1 1'b1;
+    308                                              	                    end
+    309                                              	              end
+    310                                              
+    311                                              	        endcase
+    312                                              	    end
+    313                                              
+    314                                              	// read data from memory
+    315             1                    ***0***     	always @(posedge scl)
+    316                                              	  if(!acc_done && rw)
+    317             1                    ***0***     	    mem_do <= #1 {mem_do[6:0], 1'b1}; // insert 1'b1 for host ack generation
+    318                                              
+    319                                              	// generate tri-states
+    320             1                    ***0***     	assign sda = sda_o ? 1'bz : 1'b0;
+    321                                              
+    322                                              
+    323                                              	//
+    324                                              	// Timing checks
+    325                                              	//
+    326                                              
+    327             1                    ***0***     	wire tst_sto = sto;
+    328             1                    ***0***     	wire tst_sta = sta;
+    329                                              	wire tst_sto = sto;
+    330                                              	wire tst_sta = sta;
+    331                                              
+    332                                              	// specify
+    333                                              	//   specparam normal_scl_low  = 4700,
+    334                                              	//             normal_scl_high = 4000,
+    335                                              	//             normal_tsu_sta  = 4700,
+    336                                              	//             normal_thd_sta  = 4000,
+    337                                              	//             normal_tsu_sto  = 4000,
+    338                                              	//             normal_tbuf     = 4700,
+    339                                              
+    340                                              	//             fast_scl_low  = 1300,
+    341                                              	//             fast_scl_high =  600,
+    342                                              	//             fast_tsu_sta  = 1300,
+    343                                              	//             fast_thd_sta  =  600,
+    344                                              	//             fast_tsu_sto  =  600,
+    345                                              	//             fast_tbuf     = 1300;
+    346                                              
+    347                                              	//   $width(negedge scl, normal_scl_low);  // scl low time
+    348                                              	//   $width(posedge scl, normal_scl_high); // scl high time
+    349                                              
+    350                                              	//   $setup(posedge scl, negedge sda &&& scl, normal_tsu_sta); // setup start
+    351                                              	//   $setup(negedge sda &&& scl, negedge scl, normal_thd_sta); // hold start
+    352                                              	//   $setup(posedge scl, posedge sda &&& scl, normal_tsu_sto); // setup stop
+    353                                              
+    354                                              	//   $setup(posedge tst_sta, posedge tst_sto, normal_tbuf); // stop to start time
+    355                                              	// endspecify
+    356                                              
+    357                                              endmodule
+    358                                              
+    359                                              
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         90         0        90     0.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for File i2c_slave_model_wadden_buggy1.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+         81                                    scl           0           0        0.00 
+         82                                    sda           0           0        0.00 
+         90                             mem_adr[7]           0           0        0.00 
+         90                             mem_adr[6]           0           0        0.00 
+         90                             mem_adr[5]           0           0        0.00 
+         90                             mem_adr[4]           0           0        0.00 
+         90                             mem_adr[3]           0           0        0.00 
+         90                             mem_adr[2]           0           0        0.00 
+         90                             mem_adr[1]           0           0        0.00 
+         90                             mem_adr[0]           0           0        0.00 
+         91                              mem_do[7]           0           0        0.00 
+         91                              mem_do[6]           0           0        0.00 
+         91                              mem_do[5]           0           0        0.00 
+         91                              mem_do[4]           0           0        0.00 
+         91                              mem_do[3]           0           0        0.00 
+         91                              mem_do[2]           0           0        0.00 
+         91                              mem_do[1]           0           0        0.00 
+         91                              mem_do[0]           0           0        0.00 
+         93                                    sta           0           0        0.00 
+         93                                  d_sta           0           0        0.00 
+         94                                    sto           0           0        0.00 
+         94                                  d_sto           0           0        0.00 
+         96                                  sr[7]           0           0        0.00 
+         96                                  sr[6]           0           0        0.00 
+         96                                  sr[5]           0           0        0.00 
+         96                                  sr[4]           0           0        0.00 
+         96                                  sr[3]           0           0        0.00 
+         96                                  sr[2]           0           0        0.00 
+         96                                  sr[1]           0           0        0.00 
+         96                                  sr[0]           0           0        0.00 
+         97                                     rw           0           0        0.00 
+         99                                 my_adr           0           0        0.00 
+        100                              i2c_reset           0           0        0.00 
+        101                             bit_cnt[2]           0           0        0.00 
+        101                             bit_cnt[1]           0           0        0.00 
+        101                             bit_cnt[0]           0           0        0.00 
+        102                               acc_done           0           0        0.00 
+        103                                     ld           0           0        0.00 
+        105                                  sda_o           0           0        0.00 
+        106                                sda_dly           0           0        0.00 
+        116                               state[2]           0           0        0.00 
+        116                               state[1]           0           0        0.00 
+        116                               state[0]           0           0        0.00 
+        327                                tst_sto           0           0        0.00 
+        328                                tst_sta           0           0        0.00 
+
+Total Node Count     =         45 
+Toggled Node Count   =          0 
+Untoggled Node Count =         45 
+
+Toggle Coverage      =       0.00% (0 of 90 bins)
+
+
+Total Coverage By File (code coverage only, filtered view): 0.00%
+

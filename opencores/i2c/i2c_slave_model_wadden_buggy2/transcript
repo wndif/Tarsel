@@ -1,0 +1,95 @@
+# //  ModelSim SE-64 2019.2 Apr 17 2019
+# //
+# //  Copyright 1991-2019 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do {.\collectCoverage113895s.do}
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2019.2 Lib Mapping Utility 2019.04 Apr 17 2019
+# vmap work work 
+# Modifying D:/modeltech64_2019.2/win64/modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 13:04:07 on May 13,2022
+# vlog -reportprogress 300 i2c_slave_model_wadden_buggy2.v "+cover=sbcet" -coveropt 1 
+# -- Compiling module i2c_slave_model
+# 
+# Top level modules:
+# 	i2c_slave_model
+# End time: 13:04:07 on May 13,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 13:04:07 on May 13,2022
+# vlog -reportprogress 300 i2c_master_bit_ctrl.v 
+# -- Compiling module i2c_master_bit_ctrl
+# 
+# Top level modules:
+# 	i2c_master_bit_ctrl
+# End time: 13:04:07 on May 13,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 13:04:07 on May 13,2022
+# vlog -reportprogress 300 i2c_master_top.v 
+# -- Compiling module i2c_master_top
+# 
+# Top level modules:
+# 	i2c_master_top
+# End time: 13:04:07 on May 13,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 13:04:07 on May 13,2022
+# vlog -reportprogress 300 wb_master_model.v 
+# -- Compiling module wb_master_model
+# 
+# Top level modules:
+# 	wb_master_model
+# End time: 13:04:07 on May 13,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 13:04:08 on May 13,2022
+# vlog -reportprogress 300 i2c_master_byte_ctrl.v 
+# -- Compiling module i2c_master_byte_ctrl
+# 
+# Top level modules:
+# 	i2c_master_byte_ctrl
+# End time: 13:04:08 on May 13,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 13:04:08 on May 13,2022
+# vlog -reportprogress 300 tst_bench_top_t1.v 
+# -- Compiling module tst_bench_top
+# -- Compiling module delay
+# 
+# Top level modules:
+# 	tst_bench_top
+# End time: 13:04:08 on May 13,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -coverage tst_bench_top 
+# Start time: 13:04:08 on May 13,2022
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.tst_bench_top(fast)
+# Loading work.i2c_slave_model(fast)
+# Loading work.delay(fast)
+# 
+# status:                    0 Testbench started
+# 
+# 
+# 
+# INFO: WISHBONE MASTER MODEL INSTANTIATED (tst_bench_top.u0)
+# 
+# status:                  500 done reset
+# status:                10600 programmed registers
+# status:                14600 verified registers
+# status:                17600 core enabled
+# status:                22600 generate 'start', write cmd 20 (slave address+write)
+# status:             11341600 tip==0
+# status:             11346600 write slave memory address 01
+# End time: 13:04:13 on May 13,2022, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 0

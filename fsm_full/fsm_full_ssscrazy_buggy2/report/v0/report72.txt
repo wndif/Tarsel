@@ -1,0 +1,357 @@
+Coverage Report by file with details
+
+=================================================================================
+=== File: fsm_full_ssscrazy_buggy2.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        27         1        26     3.70%
+
+================================Branch Details================================
+
+Branch Coverage for file fsm_full_ssscrazy_buggy2.v --
+
+------------------------------------CASE Branch------------------------------------
+    48                                   ***0***     Count coming in to CASE
+    49              1                    ***0***         IDLE : if (req_0 == 1'b1) begin
+    60              1                    ***0***         GNT0 : if (req_0 == 1'b0) begin
+    65              1                    ***0***         GNT1 : if (req_1 == 1'b0) begin
+    70              1                    ***0***         GNT2 : if (req_2 == 1'b0) begin
+    75              1                    ***0***         GNT3 : if (req_3 == 1'b0) begin
+    80              1                    ***0***        default : next_state = IDLE;
+Branch totals: 0 hits of 6 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    49                                   ***0***     Count coming in to IF
+    49              2                    ***0***         IDLE : if (req_0 == 1'b1) begin
+    51              1                    ***0***                end else if (req_1 == 1'b1) begin
+    53              1                    ***0***                end else if (req_2 == 1'b1) begin
+    55              1                    ***0***                end else if (req_3 == 1'b1) begin
+    57              1                    ***0***     	   end else begin
+Branch totals: 0 hits of 5 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    60                                   ***0***     Count coming in to IF
+    60              2                    ***0***         GNT0 : if (req_0 == 1'b0) begin
+    62              1                    ***0***                end else begin
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    65                                   ***0***     Count coming in to IF
+    65              2                    ***0***         GNT1 : if (req_1 == 1'b0) begin
+    67              1                    ***0***                end else begin
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    70                                   ***0***     Count coming in to IF
+    70              2                    ***0***         GNT2 : if (req_2 == 1'b0) begin
+    72              1                    ***0***                end else begin
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    75                                   ***0***     Count coming in to IF
+    75              2                    ***0***         GNT3 : if (req_3 == 1'b0) begin
+    77              1                    ***0***                end else begin
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    86                                         1     Count coming in to IF
+    86              1                    ***0***       if (reset) begin
+    92              1                          1       end else begin
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------CASE Branch------------------------------------
+    94                                   ***0***     Count coming in to CASE
+    95              1                    ***0***     	IDLE : begin
+    101             1                    ***0***     1 1'b0;
+    104             1                    ***0***       	         gnt_0 = #1 1'b1;
+    107             1                    ***0***                      gnt_1 = #1 1'b1;
+    110             1                    ***0***                      gnt_2 = #1 1'b1;
+    113             1                    ***0***                      gnt_3 = #1 1'b1;
+Branch totals: 0 hits of 6 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       8         0         8     0.00%
+
+================================Condition Details================================
+
+Condition Coverage for file fsm_full_ssscrazy_buggy2.v --
+
+----------------Focused Condition View-------------------
+Line       49 Item    1  req_0
+Condition totals: 0 of 1 input term covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       req_0         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  req_0_0               -                             
+  Row   2:    ***0***  req_0_1               -                             
+
+----------------Focused Condition View-------------------
+Line       51 Item    1  req_1
+Condition totals: 0 of 1 input term covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       req_1         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  req_1_0               -                             
+  Row   2:    ***0***  req_1_1               -                             
+
+----------------Focused Condition View-------------------
+Line       53 Item    1  req_2
+Condition totals: 0 of 1 input term covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       req_2         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  req_2_0               -                             
+  Row   2:    ***0***  req_2_1               -                             
+
+----------------Focused Condition View-------------------
+Line       55 Item    1  req_3
+Condition totals: 0 of 1 input term covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       req_3         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  req_3_0               -                             
+  Row   2:    ***0***  req_3_1               -                             
+
+----------------Focused Condition View-------------------
+Line       60 Item    1  (req_0 == 1'b0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       req_0         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  req_0_0               -                             
+  Row   2:    ***0***  req_0_1               -                             
+
+----------------Focused Condition View-------------------
+Line       65 Item    1  (req_1 == 1'b0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       req_1         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  req_1_0               -                             
+  Row   2:    ***0***  req_1_1               -                             
+
+----------------Focused Condition View-------------------
+Line       70 Item    1  (req_2 == 1'b0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       req_2         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  req_2_0               -                             
+  Row   2:    ***0***  req_2_1               -                             
+
+----------------Focused Condition View-------------------
+Line       75 Item    1  (req_3 == 1'b0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       req_3         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  req_3_0               -                             
+  Row   2:    ***0***  req_3_1               -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      32         2        30     6.25%
+
+================================Statement Details================================
+
+Statement Coverage for file fsm_full_ssscrazy_buggy2.v --
+
+    1                                                // This change is category 1. It represents the errors a student might make
+    2                                                // during design. Here, I have them accidentally use blocking assignment
+    3                                                // (instead of nonblocking <= assignment) within the always_ff blocks. This is
+    4                                                // definitely a mistake a novice who doesn't completely understand design
+    5                                                // might make.
+    6                                                
+    7                                                module fsm_full(
+    8                                                clock , // Clock
+    9                                                reset , // Active high reset
+    10                                               req_0 , // Active high request from agent 0
+    11                                               req_1 , // Active high request from agent 1
+    12                                               req_2 , // Active high request from agent 2
+    13                                               req_3 , // Active high request from agent 3
+    14                                               gnt_0 , // Active high grant to agent 0
+    15                                               gnt_1 , // Active high grant to agent 1
+    16                                               gnt_2 , // Active high grant to agent 2
+    17                                               gnt_3   // Active high grant to agent 3
+    18                                               );
+    19                                               // Port declaration here
+    20                                               input clock ; // Clock
+    21                                               input reset ; // Active high reset
+    22                                               input req_0 ; // Active high request from agent 0
+    23                                               input req_1 ; // Active high request from agent 1
+    24                                               input req_2 ; // Active high request from agent 2
+    25                                               input req_3 ; // Active high request from agent 3
+    26                                               output gnt_0 ; // Active high grant to agent 0
+    27                                               output gnt_1 ; // Active high grant to agent 1
+    28                                               output gnt_2 ; // Active high grant to agent 2
+    29                                               output gnt_3 ; // Active high grant to agent 
+    30                                               
+    31                                               // Internal Variables
+    32                                               reg    gnt_0 ; // Active high grant to agent 0
+    33                                               reg    gnt_1 ; // Active high grant to agent 1
+    34                                               reg    gnt_2 ; // Active high grant to agent 2
+    35                                               reg    gnt_3 ; // Active high grant to agent 
+    36                                               
+    37                                               parameter  [2:0]  IDLE  = 3'b000;
+    38                                               parameter  [2:0]  GNT0  = 3'b001;
+    39                                               parameter  [2:0]  GNT1  = 3'b010;
+    40                                               parameter  [2:0]  GNT2  = 3'b011;
+    41                                               parameter  [2:0]  GNT3  = 3'b100;
+    42                                               
+    43                                               reg [2:0] state, next_state;
+    44                                               
+    45              1                    ***0***     always @ (state or req_0 or req_1 or req_2 or req_3)
+    46                                               begin  
+    47              1                    ***0***       next_state = 0;
+    48                                                 case(state)
+    49                                                   IDLE : if (req_0 == 1'b1) begin
+    50              1                    ***0***       	     next_state = GNT0;
+    51                                                          end else if (req_1 == 1'b1) begin
+    52              1                    ***0***       	     next_state= GNT1;
+    53                                                          end else if (req_2 == 1'b1) begin
+    54              1                    ***0***       	     next_state= GNT2;
+    55                                                          end else if (req_3 == 1'b1) begin
+    56              1                    ***0***       	     next_state= GNT3;
+    57                                               	   end else begin
+    58              1                    ***0***       	     next_state = IDLE;
+    59                                                          end			
+    60                                                   GNT0 : if (req_0 == 1'b0) begin
+    61              1                    ***0***       	     next_state = IDLE;
+    62                                                          end else begin
+    63              1                    ***0***     	     next_state = GNT0;
+    64                                               	  end
+    65                                                   GNT1 : if (req_1 == 1'b0) begin
+    66              1                    ***0***       	     next_state = IDLE;
+    67                                                          end else begin
+    68              1                    ***0***     	     next_state = GNT1;
+    69                                               	  end
+    70                                                   GNT2 : if (req_2 == 1'b0) begin
+    71              1                    ***0***       	     next_state = IDLE;
+    72                                                          end else begin
+    73              1                    ***0***     	     next_state = GNT2;
+    74                                               	  end
+    75                                                   GNT3 : if (req_3 == 1'b0) begin
+    76              1                    ***0***       	     next_state = IDLE;
+    77                                                          end else begin
+    78              1                    ***0***     	     next_state = GNT3;
+    79                                               	  end
+    80              1                    ***0***        default : next_state = IDLE;
+    81                                                 endcase
+    82                                               end
+    83                                               
+    84              1                          1     always @ (posedge clock)
+    85                                               begin : OUTPUT_LOGIC
+    86                                                 if (reset) begin
+    87              1                    ***0***         gnt_0 = #1 1'b0;
+    88              1                    ***0***         gnt_1 = #1 1'b0;
+    89              1                    ***0***         gnt_2 = #1 1'b0;
+    90              1                    ***0***         gnt_3 = #1 1'b0;
+    91              1                    ***0***         state = #1 IDLE;
+    92                                                 end else begin
+    93              1                          1         state = #1 next_state;
+    94                                                   case(state)
+    95                                               	IDLE : begin
+    96              1                    ***0***                     gnt_0 = #1 1'b0;
+    97              1                    ***0***                     gnt_1 = #1 1'b0;
+    98              1                    ***0***                     gnt_2 = #1 1'b0;
+    99              1                    ***0***                     gnt_3 = #1 1'b0;
+    100                                              	       end
+    101                                                	GNT0 : begin
+    102             1                    ***0***       	         gnt_0 = #1 1'b1;
+    103                                                	       end
+    104                                                      GNT1 : begin
+    105             1                    ***0***                      gnt_1 = #1 1'b1;
+    106                                                             end
+    107                                                      GNT2 : begin
+    108             1                    ***0***                      gnt_2 = #1 1'b1;
+    109                                                             end
+    110                                                      GNT3 : begin
+    111             1                    ***0***                      gnt_3 = #1 1'b1;
+    112                                                             end
+    113                                                   default : begin
+    114             1                    ***0***                      state = #1 IDLE;
+    115                                                   default : begin
+    116                                                               state = #1 IDLE;
+    117                                                             end
+    118                                                  endcase
+    119                                                end
+    120                                              end
+    121                                              
+    122                                              endmodule
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         32         0        32     0.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for File fsm_full_ssscrazy_buggy2.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+         20                                  clock           0           0        0.00 
+         21                                  reset           0           0        0.00 
+         22                                  req_0           0           0        0.00 
+         23                                  req_1           0           0        0.00 
+         24                                  req_2           0           0        0.00 
+         25                                  req_3           0           0        0.00 
+         32                                  gnt_0           0           0        0.00 
+         33                                  gnt_1           0           0        0.00 
+         34                                  gnt_2           0           0        0.00 
+         35                                  gnt_3           0           0        0.00 
+         43                               state[2]           0           0        0.00 
+         43                               state[1]           0           0        0.00 
+         43                               state[0]           0           0        0.00 
+         43                          next_state[2]           0           0        0.00 
+         43                          next_state[1]           0           0        0.00 
+         43                          next_state[0]           0           0        0.00 
+
+Total Node Count     =         16 
+Toggled Node Count   =          0 
+Untoggled Node Count =         16 
+
+Toggle Coverage      =       0.00% (0 of 32 bins)
+
+
+Total Coverage By File (code coverage only, filtered view): 2.48%
+

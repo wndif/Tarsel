@@ -1,0 +1,77 @@
+m255
+K4
+z2
+!s11f vlog 2019.2 2019.04, Apr 17 2019
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/modeltech64_2019.2/examples/verilog_FL_3/lshift_reg/lshift_reg_wadden_buggy1
+T_opt
+!s110 1651840754
+VFNFSZ4EBl13Hme^:XlPc_3
+Z1 04 2 4 work tb fast 0
+=1-2cf05d3424e2-627516f1-1b1-3420
+Z2 o-quiet -auto_acc_if_foreign -work work
+Z3 tCvgOpt 0
+n@_opt
+Z4 OL;O;2019.2;69
+R0
+T_opt1
+!s110 1651840829
+Vm8R43Zlzhe>VmNVeoOWz@1
+R1
+=1-2cf05d3424e2-6275173c-2a1-42a4
+R2
+R3
+n@_opt1
+R4
+R0
+vlshift_reg
+!s110 1651888949
+!i10b 1
+!s100 [VS@`;2^O^N6H6?_>M_k10
+!s11b 0zn1<9oFFJRlj^UiWFV?Y2
+Ik7RHC<mKl[4o0B8h@OOY50
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z6 w1641312281
+8lshift_reg_wadden_buggy1.v
+Flshift_reg_wadden_buggy1.v
+L0 1
+Z7 OL;L;2019.2;69
+r1
+!s85 0
+31
+!s108 1651888949.000000
+!s107 lshift_reg_wadden_buggy1.v|
+!s90 -reportprogress|300|lshift_reg_wadden_buggy1.v|+cover=sbcet|-coveropt|1|
+!i113 0
+Z8 !s102 +cover=sbcet -coveropt 1
+Z9 o+cover=sbcet -coveropt 1 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+vtb
+!s110 1651888950
+!i10b 1
+!s100 G@RZ@JdM>4ZPl<Z97O5ao1
+!s11b [ifM5f3mc<Ta9PG5aYHFQ1
+IBhYhKh310_Te>:WNhDW@90
+R5
+R0
+R6
+8lshift_reg_tb_t1.v
+Flshift_reg_tb_t1.v
+L0 1
+R7
+r1
+!s85 0
+31
+!s108 1651888950.000000
+!s107 lshift_reg_tb_t1.v|
+!s90 -reportprogress|300|lshift_reg_tb_t1.v|+cover=sbcet|-coveropt|1|
+!i113 0
+R8
+R9
+R3

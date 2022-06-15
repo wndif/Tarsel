@@ -1,0 +1,195 @@
+m255
+K4
+z2
+!s11f vlog 2019.2 2019.04, Apr 17 2019
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/modeltech64_2019.2/examples/verilog_FL_3/opencores/sha3/low_throughput_core/keccak_wadden_buggy2
+T_opt
+!s110 1652061091
+V0W4`j]ZODn=`3kSfTgDkz2
+Z1 04 11 4 work test_keccak fast 0
+=1-2cf05d3424e2-627873a2-3ab-2110
+Z2 o-quiet -auto_acc_if_foreign -work work
+Z3 tCvgOpt 0
+n@_opt
+Z4 OL;O;2019.2;69
+R0
+T_opt1
+!s110 1652061387
+VSzG9L0mk0@bV[Ci7d:4ZN3
+R1
+=1-2cf05d3424e2-627874ca-286-5e6c
+R2
+R3
+n@_opt1
+R4
+R0
+T_opt2
+!s110 1652263282
+VGRZaQTjln4]Y:RzRLRH9A0
+R1
+=1-2cf05d3424e2-627b8971-b6-4368
+R2
+R3
+n@_opt2
+R4
+vf_permutation
+Z5 !s110 1652263279
+!i10b 1
+!s100 De;QhlGnne<V<LFMh2nX22
+!s11b Kf=1_XAUlI9>MNSG]i5hQ0
+IObWhC6SC4_[cbf9Sh7XEe2
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z7 w1641312281
+8f_permutation.v
+Ff_permutation.v
+L0 19
+Z8 OL;L;2019.2;69
+r1
+!s85 0
+31
+Z9 !s108 1652263279.000000
+!s107 f_permutation.v|
+!s90 -reportprogress|300|f_permutation.v|
+!i113 0
+Z10 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+vkeccak
+R5
+!i10b 1
+!s100 L9c@Sg]l?OX87DWD;@@9f0
+!s11b gRh_?8bEVYOYkXRhI0RSl0
+I:RTA^`9VY317AS;J?ofID3
+R6
+R0
+R7
+8keccak_wadden_buggy2.v
+Fkeccak_wadden_buggy2.v
+L0 26
+R8
+r1
+!s85 0
+31
+R9
+!s107 keccak_wadden_buggy2.v|
+!s90 -reportprogress|300|keccak_wadden_buggy2.v|+cover=sbcet|-coveropt|1|
+!i113 0
+!s102 +cover=sbcet -coveropt 1
+o+cover=sbcet -coveropt 1 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+vpadder
+R5
+!i10b 1
+!s100 kUd0LeHihi32MB08HJEC?1
+!s11b =zAmg[2lC8zQi=cfh=WH03
+ISKJ`Y99=1Ye2fV4^>6<j]2
+R6
+R0
+R7
+8padder.v
+Fpadder.v
+L0 21
+R8
+r1
+!s85 0
+31
+R9
+!s107 padder.v|
+!s90 -reportprogress|300|padder.v|
+!i113 0
+R10
+R3
+vpadder1
+Z11 !s110 1652263280
+!i10b 1
+!s100 Z9<@0fIlC2Q9I6TTN1eDE1
+!s11b dzN2DnVET[7IjFIIiE2z?3
+IFPlNSkJ?NL[BWz_QQ1F^93
+R6
+R0
+R7
+8padder1.v
+Fpadder1.v
+Z12 L0 25
+R8
+r1
+!s85 0
+31
+Z13 !s108 1652263280.000000
+!s107 padder1.v|
+!s90 -reportprogress|300|padder1.v|
+!i113 0
+R10
+R3
+vrconst
+R11
+!i10b 1
+!s100 E^@V`69VVWlGO]ReTXc512
+!s11b =`5Xa;JPgQc>ceTZcAPo73
+IheiMz91R]A`T;ZZ=nSXZN3
+R6
+R0
+R7
+8rconst.v
+Frconst.v
+L0 18
+R8
+r1
+!s85 0
+31
+R13
+!s107 rconst.v|
+!s90 -reportprogress|300|rconst.v|
+!i113 0
+R10
+R3
+vround
+R11
+!i10b 1
+!s100 HSgn4J<@eKaE93g6oFohJ0
+!s11b 6HI<T>OBP<@Gc3l5g;TD>0
+Il`ff[WQjJM4SU0fUJAG[V3
+R6
+R0
+R7
+8round.v
+Fround.v
+R12
+R8
+r1
+!s85 0
+31
+R13
+!s107 round.v|
+!s90 -reportprogress|300|round.v|
+!i113 0
+R10
+R3
+vtest_keccak
+R11
+!i10b 1
+!s100 Iz8X8IcFiQ>llCVIfn]<J3
+!s11b >kTNf`g3ZSWN0ITnn]<zM3
+I4l@[1kZkH?C3NAf`MG>DO3
+R6
+R0
+R7
+8test_keccak_t1.v
+Ftest_keccak_t1.v
+L0 20
+R8
+r1
+!s85 0
+31
+R13
+!s107 test_keccak_t1.v|
+!s90 -reportprogress|300|test_keccak_t1.v|
+!i113 0
+R10
+R3

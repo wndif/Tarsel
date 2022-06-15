@@ -1,0 +1,62 @@
+# //  ModelSim SE-64 2019.2 Apr 17 2019
+# //
+# //  Copyright 1991-2019 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do collectCoverage152s.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2019.2 Lib Mapping Utility 2019.04 Apr 17 2019
+# vmap work work 
+# Modifying D:/modeltech64_2019.2/win64/modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:27:35 on May 06,2022
+# vlog -reportprogress 300 fsm_full_wadden_buggy1.v "+cover=sbcet" -coveropt 1 
+# -- Compiling module fsm_full
+# 
+# Top level modules:
+# 	fsm_full
+# End time: 15:27:35 on May 06,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:27:35 on May 06,2022
+# vlog -reportprogress 300 -sv fsm_full_tb_t1.v "+cover=sbcet" -coveropt 1 
+# -- Compiling module fsm_full_tb
+# 
+# Top level modules:
+# 	fsm_full_tb
+# End time: 15:27:35 on May 06,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -coverage fsm_full_tb 
+# Start time: 15:27:35 on May 06,2022
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading sv_std.std
+# Loading work.fsm_full_tb(fast)
+# Loading work.fsm_full(fast)
+# time	    req_0 req_1 req_2 req_3 gnt_0 gnt_1 gnt_2 gnt_3
+# 0	    x  x  x  x  x  x  x  x
+# 4	    0  0  0  0  x  x  x  x
+# 9	    0  0  0  0  0  0  0  0
+# 34	    1  0  0  0  0  0  0  0
+# 41	    1  0  0  0  1  0  0  0
+# 54	    0  0  0  0  1  0  0  0
+# 61	    0  0  0  0  0  0  0  0
+# 64	    0  1  0  0  0  0  0  0
+# 73	    0  1  0  0  0  1  0  0
+# 84	    0  0  0  0  0  1  0  0
+# 93	    0  0  0  0  0  0  0  0
+# 94	    0  0  1  0  0  0  0  0
+# 101	    0  0  1  0  0  0  1  0
+# 114	    0  0  0  0  0  0  1  0
+# 121	    0  0  0  0  0  0  0  0
+# 124	    0  0  0  1  0  0  0  0
+# 144	    0  0  0  0  0  0  0  0
+# End time: 15:27:40 on May 06,2022, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 0

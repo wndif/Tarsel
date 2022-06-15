@@ -1,0 +1,73 @@
+# //  ModelSim SE-64 2019.2 Apr 17 2019
+# //
+# //  Copyright 1991-2019 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do {.\collectCoverage.do}
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2019.2 Lib Mapping Utility 2019.04 Apr 17 2019
+# vmap work work 
+# Modifying D:/modeltech64_2019.2/win64/modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 10:41:24 on May 11,2022
+# vlog -reportprogress 300 decoder_3_to_8_wadden_buggy2.v "+cover=sbcet" -coveropt 1 
+# -- Compiling module decoder_3to8
+# 
+# Top level modules:
+# 	decoder_3to8
+# End time: 10:41:24 on May 11,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 10:41:25 on May 11,2022
+# vlog -reportprogress 300 decoder_3_to_8_tb.v "+cover=sbcet" -coveropt 1 
+# -- Compiling module tb_decoder_3to8
+# 
+# Top level modules:
+# 	tb_decoder_3to8
+# End time: 10:41:25 on May 11,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -coverage tb_decoder_3to8 
+# Start time: 10:41:25 on May 11,2022
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.tb_decoder_3to8(fast)
+# t=1.0 ns en=0 ABC=000 Y=01111111
+# t=10.0 ns en=1 ABC=000 Y=01111110
+# t=20.0 ns en=1 ABC=010 Y=01111011
+# t=30.0 ns en=1 ABC=100 Y=01101111
+# t=40.0 ns en=1 ABC=110 Y=00111111
+# t=45.0 ns en=0 ABC=110 Y=01111111
+# ** Note: $finish    : decoder_3_to_8_tb.v(77)
+#    Time: 55 ns  Iteration: 0  Instance: /tb_decoder_3to8
+# 1
+# Break in Module tb_decoder_3to8 at decoder_3_to_8_tb.v line 77
+# End time: 10:43:06 on May 11,2022, Elapsed time: 0:01:41
+# Errors: 0, Warnings: 0
+ls 
+# SFL                    collectCoverage43s.do            
+# collectCoverage.do     collectCoverage45s.do            
+# collectCoverage11s.do  collectCoverage47s.do            
+# collectCoverage13s.do  collectCoverage49s.do            
+# collectCoverage15s.do  collectCoverage51s.do            
+# collectCoverage17s.do  collectCoverage53s.do            
+# collectCoverage19s.do  collectCoverage5s.do             
+# collectCoverage1s.do   collectCoverage7s.do             
+# collectCoverage21s.do  collectCoverage9s.do             
+# collectCoverage23s.do  decoder_3_to_8_tb.v              
+# collectCoverage25s.do  decoder_3_to_8_wadden_buggy2.v   
+# collectCoverage27s.do  extract                          
+# collectCoverage29s.do  output_decoder_3_to_8_tb_t1.txt  
+# collectCoverage31s.do  report                           
+# collectCoverage33s.do  report.txt                       
+# collectCoverage35s.do  runs.bat                         
+# collectCoverage37s.do  runsim.bat                       
+# collectCoverage39s.do  transcript                       
+# collectCoverage3s.do   work                             
+# collectCoverage41s.do                                   

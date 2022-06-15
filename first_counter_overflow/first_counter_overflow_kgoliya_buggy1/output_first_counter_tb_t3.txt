@@ -1,0 +1,5 @@
+time,counter_out[3],counter_out[2],counter_out[1],counter_out[0],overflow_out
+5,x,x,x,x,x
+15,x,x,x,x,x
+25,x,x,x,x,x
+35,x,x,x,x,0

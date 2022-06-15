@@ -1,0 +1,69 @@
+m255
+K4
+z2
+!s11f vlog 2019.2 2019.04, Apr 17 2019
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/modeltech64_2019.2/examples/verilog_FL_3/fsm_full/fsm_full_ssscrazy_buggy2
+T_opt
+!s110 1651810988
+VnF^29kQbkgjodGAkDG5[E0
+04 11 4 work fsm_full_tb fast 0
+=1-2cf05d3424e2-6274a2a9-207-43cc
+o-quiet -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2019.2;69
+R0
+vfsm_full
+Z2 !s110 1651814996
+!i10b 1
+!s100 I3BA`?>mUom?Dk4IV^GkW1
+!s11b >SIG914634OZTlBV1Cc8?2
+IKl6hQ@3Vbb@OX2HI55^8?2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1641312281
+8fsm_full_ssscrazy_buggy2.v
+Ffsm_full_ssscrazy_buggy2.v
+L0 7
+Z5 OL;L;2019.2;69
+r1
+!s85 0
+31
+Z6 !s108 1651814996.000000
+!s107 fsm_full_ssscrazy_buggy2.v|
+!s90 -reportprogress|300|fsm_full_ssscrazy_buggy2.v|+cover=sbcet|-coveropt|1|
+!i113 0
+Z7 !s102 +cover=sbcet -coveropt 1
+o+cover=sbcet -coveropt 1 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vfsm_full_tb
+DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+R2
+!i10b 1
+!s100 bmJ2;`S=1`ng3Lm4PoF`20
+!s11b f@ZKBz?mJZa5G>Ja=IXa12
+I1I86TLA`]V2<4KkJH<Wkm2
+R3
+S1
+R0
+R4
+8fsm_full_tb_t1.v
+Ffsm_full_tb_t1.v
+L0 3
+R5
+r1
+!s85 0
+31
+R6
+!s107 fsm_full_tb_t1.v|
+!s90 -reportprogress|300|-sv|fsm_full_tb_t1.v|+cover=sbcet|-coveropt|1|
+!i113 0
+R7
+o-sv +cover=sbcet -coveropt 1 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1

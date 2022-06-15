@@ -1,0 +1,67 @@
+m255
+K4
+z2
+!s11f vlog 2019.2 2019.04, Apr 17 2019
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/modeltech64_2019.2/examples/verilog_FL_3/mux_4_1/mux_4_1_wadden_buggy2
+T_opt
+!s110 1651897703
+VYc[f>FNkL0Bb^bg=_jQkO0
+04 11 4 work tb_4to1_mux fast 0
+=1-2cf05d3424e2-6275f566-220-3454
+o-quiet -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2019.2;69
+R0
+vmux_4to1_case
+Z2 !s110 1651910684
+!i10b 1
+!s100 13Be=JbA4;?94fV@nTk2L3
+!s11b fLL7i60mTBjDmh`K`zETF0
+I05m4l>^dnQ^A6_XR3gH2G2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1641312281
+8mux_4_1_wadden_buggy2.v
+Fmux_4_1_wadden_buggy2.v
+L0 1
+Z5 OL;L;2019.2;69
+r1
+!s85 0
+31
+Z6 !s108 1651910684.000000
+!s107 mux_4_1_wadden_buggy2.v|
+!s90 -reportprogress|300|mux_4_1_wadden_buggy2.v|+cover=sbcet|-coveropt|1|
+!i113 0
+Z7 !s102 +cover=sbcet -coveropt 1
+Z8 o+cover=sbcet -coveropt 1 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vtb_4to1_mux
+R2
+!i10b 1
+!s100 P?N=f6?Q58>M`8E4XTe8V0
+!s11b J4R07kl9hnZ^`PEX8S?fX1
+IYYEo?Q@RkA@b8QD_A8bLI3
+R3
+R0
+R4
+8mux_4_1_tb.v
+Fmux_4_1_tb.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 mux_4_1_tb.v|
+!s90 -reportprogress|300|mux_4_1_tb.v|+cover=sbcet|-coveropt|1|
+!i113 0
+R7
+R8
+R1

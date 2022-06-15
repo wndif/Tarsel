@@ -1,0 +1,868 @@
+Coverage Report by file with details
+
+=================================================================================
+=== File: sdram_controller_wadden_buggy2.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        51         9        42    17.64%
+
+================================Branch Details================================
+
+Branch Coverage for file sdram_controller_wadden_buggy2.v --
+
+------------------------------------IF Branch------------------------------------
+    165                                        1     Count coming in to IF
+    165             1                          1     assign rd_ready = rd_ready_r;
+    165             2                    ***0***     assign rd_ready = rd_ready_r;
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    166                                        1     Count coming in to IF
+    166             1                          1     
+    166             2                    ***0***     
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    168                                  ***0***     Count coming in to IF
+    168             1                    ***0***     // all registered on posedge
+    168             2                    ***0***     // all registered on posedge
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    174                                        1     Count coming in to IF
+    174             1                    ***0***         state_cnt <= 4'hf;
+    185             1                          1         command <= command_nxt;
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    191                                        1     Count coming in to IF
+    191             1                          1     
+    193             1                    ***0***           wr_data_r <= wr_data;
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    196                                        1     Count coming in to IF
+    196             1                    ***0***           begin
+                                               1     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    199                                        1     Count coming in to IF
+    199             1                    ***0***           end
+    204             1                          1         busy <= state[4];
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    209                                        1     Count coming in to IF
+    209             1                          1           haddr_r <= wr_addr;
+    211             1                    ***0***         end
+                                         ***0***     All False Count
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    218                                        1     Count coming in to IF
+    218             1                    ***0***        if (state == REF_NOP2)
+    221             1                    ***0***          refresh_cnt <= refresh_cnt + 1'b1;
+    223             1                          1     
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    230                                  ***0***     Count coming in to IF
+    230             1                    ***0***           {data_mask_low_r, data_mask_high_r} = 2'b11;
+    232             1                    ***0***        bank_addr_r = 2'b00;
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    238                                  ***0***     Count coming in to IF
+    238             1                    ***0***          addr_r = haddr_r[HADDR_WIDTH-(BANK_WIDTH+1):HADDR_WIDTH-(BANK_WIDTH+ROW_WIDTH)];
+    243             1                    ***0***          // Set bank to bank to precharge
+    266             1                    ***0***          //                                       B  C  SB
+                                         ***0***     All False Count
+Branch totals: 0 hits of 4 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    282                                        1     Count coming in to IF
+    282             1                    ***0***               begin
+    305             1                    ***0***             else
+    411             1                          1               endcase
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    284                                  ***0***     Count coming in to IF
+    284             1                    ***0***               command_nxt = CMD_PALL;
+    289             1                    ***0***               command_nxt = CMD_BACT;
+    294             1                    ***0***               command_nxt = CMD_BACT;
+    299             1                    ***0***               next = IDLE;
+Branch totals: 0 hits of 4 branches = 0.00%
+
+------------------------------------CASE Branch------------------------------------
+    306                                  ***0***     Count coming in to CASE
+    308             1                    ***0***               next = IDLE;
+    313             1                    ***0***               // INIT ENGINE
+    317             1                    ***0***                 command_nxt = CMD_PALL;
+    322             1                    ***0***                 end
+    327             1                    ***0***                 end
+    332             1                    ***0***                 end
+    337             1                    ***0***                 end
+    342             1                    ***0***                 end
+    350             1                    ***0***                 next = INIT_NOP4;
+    354             1                    ***0***     
+    359             1                    ***0***                 end
+    367             1                    ***0***                 next = REF_NOP2;
+    372             1                    ***0***               // WRITE
+    377             1                    ***0***                 end
+    385             1                    ***0***                 next = WRIT_NOP2;
+    395             1                    ***0***                 end
+    400             1                    ***0***                 end
+    406             1                    ***0***     
+Branch totals: 0 hits of 18 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                      12         0        12     0.00%
+
+================================Condition Details================================
+
+Condition Coverage for file sdram_controller_wadden_buggy2.v --
+
+----------------Focused Condition View-------------------
+Line       166 Item    1  (state[4] | (state == 14))
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+     Input Term   Covered  Reason for no coverage   Hint
+    -----------  --------  -----------------------  --------------
+       state[4]         N  '_0' not hit             Hit '_0'
+  (state == 14)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  state[4]_0            ~(state == 14)                
+  Row   2:          1  state[4]_1            ~(state == 14)                
+  Row   3:    ***0***  (state == 14)_0       ~state[4]                     
+  Row   4:    ***0***  (state == 14)_1       ~state[4]                     
+
+----------------Focused Condition View-------------------
+Line       168 Item    1  (state == 26)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+     Input Term   Covered  Reason for no coverage   Hint
+    -----------  --------  -----------------------  --------------
+  (state == 26)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (state == 26)_0       -                             
+  Row   2:    ***0***  (state == 26)_1       -                             
+
+----------------Focused Condition View-------------------
+Line       199 Item    1  (state == 20)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+     Input Term   Covered  Reason for no coverage   Hint
+    -----------  --------  -----------------------  --------------
+  (state == 20)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (state == 20)_0       -                             
+  Row   2:    ***0***  (state == 20)_1       -                             
+
+----------------Focused Condition View-------------------
+Line       221 Item    1  (state == 4)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (state == 4)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (state == 4)_0        -                             
+  Row   2:    ***0***  (state == 4)_1        -                             
+
+----------------Focused Condition View-------------------
+Line       238 Item    1  ((state == 16) | (state == 24))
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+     Input Term   Covered  Reason for no coverage   Hint
+    -----------  --------  -----------------------  --------------
+  (state == 16)         N  No hits                  Hit '_0' and '_1'
+  (state == 24)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (state == 16)_0       ~(state == 24)                
+  Row   2:    ***0***  (state == 16)_1       ~(state == 24)                
+  Row   3:    ***0***  (state == 24)_0       ~(state == 16)                
+  Row   4:    ***0***  (state == 24)_1       ~(state == 16)                
+
+----------------Focused Condition View-------------------
+Line       243 Item    1  ((state == 18) | (state == 26))
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+     Input Term   Covered  Reason for no coverage   Hint
+    -----------  --------  -----------------------  --------------
+  (state == 18)         N  No hits                  Hit '_0' and '_1'
+  (state == 26)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (state == 18)_0       ~(state == 26)                
+  Row   2:    ***0***  (state == 18)_1       ~(state == 26)                
+  Row   3:    ***0***  (state == 26)_0       ~(state == 18)                
+  Row   4:    ***0***  (state == 26)_1       ~(state == 18)                
+
+----------------Focused Condition View-------------------
+Line       266 Item    1  (state == 14)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+     Input Term   Covered  Reason for no coverage   Hint
+    -----------  --------  -----------------------  --------------
+  (state == 14)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (state == 14)_0       -                             
+  Row   2:    ***0***  (state == 14)_1       -                             
+
+----------------Focused Condition View-------------------
+Line       282 Item    1  (state == 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (state == 0)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (state == 0)_0        -                             
+  Row   2:    ***0***  (state == 0)_1        -                             
+
+----------------Focused Condition View-------------------
+Line       284 Item    1  (refresh_cnt >= 519)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (refresh_cnt >= 519)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (refresh_cnt >= 519)_0  -                             
+  Row   2:    ***0***  (refresh_cnt >= 519)_1  -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      85        17        68    20.00%
+
+================================Statement Details================================
+
+Statement Coverage for file sdram_controller_wadden_buggy2.v --
+
+    1                                                /**
+    2                                                 * simple controller for ISSI IS42S16160G-7 SDRAM found in De0 Nano
+    3                                                 *  16Mbit x 16 data bit bus (32 megabytes)
+    4                                                 *  Default options
+    5                                                 *    133Mhz
+    6                                                 *    CAS 3
+    7                                                 *
+    8                                                 *  Very simple host interface
+    9                                                 *     * No burst support
+    10                                                *     * haddr - address for reading and wriging 16 bits of data
+    11                                                *     * data_input - data for writing, latched in when wr_enable is highz0
+    12                                                *     * data_output - data for reading, comes available sometime
+    13                                                *       *few clocks* after rd_enable and address is presented on bus
+    14                                                *     * rst_n - start init ram process
+    15                                                *     * rd_enable - read enable, on clk posedge haddr will be latched in,
+    16                                                *       after *few clocks* data will be available on the data_output port
+    17                                                *     * wr_enable - write enable, on clk posedge haddr and data_input will
+    18                                                *       be latched in, after *few clocks* data will be written to sdram
+    19                                                *
+    20                                                * Theory
+    21                                                *  This simple host interface has a busy signal to tell you when you are
+    22                                                *  not able to issue commands.
+    23                                                */
+    24                                               
+    25                                               module sdram_controller (
+    26                                                   /* HOST INTERFACE */
+    27                                                   wr_addr,
+    28                                                   wr_data,
+    29                                                   wr_enable,
+    30                                               
+    31                                                   rd_addr,
+    32                                                   rd_data,
+    33                                                   rd_ready,
+    34                                                   rd_enable,
+    35                                               
+    36                                                   busy, rst_n, clk,
+    37                                               
+    38                                                   /* SDRAM SIDE */
+    39                                                   addr, bank_addr, data, clock_enable, cs_n, ras_n, cas_n, we_n,
+    40                                                   data_mask_low, data_mask_high
+    41                                               );
+    42                                               
+    43                                               /* Internal Parameters */
+    44                                               parameter ROW_WIDTH = 13;
+    45                                               parameter COL_WIDTH = 9;
+    46                                               parameter BANK_WIDTH = 2;
+    47                                               
+    48                                               parameter SDRADDR_WIDTH = ROW_WIDTH > COL_WIDTH ? ROW_WIDTH : COL_WIDTH;
+    49                                               parameter HADDR_WIDTH = BANK_WIDTH + ROW_WIDTH + COL_WIDTH;
+    50                                               
+    51                                               parameter CLK_FREQUENCY = 133;  // Mhz
+    52                                               parameter REFRESH_TIME =  32;   // ms     (how often we need to refresh)
+    53                                               parameter REFRESH_COUNT = 8192; // cycles (how many refreshes required per refresh time)
+    54                                               
+    55                                               // clk / refresh =  clk / sec
+    56                                               //                , sec / refbatch
+    57                                               //                , ref / refbatch
+    58                                               localparam CYCLES_BETWEEN_REFRESH = ( CLK_FREQUENCY
+    59                                                                                     * 1_000
+    60                                                                                     * REFRESH_TIME
+    61                                                                                   ) / REFRESH_COUNT;
+    62                                               
+    63                                               // STATES - State
+    64                                               localparam IDLE      = 5'b00000;
+    65                                               
+    66                                               localparam INIT_NOP1 = 5'b01000,
+    67                                                          INIT_PRE1 = 5'b01001,
+    68                                                          INIT_NOP1_1=5'b00101,
+    69                                                          INIT_REF1 = 5'b01010,
+    70                                                          INIT_NOP2 = 5'b01011,
+    71                                                          INIT_REF2 = 5'b01100,
+    72                                                          INIT_NOP3 = 5'b01101,
+    73                                                          INIT_LOAD = 5'b01110,
+    74                                                          INIT_NOP4 = 5'b01111;
+    75                                               
+    76                                               localparam REF_PRE  =  5'b00001,
+    77                                                          REF_NOP1 =  5'b00010,
+    78                                                          REF_REF  =  5'b00011,
+    79                                                          REF_NOP2 =  5'b00100;
+    80                                               
+    81                                               localparam READ_ACT  = 5'b10000,
+    82                                                          READ_NOP1 = 5'b10000,
+    83                                                          READ_CAS  = 5'b10010,
+    84                                                          READ_NOP2 = 5'b10011,
+    85                                                          READ_READ = 5'b10100;
+    86                                               
+    87                                               localparam WRIT_ACT  = 5'b11000,
+    88                                                          WRIT_NOP1 = 5'b11001,
+    89                                                          WRIT_CAS  = 5'b11010,
+    90                                                          WRIT_NOP2 = 5'b11011;
+    91                                               
+    92                                               // Commands              CCRCWBBA
+    93                                               //                       ESSSE100
+    94                                               localparam CMD_PALL = 8'b10010001,
+    95                                                          CMD_REF  = 8'b10001000,
+    96                                                          CMD_NOP  = 8'b10111000,
+    97                                                          CMD_MRS  = 8'b1000000x,
+    98                                                          CMD_BACT = 8'b10011xxx,
+    99                                                          CMD_READ = 8'b10101xx1,
+    100                                                         CMD_WRIT = 8'b10100xx1;
+    101                                              
+    102                                              /* Interface Definition */
+    103                                              /* HOST INTERFACE */
+    104                                              input  [HADDR_WIDTH-1:0]   wr_addr;
+    105                                              input  [15:0]              wr_data;
+    106                                              input                      wr_enable;
+    107                                              
+    108                                              input  [HADDR_WIDTH-1:0]   rd_addr;
+    109                                              output [15:0]              rd_data;
+    110                                              input                      rd_enable;
+    111                                              output                     rd_ready;
+    112                                              
+    113                                              output                     busy;
+    114                                              input                      rst_n;
+    115                                              input                      clk;
+    116                                              
+    117                                              /* SDRAM SIDE */
+    118                                              //output [SDRADDR_WIDTH-1:0] addr;
+    119                                              //output [BANK_WIDTH-1:0]    bank_addr;
+    120                                              output [12:0]              addr;
+    121                                              output [1:0]               bank_addr;
+    122                                              inout  [15:0]              data;
+    123                                              output                     clock_enable;
+    124                                              output                     cs_n;
+    125                                              output                     ras_n;
+    126                                              output                     cas_n;
+    127                                              output                     we_n;
+    128                                              output                     data_mask_low;
+    129                                              output                     data_mask_high;
+    130                                              
+    131                                              /* I/O Registers */
+    132                                              
+    133                                              reg  [HADDR_WIDTH-1:0]   haddr_r;
+    134                                              reg  [15:0]              wr_data_r;
+    135                                              reg  [15:0]              rd_data_r;
+    136                                              reg                      busy;
+    137                                              reg                      data_mask_low_r;
+    138                                              reg                      data_mask_high_r;
+    139                                              reg [SDRADDR_WIDTH-1:0]  addr_r;
+    140                                              reg [BANK_WIDTH-1:0]     bank_addr_r;
+    141                                              reg                      rd_ready_r;
+    142                                              
+    143                                              wire [15:0]              data_output;
+    144                                              wire                     data_mask_low, data_mask_high;
+    145                                              
+    146             1                    ***0***     assign data_mask_high = data_mask_high_r;
+    147             1                    ***0***     assign data_mask_low  = data_mask_low_r;
+    148             1                    ***0***     assign rd_data        = rd_data_r;
+    149                                              
+    150                                              /* Internal Wiring */
+    151                                              reg [3:0] state_cnt;
+    152                                              reg [9:0] refresh_cnt;
+    153                                              
+    154                                              reg [7:0] command;
+    155                                              reg [4:0] state;
+    156                                              
+    157                                              // TODO output addr[6:4] when programming mode register
+    158                                              
+    159                                              reg [7:0] command_nxt;
+    160                                              reg [3:0] state_cnt_nxt;
+    161                                              reg [4:0] next;
+    162                                              
+    163             1                          1     assign {clock_enable, cs_n, ras_n, cas_n, we_n} = command[7:3];
+    164                                              // state[4] will be set if mode is read/write
+    165             1                          1     assign bank_addr      = (state[4]) ? bank_addr_r : command[2:1];
+    166             1                          1     assign addr           = (state[4] | state == INIT_LOAD) ? addr_r : { {SDRADDR_WIDTH-11{1'b0}}, command[0], 10'd0 };
+    167                                              
+    168             1                    ***0***     assign data = (state == WRIT_CAS) ? wr_data_r : 16'bz;
+    169             1                    ***0***     assign rd_ready = rd_ready_r;
+    170                                              
+    171                                              // HOST INTERFACE
+    172                                              // all registered on posedge
+    173             1                          1     always @ (posedge clk)
+    174                                                if (~rst_n)
+    175                                                  begin
+    176             1                    ***0***         state <= INIT_NOP1;
+    177             1                    ***0***         command <= CMD_NOP;
+    178             1                    ***0***         state_cnt <= 4'hf;
+    179                                              
+    180             1                    ***0***         haddr_r <= {HADDR_WIDTH{1'b0}};
+    181             1                    ***0***         wr_data_r <= 16'b0;
+    182             1                    ***0***         rd_data_r <= 16'b0;
+    183             1                    ***0***         busy <= 1'b0;
+    184                                                  end
+    185                                                else
+    186                                                  begin
+    187                                              
+    188             1                          1         state <= next;
+    189             1                          1         command <= command_nxt;
+    190                                              
+    191                                                  if (!state_cnt)
+    192             1                          1           state_cnt <= state_cnt_nxt;
+    193                                                  else
+    194             1                    ***0***           state_cnt <= state_cnt - 1'b1;
+    195                                              
+    196                                                  if (wr_enable)
+    197             1                    ***0***           wr_data_r <= wr_data;
+    198                                              
+    199                                                  if (state == READ_READ)
+    200                                                    begin
+    201             1                    ***0***           rd_data_r <= data;
+    202             1                    ***0***           rd_ready_r <= 1'b1;
+    203                                                    end
+    204                                                  else
+    205             1                          1           rd_ready_r <= 1'b0;
+    206                                              
+    207             1                          1         busy <= state[4];
+    208                                              
+    209                                                  if (rd_enable)
+    210             1                          1           haddr_r <= rd_addr;
+    211                                                  else if (wr_enable)
+    212             1                    ***0***           haddr_r <= wr_addr;
+    213                                              
+    214                                                  end
+    215                                              
+    216                                              // Handle refresh counter
+    217             1                          1     always @ (posedge clk)
+    218                                               if (~rst_n)
+    219             1                    ***0***        refresh_cnt <= 10'b0;
+    220                                               else
+    221                                                 if (state == REF_NOP2)
+    222             1                    ***0***          refresh_cnt <= 10'b0;
+    223                                                 else
+    224             1                          1          refresh_cnt <= refresh_cnt + 1'b1;
+    225                                              
+    226                                              
+    227                                              /* Handle logic for sending addresses to SDRAM based on current state*/
+    228             1                    ***0***     always @(*)
+    229                                              begin
+    230                                                  if (state[4])
+    231             1                    ***0***           {data_mask_low_r, data_mask_high_r} = 2'b00;
+    232                                                  else
+    233             1                    ***0***           {data_mask_low_r, data_mask_high_r} = 2'b11;
+    234                                              
+    235             1                    ***0***        bank_addr_r = 2'b00;
+    236             1                    ***0***        addr_r = {SDRADDR_WIDTH{1'b0}};
+    237                                              
+    238                                                 if (state == READ_ACT | state == WRIT_ACT)
+    239                                                   begin
+    240             1                    ***0***          bank_addr_r = haddr_r[HADDR_WIDTH-1:HADDR_WIDTH-(BANK_WIDTH)];
+    241             1                    ***0***          addr_r = haddr_r[HADDR_WIDTH-(BANK_WIDTH+1):HADDR_WIDTH-(BANK_WIDTH+ROW_WIDTH)];
+    242                                                   end
+    243                                                 else if (state == READ_CAS | state == WRIT_CAS)
+    244                                                   begin
+    245                                                   // Send Column Address
+    246                                                   // Set bank to bank to precharge
+    247             1                    ***0***          bank_addr_r = haddr_r[HADDR_WIDTH-1:HADDR_WIDTH-(BANK_WIDTH)];
+    248                                              
+    249                                                   // Examples for math
+    250                                                   //               BANK  ROW    COL
+    251                                                   // HADDR_WIDTH   2 +   13 +   9   = 24
+    252                                                   // SDRADDR_WIDTH 13
+    253                                              
+    254                                                   // Set CAS address to:
+    255                                                   //   0s,
+    256                                                   //   1 (A10 is always for auto precharge),
+    257                                                   //   0s,
+    258                                                   //   column address
+    259             1                    ***0***          addr_r = {
+    260                                                             {SDRADDR_WIDTH-(11){1'b0}},
+    261                                                             1'b1,                       /* A10 */
+    262                                                             {10-COL_WIDTH{1'b0}},
+    263                                                             haddr_r[COL_WIDTH-1:0]
+    264                                                            };
+    265                                                   end
+    266                                                 else if (state == INIT_LOAD)
+    267                                                   begin
+    268                                                   // Program mode register during load cycle
+    269                                                   //                                       B  C  SB
+    270                                                   //                                       R  A  EUR
+    271                                                   //                                       S  S-3Q ST
+    272                                                   //                                       T  654L210
+    273             1                    ***0***          addr_r = {{SDRADDR_WIDTH-10{1'b0}}, 10'b1000110000};
+    274                                                   end
+    275                                              end
+    276                                              
+    277                                              // Next state logic
+    278             1                          1     always @(*)
+    279                                              begin
+    280             1                          1        state_cnt_nxt = 4'd0;
+    281             1                          1        command_nxt = CMD_NOP;
+    282                                                 if (state == IDLE)
+    283                                                      // Monitor for refresh or hold
+    284                                                      if (refresh_cnt >= CYCLES_BETWEEN_REFRESH)
+    285                                                        begin
+    286             1                    ***0***               next = REF_PRE;
+    287             1                    ***0***               command_nxt = CMD_PALL;
+    288                                                        end
+    289                                                      else if (rd_enable)
+    290                                                        begin
+    291             1                    ***0***               next = READ_ACT;
+    292             1                    ***0***               command_nxt = CMD_BACT;
+    293                                                        end
+    294                                                      else if (wr_enable)
+    295                                                        begin
+    296             1                    ***0***               next = WRIT_ACT;
+    297             1                    ***0***               command_nxt = CMD_BACT;
+    298                                                        end
+    299                                                      else
+    300                                                        begin
+    301                                                        // HOLD
+    302             1                    ***0***               next = IDLE;
+    303                                                        end
+    304                                                  else
+    305                                                    if (!state_cnt)
+    306                                                      case (state)
+    307                                                        // INIT ENGINE
+    308                                                        INIT_NOP1:
+    309                                                          begin
+    310             1                    ***0***                 next = INIT_PRE1;
+    311             1                    ***0***                 command_nxt = CMD_PALL;
+    312                                                          end
+    313                                                        INIT_PRE1:
+    314                                                          begin
+    315             1                    ***0***                 next = INIT_NOP1_1;
+    316                                                          end
+    317                                                        INIT_NOP1_1:
+    318                                                          begin
+    319             1                    ***0***                 next = INIT_REF1;
+    320             1                    ***0***                 command_nxt = CMD_REF;
+    321                                                          end
+    322                                                        INIT_REF1:
+    323                                                          begin
+    324             1                    ***0***                 next = INIT_NOP2;
+    325             1                    ***0***                 state_cnt_nxt = 4'd7;
+    326                                                          end
+    327                                                        INIT_NOP2:
+    328                                                          begin
+    329             1                    ***0***                 next = INIT_REF2;
+    330             1                    ***0***                 command_nxt = CMD_REF;
+    331                                                          end
+    332                                                        INIT_REF2:
+    333                                                          begin
+    334             1                    ***0***                 next = INIT_NOP3;
+    335             1                    ***0***                 state_cnt_nxt = 4'd7;
+    336                                                          end
+    337                                                        INIT_NOP3:
+    338                                                          begin
+    339             1                    ***0***                 next = INIT_LOAD;
+    340             1                    ***0***                 command_nxt = CMD_MRS;
+    341                                                          end
+    342                                                        INIT_LOAD:
+    343                                                          begin
+    344             1                    ***0***                 next = INIT_NOP4;
+    345             1                    ***0***                 state_cnt_nxt = 4'd1;
+    346                                                          end
+    347                                                        // INIT_NOP4: default - IDLE
+    348                                              
+    349                                                        // REFRESH
+    350                                                        REF_PRE:
+    351                                                          begin
+    352             1                    ***0***                 next = REF_NOP1;
+    353                                                          end
+    354                                                        REF_NOP1:
+    355                                                          begin
+    356             1                    ***0***                 next = REF_REF;
+    357             1                    ***0***                 command_nxt = CMD_REF;
+    358                                                          end
+    359                                                        REF_REF:
+    360                                                          begin
+    361             1                    ***0***                 next = REF_NOP2;
+    362             1                    ***0***                 state_cnt_nxt = 4'd7;
+    363                                                          end
+    364                                                        // REF_NOP2: default - IDLE
+    365                                              
+    366                                                        // WRITE
+    367                                                        WRIT_ACT:
+    368                                                          begin
+    369             1                    ***0***                 next = WRIT_NOP1;
+    370             1                    ***0***                 state_cnt_nxt = 4'd1;
+    371                                                          end
+    372                                                        WRIT_NOP1:
+    373                                                          begin
+    374             1                    ***0***                 next = WRIT_CAS;
+    375             1                    ***0***                 command_nxt = CMD_WRIT;
+    376                                                          end
+    377                                                        WRIT_CAS:
+    378                                                          begin
+    379             1                    ***0***                 next = WRIT_NOP2;
+    380             1                    ***0***                 state_cnt_nxt = 4'd1;
+    381                                                          end
+    382                                                        // WRIT_NOP2: default - IDLE
+    383                                              
+    384                                                        // READ
+    385                                                        READ_ACT:
+    386                                                          begin
+    387             1                    ***0***                 next = READ_NOP1;
+    388             1                    ***0***                 state_cnt_nxt = 4'd1;
+    389                                                          end
+    390                                                        READ_NOP1:
+    391                                                          begin
+    392                                                          next = READ_CAS;
+    393                                                          command_nxt = CMD_READ;
+    394                                                          end
+    395                                                        READ_CAS:
+    396                                                          begin
+    397             1                    ***0***                 next = READ_NOP2;
+    398             1                    ***0***                 state_cnt_nxt = 4'd1;
+    399                                                          end
+    400                                                        READ_NOP2:
+    401                                                          begin
+    402             1                    ***0***                 next = READ_READ;
+    403                                                          end
+    404                                                        // READ_READ: default - IDLE
+    405                                              
+    406                                                        default:
+    407                                                          begin
+    408             1                    ***0***                 next = IDLE;
+    409                                                          end
+    410                                                        endcase
+    411                                                    else
+    412                                                      begin
+    413                                                      // Counter Not Reached - HOLD
+    414             1                          1             next = state;
+    415             1                          1             command_nxt = command;
+    416                                                      command_nxt = command;
+    417                                                      end
+    418                                              end
+    419                                              
+    420                                              endmodule
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        318         0       318     0.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for File sdram_controller_wadden_buggy2.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+        108                             rd_addr[9]           0           0        0.00 
+        108                             rd_addr[8]           0           0        0.00 
+        108                             rd_addr[7]           0           0        0.00 
+        108                             rd_addr[6]           0           0        0.00 
+        108                             rd_addr[5]           0           0        0.00 
+        108                             rd_addr[4]           0           0        0.00 
+        108                             rd_addr[3]           0           0        0.00 
+        108                             rd_addr[2]           0           0        0.00 
+        108                            rd_addr[23]           0           0        0.00 
+        108                            rd_addr[22]           0           0        0.00 
+        108                            rd_addr[21]           0           0        0.00 
+        108                            rd_addr[20]           0           0        0.00 
+        108                             rd_addr[1]           0           0        0.00 
+        108                            rd_addr[19]           0           0        0.00 
+        108                            rd_addr[18]           0           0        0.00 
+        108                            rd_addr[17]           0           0        0.00 
+        108                            rd_addr[16]           0           0        0.00 
+        108                            rd_addr[15]           0           0        0.00 
+        108                            rd_addr[14]           0           0        0.00 
+        108                            rd_addr[13]           0           0        0.00 
+        108                            rd_addr[12]           0           0        0.00 
+        108                            rd_addr[11]           0           0        0.00 
+        108                            rd_addr[10]           0           0        0.00 
+        108                             rd_addr[0]           0           0        0.00 
+        133                             haddr_r[9]           0           0        0.00 
+        133                             haddr_r[8]           0           0        0.00 
+        133                             haddr_r[7]           0           0        0.00 
+        133                             haddr_r[6]           0           0        0.00 
+        133                             haddr_r[5]           0           0        0.00 
+        133                             haddr_r[4]           0           0        0.00 
+        133                             haddr_r[3]           0           0        0.00 
+        133                             haddr_r[2]           0           0        0.00 
+        133                            haddr_r[23]           0           0        0.00 
+        133                            haddr_r[22]           0           0        0.00 
+        133                            haddr_r[21]           0           0        0.00 
+        133                            haddr_r[20]           0           0        0.00 
+        133                             haddr_r[1]           0           0        0.00 
+        133                            haddr_r[19]           0           0        0.00 
+        133                            haddr_r[18]           0           0        0.00 
+        133                            haddr_r[17]           0           0        0.00 
+        133                            haddr_r[16]           0           0        0.00 
+        133                            haddr_r[15]           0           0        0.00 
+        133                            haddr_r[14]           0           0        0.00 
+        133                            haddr_r[13]           0           0        0.00 
+        133                            haddr_r[12]           0           0        0.00 
+        133                            haddr_r[11]           0           0        0.00 
+        133                            haddr_r[10]           0           0        0.00 
+        133                             haddr_r[0]           0           0        0.00 
+        134                           wr_data_r[9]           0           0        0.00 
+        134                           wr_data_r[8]           0           0        0.00 
+        134                           wr_data_r[7]           0           0        0.00 
+        134                           wr_data_r[6]           0           0        0.00 
+        134                           wr_data_r[5]           0           0        0.00 
+        134                           wr_data_r[4]           0           0        0.00 
+        134                           wr_data_r[3]           0           0        0.00 
+        134                           wr_data_r[2]           0           0        0.00 
+        134                           wr_data_r[1]           0           0        0.00 
+        134                          wr_data_r[15]           0           0        0.00 
+        134                          wr_data_r[14]           0           0        0.00 
+        134                          wr_data_r[13]           0           0        0.00 
+        134                          wr_data_r[12]           0           0        0.00 
+        134                          wr_data_r[11]           0           0        0.00 
+        134                          wr_data_r[10]           0           0        0.00 
+        134                           wr_data_r[0]           0           0        0.00 
+        135                           rd_data_r[9]           0           0        0.00 
+        135                           rd_data_r[8]           0           0        0.00 
+        135                           rd_data_r[7]           0           0        0.00 
+        135                           rd_data_r[6]           0           0        0.00 
+        135                           rd_data_r[5]           0           0        0.00 
+        135                           rd_data_r[4]           0           0        0.00 
+        135                           rd_data_r[3]           0           0        0.00 
+        135                           rd_data_r[2]           0           0        0.00 
+        135                           rd_data_r[1]           0           0        0.00 
+        135                          rd_data_r[15]           0           0        0.00 
+        135                          rd_data_r[14]           0           0        0.00 
+        135                          rd_data_r[13]           0           0        0.00 
+        135                          rd_data_r[12]           0           0        0.00 
+        135                          rd_data_r[11]           0           0        0.00 
+        135                          rd_data_r[10]           0           0        0.00 
+        135                           rd_data_r[0]           0           0        0.00 
+        136                                   busy           0           0        0.00 
+        137                        data_mask_low_r           0           0        0.00 
+        138                       data_mask_high_r           0           0        0.00 
+        139                              addr_r[9]           0           0        0.00 
+        139                              addr_r[8]           0           0        0.00 
+        139                              addr_r[7]           0           0        0.00 
+        139                              addr_r[6]           0           0        0.00 
+        139                              addr_r[5]           0           0        0.00 
+        139                              addr_r[4]           0           0        0.00 
+        139                              addr_r[3]           0           0        0.00 
+        139                              addr_r[2]           0           0        0.00 
+        139                              addr_r[1]           0           0        0.00 
+        139                             addr_r[12]           0           0        0.00 
+        139                             addr_r[11]           0           0        0.00 
+        139                             addr_r[10]           0           0        0.00 
+        139                              addr_r[0]           0           0        0.00 
+        140                         bank_addr_r[1]           0           0        0.00 
+        140                         bank_addr_r[0]           0           0        0.00 
+        141                             rd_ready_r           0           0        0.00 
+        143                         data_output[9]           0           0        0.00 
+        143                         data_output[8]           0           0        0.00 
+        143                         data_output[7]           0           0        0.00 
+        143                         data_output[6]           0           0        0.00 
+        143                         data_output[5]           0           0        0.00 
+        143                         data_output[4]           0           0        0.00 
+        143                         data_output[3]           0           0        0.00 
+        143                         data_output[2]           0           0        0.00 
+        143                         data_output[1]           0           0        0.00 
+        143                        data_output[15]           0           0        0.00 
+        143                        data_output[14]           0           0        0.00 
+        143                        data_output[13]           0           0        0.00 
+        143                        data_output[12]           0           0        0.00 
+        143                        data_output[11]           0           0        0.00 
+        143                        data_output[10]           0           0        0.00 
+        143                         data_output[0]           0           0        0.00 
+        151                           state_cnt[3]           0           0        0.00 
+        151                           state_cnt[2]           0           0        0.00 
+        151                           state_cnt[1]           0           0        0.00 
+        151                           state_cnt[0]           0           0        0.00 
+        152                         refresh_cnt[9]           0           0        0.00 
+        152                         refresh_cnt[8]           0           0        0.00 
+        152                         refresh_cnt[7]           0           0        0.00 
+        152                         refresh_cnt[6]           0           0        0.00 
+        152                         refresh_cnt[5]           0           0        0.00 
+        152                         refresh_cnt[4]           0           0        0.00 
+        152                         refresh_cnt[3]           0           0        0.00 
+        152                         refresh_cnt[2]           0           0        0.00 
+        152                         refresh_cnt[1]           0           0        0.00 
+        152                         refresh_cnt[0]           0           0        0.00 
+        154                             command[7]           0           0        0.00 
+        154                             command[6]           0           0        0.00 
+        154                             command[5]           0           0        0.00 
+        154                             command[4]           0           0        0.00 
+        154                             command[3]           0           0        0.00 
+        154                             command[2]           0           0        0.00 
+        154                             command[1]           0           0        0.00 
+        154                             command[0]           0           0        0.00 
+        155                               state[4]           0           0        0.00 
+        155                               state[3]           0           0        0.00 
+        155                               state[2]           0           0        0.00 
+        155                               state[1]           0           0        0.00 
+        155                               state[0]           0           0        0.00 
+        159                         command_nxt[7]           0           0        0.00 
+        159                         command_nxt[6]           0           0        0.00 
+        159                         command_nxt[5]           0           0        0.00 
+        159                         command_nxt[4]           0           0        0.00 
+        159                         command_nxt[3]           0           0        0.00 
+        159                         command_nxt[2]           0           0        0.00 
+        159                         command_nxt[1]           0           0        0.00 
+        159                         command_nxt[0]           0           0        0.00 
+        160                       state_cnt_nxt[3]           0           0        0.00 
+        160                       state_cnt_nxt[2]           0           0        0.00 
+        160                       state_cnt_nxt[1]           0           0        0.00 
+        160                       state_cnt_nxt[0]           0           0        0.00 
+        161                                next[4]           0           0        0.00 
+        161                                next[3]           0           0        0.00 
+        161                                next[2]           0           0        0.00 
+        161                                next[1]           0           0        0.00 
+        161                                next[0]           0           0        0.00 
+
+Total Node Count     =        159 
+Toggled Node Count   =          0 
+Untoggled Node Count =        159 
+
+Toggle Coverage      =       0.00% (0 of 318 bins)
+
+
+Total Coverage By File (code coverage only, filtered view): 9.41%
+

@@ -1,0 +1,73 @@
+# //  ModelSim SE-64 2019.2 Apr 17 2019
+# //
+# //  Copyright 1991-2019 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do collectCoverage301s.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2019.2 Lib Mapping Utility 2019.04 Apr 17 2019
+# vmap work work 
+# Modifying D:/modeltech64_2019.2/win64/modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 12:32:59 on Jun 02,2022
+# vlog -reportprogress 300 sdram_controller_wadden_buggy1.v "+cover=sbcet" -coveropt 1 
+# -- Compiling module sdram_controller
+# 
+# Top level modules:
+# 	sdram_controller
+# End time: 12:32:59 on Jun 02,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 12:32:59 on Jun 02,2022
+# vlog -reportprogress 300 sdram_controller_tb_t1.v "+cover=sbcet" -coveropt 1 
+# -- Compiling module sdram_controller_tb
+# 
+# Top level modules:
+# 	sdram_controller_tb
+# End time: 12:32:59 on Jun 02,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -coverage sdram_controller_tb 
+# Start time: 12:32:59 on Jun 02,2022
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.sdram_controller_tb(fast)
+# 0	 000000	 0	 x	 0	 1	 zzzz	 0000	 xxxx	 x	 xxxx	 x	 xxxx	 x	 x	 x	 x	 x	
+# 1	 000000	 0	 0	 0	 1	 zzzz	 0000	 xxxx	 x	 xxxx	 x	 xxxx	 x	 x	 x	 x	 x	
+# 3	 000000	 0	 0	 0	 0	 zzzz	 0000	 xxxx	 0	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 5	 000000	 0	 0	 0	 0	 zzzz	 0000	 zzzz	 0	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 6	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 37	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 0400	 0	 zzzz	 1	 1	 0	 1	 1	
+# 39	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 41	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 0000	 0	 zzzz	 1	 0	 1	 1	 1	
+# 43	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 59	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 0000	 0	 zzzz	 1	 0	 1	 1	 1	
+# 61	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 77	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 0230	 0	 zzzz	 1	 0	 0	 1	 1	
+# 79	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 126	 fedbed	 0	 0	 0	 1	 zzzz	 0d05	 zzzz	 0	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 129	 fedbed	 0	 0	 1	 1	 zzzz	 0d05	 zzzz	 0	 1f6d	 3	 zzzz	 1	 1	 1	 0	 0	
+# 131	 fedbed	 0	 0	 1	 1	 zzzz	 0d05	 zzzz	 1	 0000	 0	 zzzz	 1	 1	 1	 0	 0	
+# 135	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 1	 05ed	 3	 0d05	 1	 0	 0	 0	 0	
+# 137	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 1	 0000	 0	 zzzz	 1	 1	 1	 0	 0	
+# 141	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 1	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 143	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 255	 bedfed	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 258	 bedfed	 1	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 259	 bedfed	 1	 0	 0	 1	 zzzz	 0000	 zzzz	 0	 zzzz	 z	 zzzz	 1	 1	 1	 0	 0	
+# 261	 bedfed	 1	 0	 0	 1	 zzzz	 0000	 zzzz	 1	 0000	 0	 zzzz	 1	 1	 1	 0	 0	
+# 264	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 1	 0000	 0	 zzzz	 1	 1	 1	 0	 0	
+# 265	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 1	 0Zzz	 z	 zzzz	 1	 0	 1	 0	 0	
+# 267	 000000	 0	 0	 0	 1	 zzzz	 0000	 zzzz	 1	 0000	 0	 zzzz	 1	 1	 1	 0	 0	
+# 272	 000000	 0	 0	 0	 1	 bbbb	 0000	 zzzz	 1	 0000	 0	 bbbb	 1	 1	 1	 0	 0	
+# 273	 000000	 0	 1	 0	 1	 bbbb	 0000	 bbbb	 1	 0000	 0	 bbbb	 1	 1	 1	 1	 1	
+# 274	 000000	 0	 1	 0	 1	 zzzz	 0000	 bbbb	 1	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# 275	 000000	 0	 0	 0	 1	 zzzz	 0000	 bbbb	 0	 0000	 0	 zzzz	 1	 1	 1	 1	 1	
+# End time: 12:33:11 on Jun 02,2022, Elapsed time: 0:00:12
+# Errors: 0, Warnings: 0

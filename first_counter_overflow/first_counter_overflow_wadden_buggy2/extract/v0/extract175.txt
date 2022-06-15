@@ -1,0 +1,8 @@
+first_counter_overflow_wadden_buggy2-34-1 1
+first_counter_overflow_wadden_buggy2-39-1 0
+first_counter_overflow_wadden_buggy2-40-1 0
+first_counter_overflow_wadden_buggy2-44-1 1
+first_counter_overflow_wadden_buggy2-50-1 0
+first_counter_overflow_wadden_buggy2-38-1 0
+first_counter_overflow_wadden_buggy2-43-1 1
+first_counter_overflow_wadden_buggy2-48-1 0

@@ -1,0 +1,1095 @@
+Coverage Report by file with details
+
+=================================================================================
+=== File: i2c_master_bit_ctrl_kgoliya_buggy1.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        63        20        43    31.74%
+
+================================Branch Details================================
+
+Branch Coverage for file i2c_master_bit_ctrl_kgoliya_buggy1.v --
+
+------------------------------------IF Branch------------------------------------
+    199                                        2     Count coming in to IF
+    199             1                    ***0***           if (!nReset) slave_wait <= 1'b0;
+    200             1                          2           else         slave_wait <= (scl_oen & ~dscl_oen & ~sSCL) | (slave_wait & ~sSCL);
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    209                                        2     Count coming in to IF
+    209             1                    ***0***           if (~nReset)
+    214             1                          1           else if (rst || ~|cnt || !ena || scl_sync)
+    219             1                    ***0***           else if (slave_wait)
+    224             1                          1           else
+Branch totals: 2 hits of 4 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    236                                        2     Count coming in to IF
+    236             1                    ***0***           if (!nReset)
+    241             1                    ***0***           else if (rst)
+    246             1                          2           else
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    255                                        2     Count coming in to IF
+    255             1                    ***0***           if      (!nReset     ) filter_cnt <= 14'h0;
+    256             1                          1           else if (rst || !ena ) filter_cnt <= 14'h0;
+    257             1                    ***0***           else if (~|filter_cnt) filter_cnt <= clk_cnt >> 2; //16x I2C bus frequency
+    258             1                          1           else                   filter_cnt <= filter_cnt -1;
+Branch totals: 2 hits of 4 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    262                                        2     Count coming in to IF
+    262             1                    ***0***           if (!nReset)
+    267             1                    ***0***           else if (rst)
+    272             1                          1           else if (~|filter_cnt)
+                                               1     All False Count
+Branch totals: 2 hits of 4 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    281                                        2     Count coming in to IF
+    281             1                    ***0***           if (~nReset)
+    289             1                    ***0***           else if (rst)
+    297             1                          2           else
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    311                                        2     Count coming in to IF
+    311             1                    ***0***               sto_condition <= #1 1'b0;
+    316             1                    ***0***               sto_condition <= #1 1'b0;
+    321             1                          2               sto_condition <= #1  sSDA & ~dSDA & sSCL;
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    330                                        2     Count coming in to IF
+    330             1                    ***0***     
+    331             1                    ***0***     
+    332             1                          2         // generate arbitration lost signal
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    341                                        2     Count coming in to IF
+    341             1                    ***0***               cmd_stop <= #1 1'b0;
+    343             1                    ***0***               cmd_stop <= #1 cmd == `I2C_CMD_STOP;
+    345             1                          1         always @(posedge clk or negedge nReset)
+                                               1     All False Count
+Branch totals: 2 hits of 4 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    349                                        2     Count coming in to IF
+    349             1                    ***0***               al <= #1 1'b0;
+    351             1                    ***0***               al <= #1 (sda_chk & ~sSDA & sda_oen) | (|c_state & sto_condition & ~cmd_stop);
+    353             1                          2     
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    359                                        2     Count coming in to IF
+    359             1                    ***0***         // generate statemachine
+                                               2     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    385                                        2     Count coming in to IF
+    385             1                    ***0***               cmd_ack <= #1 1'b0;
+    393             1                    ***0***               cmd_ack <= #1 1'b0;
+    401             1                          2               // repair: ['insert(879,947)']
+Branch totals: 1 hit of 3 branches = 33.33%
+
+------------------------------------IF Branch------------------------------------
+    406                                        2     Count coming in to IF
+    406             1                          1                         // idle state
+                                               1     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    407                                        1     Count coming in to CASE
+    409             1                          1                             case (cmd) // synopsys full_case parallel_case
+    425             1                    ***0***                             c_state <= #1 start_b;
+    433             1                    ***0***                             c_state <= #1 start_c;
+    441             1                    ***0***                             c_state <= #1 start_d;
+    449             1                    ***0***                             c_state <= #1 start_e;
+    457             1                    ***0***                             c_state <= #1 idle;
+    467             1                    ***0***                             c_state <= #1 stop_b;
+    475             1                    ***0***                             c_state <= #1 stop_c;
+    483             1                    ***0***                             c_state <= #1 stop_d;
+    491             1                    ***0***                             c_state <= #1 idle;
+    501             1                    ***0***                             c_state <= #1 rd_b;
+    509             1                    ***0***                         rd_b:
+    517             1                    ***0***                         rd_c:
+    525             1                    ***0***                         rd_d:
+    535             1                    ***0***                         wr_a:
+    543             1                    ***0***                         wr_b:
+    552             1                    ***0***                         wr_c:
+    560             1                    ***0***                         wr_d:
+Branch totals: 1 hit of 18 branches = 5.55%
+
+------------------------------------CASE Branch------------------------------------
+    411                                        1     Count coming in to CASE
+    412             1                    ***0***                                  `I2C_CMD_WRITE: c_state <= #1 wr_a;
+    413             1                    ***0***                                  `I2C_CMD_READ:  c_state <= #1 rd_a;
+    414             1                    ***0***                                  default:        c_state <= #1 idle;
+    415             1                    ***0***                             endcase
+    416             1                          1     
+Branch totals: 1 hit of 5 branches = 20.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                      10         2         8    20.00%
+
+================================Condition Details================================
+
+Condition Coverage for file i2c_master_bit_ctrl_kgoliya_buggy1.v --
+
+----------------Focused Condition View-------------------
+Line       214 Item    1  (rst || ~|cnt || !ena || scl_sync)
+Condition totals: 1 of 4 input terms covered = 25.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+         rst         N  '_1' not hit             Hit '_1'
+       ~|cnt         N  '_1' not hit             Hit '_1'
+         ena         Y
+    scl_sync         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  rst_0                 ~(~|cnt || (!ena || scl_sync))
+  Row   2:    ***0***  rst_1                 -                             
+  Row   3:          1  ~|cnt_0               (~rst && ~(!ena || scl_sync)) 
+  Row   4:    ***0***  ~|cnt_1               ~rst                          
+  Row   5:          1  ena_0                 (~rst && ~~|cnt)              
+  Row   6:          1  ena_1                 (~rst && ~~|cnt && ~scl_sync) 
+  Row   7:          1  scl_sync_0            (~rst && ~~|cnt && ena)       
+  Row   8:    ***0***  scl_sync_1            (~rst && ~~|cnt && ena)       
+
+----------------Focused Condition View-------------------
+Line       256 Item    1  (rst || !ena)
+Condition totals: 1 of 2 input terms covered = 50.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+         rst         N  '_1' not hit             Hit '_1'
+         ena         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  rst_0                 ena                           
+  Row   2:    ***0***  rst_1                 -                             
+  Row   3:          1  ena_0                 ~rst                          
+  Row   4:          1  ena_1                 ~rst                          
+
+----------------Focused Condition View-------------------
+Line       359 Item    1  (sSCL & ~dSCL)
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+        sSCL         N  '_1' not hit             Hit '_1'
+        dSCL         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          2  sSCL_0                ~dSCL                         
+  Row   2:    ***0***  sSCL_1                ~dSCL                         
+  Row   3:    ***0***  dSCL_0                sSCL                          
+  Row   4:    ***0***  dSCL_1                sSCL                          
+
+----------------Focused Condition View-------------------
+Line       393 Item    1  (rst | al)
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+         rst         N  '_1' not hit             Hit '_1'
+          al         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          2  rst_0                 ~al                           
+  Row   2:    ***0***  rst_1                 ~al                           
+  Row   3:          2  al_0                  ~rst                          
+  Row   4:    ***0***  al_1                  ~rst                          
+
+
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                     31         0        31     0.00%
+
+================================Expression Details================================
+
+Expression Coverage for file i2c_master_bit_ctrl_kgoliya_buggy1.v --
+
+----------------Focused Expression View-----------------
+Line       200 Item    1  (((scl_oen & ~dscl_oen) & ~sSCL) | (slave_wait & ~sSCL))
+Expression totals: 0 of 4 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+     scl_oen         N  '_1' not hit             Hit '_1'
+    dscl_oen         N  '_0' not hit             Hit '_0'
+        sSCL         N  No hits                  Hit '_0' and '_1'
+  slave_wait         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  scl_oen_0             (~(slave_wait & ~sSCL) && ~sSCL && ~dscl_oen)
+  Row   2:    ***0***  scl_oen_1             (~(slave_wait & ~sSCL) && ~sSCL && ~dscl_oen)
+  Row   3:    ***0***  dscl_oen_0            (~(slave_wait & ~sSCL) && ~sSCL && scl_oen)
+  Row   4:          1  dscl_oen_1            (~(slave_wait & ~sSCL) && ~sSCL && scl_oen)
+  Row   5:    ***0***  sSCL_0                (~(slave_wait & ~sSCL) && (scl_oen & ~dscl_oen)), (~((scl_oen & ~dscl_oen) & ~sSCL) && slave_wait)
+  Row   6:    ***0***  sSCL_1                (scl_oen & ~dscl_oen), slave_wait
+  Row   7:          2  slave_wait_0          (~((scl_oen & ~dscl_oen) & ~sSCL) && ~sSCL)
+  Row   8:    ***0***  slave_wait_1          (~((scl_oen & ~dscl_oen) & ~sSCL) && ~sSCL)
+
+----------------Focused Expression View-----------------
+Line       204 Item    1  ((dSCL & ~sSCL) & scl_oen)
+Expression totals: 0 of 3 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+        dSCL         N  No hits                  Hit '_0' and '_1'
+        sSCL         N  No hits                  Hit '_0' and '_1'
+     scl_oen         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  dSCL_0                (scl_oen && ~sSCL)            
+  Row   2:    ***0***  dSCL_1                (scl_oen && ~sSCL)            
+  Row   3:    ***0***  sSCL_0                (scl_oen && dSCL)             
+  Row   4:    ***0***  sSCL_1                (scl_oen && dSCL)             
+  Row   5:    ***0***  scl_oen_0             (dSCL & ~sSCL)                
+  Row   6:    ***0***  scl_oen_1             (dSCL & ~sSCL)                
+
+----------------Focused Expression View-----------------
+Line       299 Item    1  ((&fSCL[2:1] | &fSCL[1:0]) | (fSCL[2] & fSCL[0]))
+Expression totals: 0 of 4 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+  &fSCL[2:1]         N  '_1' not hit             Hit '_1'
+  &fSCL[1:0]         N  '_1' not hit             Hit '_1'
+     fSCL[2]         N  No hits                  Hit '_0' and '_1'
+     fSCL[0]         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          2  &fSCL[2:1]_0          (~(fSCL[2] & fSCL[0]) && ~&fSCL[1:0])
+  Row   2:    ***0***  &fSCL[2:1]_1          (~(fSCL[2] & fSCL[0]) && ~&fSCL[1:0])
+  Row   3:          2  &fSCL[1:0]_0          (~(fSCL[2] & fSCL[0]) && ~&fSCL[2:1])
+  Row   4:    ***0***  &fSCL[1:0]_1          (~(fSCL[2] & fSCL[0]) && ~&fSCL[2:1])
+  Row   5:    ***0***  fSCL[2]_0             (~(&fSCL[2:1] | &fSCL[1:0]) && fSCL[0])
+  Row   6:    ***0***  fSCL[2]_1             (~(&fSCL[2:1] | &fSCL[1:0]) && fSCL[0])
+  Row   7:    ***0***  fSCL[0]_0             (~(&fSCL[2:1] | &fSCL[1:0]) && fSCL[2])
+  Row   8:    ***0***  fSCL[0]_1             (~(&fSCL[2:1] | &fSCL[1:0]) && fSCL[2])
+
+----------------Focused Expression View-----------------
+Line       300 Item    1  ((&fSDA[2:1] | &fSDA[1:0]) | (fSDA[2] & fSDA[0]))
+Expression totals: 0 of 4 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+  &fSDA[2:1]         N  '_1' not hit             Hit '_1'
+  &fSDA[1:0]         N  '_1' not hit             Hit '_1'
+     fSDA[2]         N  No hits                  Hit '_0' and '_1'
+     fSDA[0]         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          2  &fSDA[2:1]_0          (~(fSDA[2] & fSDA[0]) && ~&fSDA[1:0])
+  Row   2:    ***0***  &fSDA[2:1]_1          (~(fSDA[2] & fSDA[0]) && ~&fSDA[1:0])
+  Row   3:          2  &fSDA[1:0]_0          (~(fSDA[2] & fSDA[0]) && ~&fSDA[2:1])
+  Row   4:    ***0***  &fSDA[1:0]_1          (~(fSDA[2] & fSDA[0]) && ~&fSDA[2:1])
+  Row   5:    ***0***  fSDA[2]_0             (~(&fSDA[2:1] | &fSDA[1:0]) && fSDA[0])
+  Row   6:    ***0***  fSDA[2]_1             (~(&fSDA[2:1] | &fSDA[1:0]) && fSDA[0])
+  Row   7:    ***0***  fSDA[0]_0             (~(&fSDA[2:1] | &fSDA[1:0]) && fSDA[2])
+  Row   8:    ***0***  fSDA[0]_1             (~(&fSDA[2:1] | &fSDA[1:0]) && fSDA[2])
+
+----------------Focused Expression View-----------------
+Line       323 Item    1  ((~sSDA & dSDA) & sSCL)
+Expression totals: 0 of 3 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+        sSDA         N  No hits                  Hit '_0' and '_1'
+        dSDA         N  No hits                  Hit '_0' and '_1'
+        sSCL         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  sSDA_0                (sSCL && dSDA)                
+  Row   2:    ***0***  sSDA_1                (sSCL && dSDA)                
+  Row   3:    ***0***  dSDA_0                (sSCL && ~sSDA)               
+  Row   4:    ***0***  dSDA_1                (sSCL && ~sSDA)               
+  Row   5:    ***0***  sSCL_0                (~sSDA & dSDA)                
+  Row   6:    ***0***  sSCL_1                (~sSDA & dSDA)                
+
+----------------Focused Expression View-----------------
+Line       324 Item    1  ((sSDA & ~dSDA) & sSCL)
+Expression totals: 0 of 3 input terms covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+        sSDA         N  No hits                  Hit '_0' and '_1'
+        dSDA         N  No hits                  Hit '_0' and '_1'
+        sSCL         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  sSDA_0                (sSCL && ~dSDA)               
+  Row   2:    ***0***  sSDA_1                (sSCL && ~dSDA)               
+  Row   3:    ***0***  dSDA_0                (sSCL && sSDA)                
+  Row   4:    ***0***  dSDA_1                (sSCL && sSDA)                
+  Row   5:    ***0***  sSCL_0                (sSDA & ~dSDA)                
+  Row   6:    ***0***  sSCL_1                (sSDA & ~dSDA)                
+
+----------------Focused Expression View-----------------
+Line       332 Item    1  ((sta_condition | busy) & ~sto_condition)
+Expression totals: 0 of 3 input terms covered = 0.00%
+
+     Input Term   Covered  Reason for no coverage   Hint
+    -----------  --------  -----------------------  --------------
+  sta_condition         N  No hits                  Hit '_0' and '_1'
+           busy         N  '_0' not hit             Hit '_0'
+  sto_condition         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  sta_condition_0       (~sto_condition && ~busy)     
+  Row   2:    ***0***  sta_condition_1       (~sto_condition && ~busy)     
+  Row   3:    ***0***  busy_0                (~sto_condition && ~sta_condition)
+  Row   4:          2  busy_1                (~sto_condition && ~sta_condition)
+  Row   5:          2  sto_condition_0       (sta_condition | busy)        
+  Row   6:    ***0***  sto_condition_1       (sta_condition | busy)        
+
+----------------Focused Expression View-----------------
+Line       346 Item    1  (cmd == 2)
+Expression totals: 0 of 1 input term covered = 0.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+  (cmd == 2)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (cmd == 2)_0          -                             
+  Row   2:    ***0***  (cmd == 2)_1          -                             
+
+----------------Focused Expression View-----------------
+Line       354 Item    1  (((sda_chk & ~sSDA) & sda_oen) | ((|c_state & sto_condition) & ~cmd_stop))
+Expression totals: 0 of 6 input terms covered = 0.00%
+
+     Input Term   Covered  Reason for no coverage   Hint
+    -----------  --------  -----------------------  --------------
+        sda_chk         N  '_1' not hit             Hit '_1'
+           sSDA         N  No hits                  Hit '_0' and '_1'
+        sda_oen         N  No hits                  Hit '_0' and '_1'
+       |c_state         N  No hits                  Hit '_0' and '_1'
+  sto_condition         N  No hits                  Hit '_0' and '_1'
+       cmd_stop         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  sda_chk_0             (~((|c_state & sto_condition) & ~cmd_stop) && sda_oen && ~sSDA)
+  Row   2:    ***0***  sda_chk_1             (~((|c_state & sto_condition) & ~cmd_stop) && sda_oen && ~sSDA)
+  Row   3:    ***0***  sSDA_0                (~((|c_state & sto_condition) & ~cmd_stop) && sda_oen && sda_chk)
+  Row   4:    ***0***  sSDA_1                (~((|c_state & sto_condition) & ~cmd_stop) && sda_oen && sda_chk)
+  Row   5:    ***0***  sda_oen_0             (~((|c_state & sto_condition) & ~cmd_stop) && (sda_chk & ~sSDA))
+  Row   6:    ***0***  sda_oen_1             (~((|c_state & sto_condition) & ~cmd_stop) && (sda_chk & ~sSDA))
+  Row   7:    ***0***  |c_state_0            (~((sda_chk & ~sSDA) & sda_oen) && ~cmd_stop && sto_condition)
+  Row   8:    ***0***  |c_state_1            (~((sda_chk & ~sSDA) & sda_oen) && ~cmd_stop && sto_condition)
+  Row   9:    ***0***  sto_condition_0       (~((sda_chk & ~sSDA) & sda_oen) && ~cmd_stop && |c_state)
+ Row   10:    ***0***  sto_condition_1       (~((sda_chk & ~sSDA) & sda_oen) && ~cmd_stop && |c_state)
+ Row   11:    ***0***  cmd_stop_0            (~((sda_chk & ~sSDA) & sda_oen) && (|c_state & sto_condition))
+ Row   12:    ***0***  cmd_stop_1            (~((sda_chk & ~sSDA) & sda_oen) && (|c_state & sto_condition))
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                     161        38       123    23.60%
+
+================================Statement Details================================
+
+Statement Coverage for file i2c_master_bit_ctrl_kgoliya_buggy1.v --
+
+    1                                                /////////////////////////////////////////////////////////////////////
+    2                                                ////                                                             ////
+    3                                                ////  WISHBONE rev.B2 compliant I2C Master bit-controller        ////
+    4                                                ////                                                             ////
+    5                                                ////                                                             ////
+    6                                                ////  Author: Richard Herveille                                  ////
+    7                                                ////          richard@asics.ws                                   ////
+    8                                                ////          www.asics.ws                                       ////
+    9                                                ////                                                             ////
+    10                                               ////  Downloaded from: http://www.opencores.org/projects/i2c/    ////
+    11                                               ////                                                             ////
+    12                                               /////////////////////////////////////////////////////////////////////
+    13                                               ////                                                             ////
+    14                                               //// Copyright (C) 2001 Richard Herveille                        ////
+    15                                               ////                    richard@asics.ws                         ////
+    16                                               ////                                                             ////
+    17                                               //// This source file may be used and distributed without        ////
+    18                                               //// restriction provided that this copyright statement is not   ////
+    19                                               //// removed from the file and that any derivative work contains ////
+    20                                               //// the original copyright notice and the associated disclaimer.////
+    21                                               ////                                                             ////
+    22                                               ////     THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY     ////
+    23                                               //// EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED   ////
+    24                                               //// TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS   ////
+    25                                               //// FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL THE AUTHOR      ////
+    26                                               //// OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,         ////
+    27                                               //// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES    ////
+    28                                               //// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE   ////
+    29                                               //// GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR        ////
+    30                                               //// BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF  ////
+    31                                               //// LIABILITY, WHETHER IN  CONTRACT, STRICT LIABILITY, OR TORT  ////
+    32                                               //// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT  ////
+    33                                               //// OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE         ////
+    34                                               //// POSSIBILITY OF SUCH DAMAGE.                                 ////
+    35                                               ////                                                             ////
+    36                                               /////////////////////////////////////////////////////////////////////
+    37                                               
+    38                                               //  CVS Log
+    39                                               //
+    40                                               //  $Id: i2c_master_bit_ctrl.v,v 1.14 2009-01-20 10:25:29 rherveille Exp $
+    41                                               //
+    42                                               //  $Date: 2009-01-20 10:25:29 $
+    43                                               //  $Revision: 1.14 $
+    44                                               //  $Author: rherveille $
+    45                                               //  $Locker:  $
+    46                                               //  $State: Exp $
+    47                                               //
+    48                                               // Change History:
+    49                                               //               $Log: $
+    50                                               //               Revision 1.14  2009/01/20 10:25:29  rherveille
+    51                                               //               Added clock synchronization logic
+    52                                               //               Fixed slave_wait signal
+    53                                               //
+    54                                               //               Revision 1.13  2009/01/19 20:29:26  rherveille
+    55                                               //               Fixed synopsys miss spell (synopsis)
+    56                                               //               Fixed cr[0] register width
+    57                                               //               Fixed ! usage instead of ~
+    58                                               //               Fixed bit controller parameter width to 18bits
+    59                                               //
+    60                                               //               Revision 1.12  2006/09/04 09:08:13  rherveille
+    61                                               //               fixed short scl high pulse after clock stretch
+    62                                               //               fixed slave model not returning correct '(n)ack' signal
+    63                                               //
+    64                                               //               Revision 1.11  2004/05/07 11:02:26  rherveille
+    65                                               //               Fixed a bug where the core would signal an arbitration lost (AL bit set), when another master controls the bus and the other master generates a STOP bit.
+    66                                               //
+    67                                               //               Revision 1.10  2003/08/09 07:01:33  rherveille
+    68                                               //               Fixed a bug in the Arbitration Lost generation caused by delay on the (external) sda line.
+    69                                               //               Fixed a potential bug in the byte controller's host-acknowledge generation.
+    70                                               //
+    71                                               //               Revision 1.9  2003/03/10 14:26:37  rherveille
+    72                                               //               Fixed cmd_ack generation item (no bug).
+    73                                               //
+    74                                               //               Revision 1.8  2003/02/05 00:06:10  rherveille
+    75                                               //               Fixed a bug where the core would trigger an erroneous 'arbitration lost' interrupt after being reset, when the reset pulse width < 3 clk cycles.
+    76                                               //
+    77                                               //               Revision 1.7  2002/12/26 16:05:12  rherveille
+    78                                               //               Small code simplifications
+    79                                               //
+    80                                               //               Revision 1.6  2002/12/26 15:02:32  rherveille
+    81                                               //               Core is now a Multimaster I2C controller
+    82                                               //
+    83                                               //               Revision 1.5  2002/11/30 22:24:40  rherveille
+    84                                               //               Cleaned up code
+    85                                               //
+    86                                               //               Revision 1.4  2002/10/30 18:10:07  rherveille
+    87                                               //               Fixed some reported minor start/stop generation timing issuess.
+    88                                               //
+    89                                               //               Revision 1.3  2002/06/15 07:37:03  rherveille
+    90                                               //               Fixed a small timing bug in the bit controller.\nAdded verilog simulation environment.
+    91                                               //
+    92                                               //               Revision 1.2  2001/11/05 11:59:25  rherveille
+    93                                               //               Fixed wb_ack_o generation bug.
+    94                                               //               Fixed bug in the byte_controller statemachine.
+    95                                               //               Added headers.
+    96                                               //
+    97                                               
+    98                                               //
+    99                                               /////////////////////////////////////
+    100                                              // Bit controller section
+    101                                              /////////////////////////////////////
+    102                                              //
+    103                                              // Translate simple commands into SCL/SDA transitions
+    104                                              // Each command has 5 states, A/B/C/D/idle
+    105                                              //
+    106                                              // start:	SCL	~~~~~~~~~~\____
+    107                                              //	SDA	~~~~~~~~\______
+    108                                              //		 x | A | B | C | D | i
+    109                                              //
+    110                                              // repstart	SCL	____/~~~~\___
+    111                                              //	SDA	__/~~~\______
+    112                                              //		 x | A | B | C | D | i
+    113                                              //
+    114                                              // stop	SCL	____/~~~~~~~~
+    115                                              //	SDA	==\____/~~~~~
+    116                                              //		 x | A | B | C | D | i
+    117                                              //
+    118                                              //- write	SCL	____/~~~~\____
+    119                                              //	SDA	==X=========X=
+    120                                              //		 x | A | B | C | D | i
+    121                                              //
+    122                                              //- read	SCL	____/~~~~\____
+    123                                              //	SDA	XXXX=====XXXX
+    124                                              //		 x | A | B | C | D | i
+    125                                              //
+    126                                              
+    127                                              // Timing:     Normal mode      Fast mode
+    128                                              ///////////////////////////////////////////////////////////////////////
+    129                                              // Fscl        100KHz           400KHz
+    130                                              // Th_scl      4.0us            0.6us   High period of SCL
+    131                                              // Tl_scl      4.7us            1.3us   Low period of SCL
+    132                                              // Tsu:sta     4.7us            0.6us   setup time for a repeated start condition
+    133                                              // Tsu:sto     4.0us            0.6us   setup time for a stop conditon
+    134                                              // Tbuf        4.7us            1.3us   Bus free time between a stop and start condition
+    135                                              //
+    136                                              
+    137                                              // synopsys translate_off
+    138                                              `include "timescale.v"
+    139                                              // synopsys translate_on
+    140                                              
+    141                                              `include "i2c_master_defines.v"
+    142                                              
+    143                                              module i2c_master_bit_ctrl (
+    144                                                  input             clk,      // system clock
+    145                                                  input             rst,      // synchronous active high reset
+    146                                                  input             nReset,   // asynchronous active low reset
+    147                                                  input             ena,      // core enable signal
+    148                                              
+    149                                                  input      [15:0] clk_cnt,  // clock prescale value
+    150                                              
+    151                                                  input      [ 3:0] cmd,      // command (from byte controller)
+    152                                                  output reg        cmd_ack,  // command complete acknowledge
+    153                                                  output reg        busy,     // i2c bus busy
+    154                                                  output reg        al,       // i2c bus arbitration lost
+    155                                              
+    156                                                  input             din,
+    157                                                  output reg        dout,
+    158                                              
+    159                                                  input             scl_i,    // i2c clock line input
+    160                                                  output            scl_o,    // i2c clock line output
+    161                                                  output reg        scl_oen,  // i2c clock line output enable (active low)
+    162                                                  input             sda_i,    // i2c data line input
+    163                                                  output            sda_o,    // i2c data line output
+    164                                                  output reg        sda_oen   // i2c data line output enable (active low)
+    165                                              );
+    166                                              
+    167                                              
+    168                                                  //
+    169                                                  // variable declarations
+    170                                                  //
+    171                                              
+    172                                                  reg [ 1:0] cSCL, cSDA;      // capture SCL and SDA
+    173                                                  reg [ 2:0] fSCL, fSDA;      // SCL and SDA filter inputs
+    174                                                  reg        sSCL, sSDA;      // filtered and synchronized SCL and SDA inputs
+    175                                                  reg        dSCL, dSDA;      // delayed versions of sSCL and sSDA
+    176                                                  reg        dscl_oen;        // delayed scl_oen
+    177                                                  reg        sda_chk;         // check SDA output (Multi-master arbitration)
+    178                                                  reg        clk_en;          // clock generation signals
+    179                                                  reg        slave_wait;      // slave inserts wait states
+    180                                                  reg [15:0] cnt;             // clock divider counter (synthesis)
+    181                                                  reg [13:0] filter_cnt;      // clock divider for filter
+    182                                              
+    183                                              
+    184                                                  // state machine variable
+    185                                                  reg [17:0] c_state; // synopsys enum_state
+    186                                              
+    187                                                  //
+    188                                                  // module body
+    189                                                  //
+    190                                              
+    191                                                  // whenever the slave is not ready it can delay the cycle by pulling SCL low
+    192                                                  // delay scl_oen
+    193             1                          2         always @(posedge clk)
+    194             1                          2           dscl_oen <= #1 scl_oen;
+    195                                              
+    196                                                  // slave_wait is asserted when master wants to drive SCL high, but the slave pulls it low
+    197                                                  // slave_wait remains asserted until the slave releases SCL
+    198             1                          2         always @(posedge clk or negedge nReset)
+    199             1                    ***0***           if (!nReset) slave_wait <= 1'b0;
+    200             1                          2           else         slave_wait <= (scl_oen & ~dscl_oen & ~sSCL) | (slave_wait & ~sSCL);
+    201                                              
+    202                                                  // master drives SCL high, but another master pulls it low
+    203                                                  // master start counting down its low cycle now (clock synchronization)
+    204             1                    ***0***         wire scl_sync   = dSCL & ~sSCL & scl_oen;
+    205                                              
+    206                                              
+    207                                                  // generate clk enable signal
+    208             1                          2         always @(posedge clk or negedge nReset)
+    209                                                    if (~nReset)
+    210                                                    begin
+    211             1                    ***0***               cnt    <= #1 16'h0;
+    212             1                    ***0***               clk_en <= #1 1'b1;
+    213                                                    end
+    214                                                    else if (rst || ~|cnt || !ena || scl_sync)
+    215                                                    begin
+    216             1                          1               cnt    <= #1 clk_cnt;
+    217             1                          1               clk_en <= #1 1'b1;
+    218                                                    end
+    219                                                    else if (slave_wait)
+    220                                                    begin
+    221             1                    ***0***               cnt    <= #1 cnt;
+    222             1                    ***0***               clk_en <= #1 1'b0;    
+    223                                                    end
+    224                                                    else
+    225                                                    begin
+    226             1                          1               cnt    <= #1 cnt - 16'h1;
+    227             1                          1               clk_en <= #1 1'b0;
+    228                                                    end
+    229                                              
+    230                                              
+    231                                                  // generate bus status controller
+    232                                              
+    233                                                  // capture SDA and SCL
+    234                                                  // reduce metastability risk
+    235             1                          2         always @(posedge clk or negedge nReset)
+    236                                                    if (!nReset)
+    237                                                    begin
+    238             1                    ***0***               cSCL <= #1 2'b00;
+    239             1                    ***0***               cSDA <= #1 2'b00;
+    240                                                    end
+    241                                                    else if (rst)
+    242                                                    begin
+    243             1                    ***0***               cSCL <= #1 2'b00;
+    244             1                    ***0***               cSDA <= #1 2'b00;
+    245                                                    end
+    246                                                    else
+    247                                                    begin
+    248             1                          2               cSCL <= {cSCL[0],scl_i};
+    249             1                          2               cSDA <= {cSDA[0],sda_i};
+    250                                                    end
+    251                                              
+    252                                              
+    253                                                  // filter SCL and SDA signals; (attempt to) remove glitches
+    254             1                          2         always @(posedge clk or negedge nReset)
+    255             1                    ***0***           if      (!nReset     ) filter_cnt <= 14'h0;
+    256             1                          1           else if (rst || !ena ) filter_cnt <= 14'h0;
+    257             1                    ***0***           else if (~|filter_cnt) filter_cnt <= clk_cnt >> 2; //16x I2C bus frequency
+    258             1                          1           else                   filter_cnt <= filter_cnt -1;
+    259                                              
+    260                                              
+    261             1                          2         always @(posedge clk or negedge nReset)
+    262                                                    if (!nReset)
+    263                                                    begin
+    264             1                    ***0***               fSCL <= 3'b111;
+    265             1                    ***0***               fSDA <= 3'b111;
+    266                                                    end
+    267                                                    else if (rst)
+    268                                                    begin
+    269             1                    ***0***               fSCL <= 3'b111;
+    270             1                    ***0***               fSDA <= 3'b111;
+    271                                                    end
+    272                                                    else if (~|filter_cnt)
+    273                                                    begin
+    274             1                          1               fSCL <= {fSCL[1:0],cSCL[1]};
+    275             1                          1               fSDA <= {fSDA[1:0],cSDA[1]};
+    276                                                    end
+    277                                              
+    278                                              
+    279                                                  // generate filtered SCL and SDA signals
+    280             1                          2         always @(posedge clk or negedge nReset)
+    281                                                    if (~nReset)
+    282                                                    begin
+    283             1                    ***0***               sSCL <= #1 1'b1;
+    284             1                    ***0***               sSDA <= #1 1'b1;
+    285                                              
+    286             1                    ***0***               dSCL <= #1 1'b1;
+    287             1                    ***0***               dSDA <= #1 1'b1;
+    288                                                    end
+    289                                                    else if (rst)
+    290                                                    begin
+    291             1                    ***0***               sSCL <= #1 1'b1;
+    292             1                    ***0***               sSDA <= #1 1'b1;
+    293                                              
+    294             1                    ***0***               dSCL <= #1 1'b1;
+    295             1                    ***0***               dSDA <= #1 1'b1;
+    296                                                    end
+    297                                                    else
+    298                                                    begin
+    299             1                          2               sSCL <= #1 &fSCL[2:1] | &fSCL[1:0] | (fSCL[2] & fSCL[0]);
+    300             1                          2               sSDA <= #1 &fSDA[2:1] | &fSDA[1:0] | (fSDA[2] & fSDA[0]);
+    301                                              
+    302             1                          2               dSCL <= #1 sSCL;
+    303             1                          2               dSDA <= #1 sSDA;
+    304                                                    end
+    305                                              
+    306                                                  // detect start condition => detect falling edge on SDA while SCL is high
+    307                                                  // detect stop condition => detect rising edge on SDA while SCL is high
+    308                                                  reg sta_condition;
+    309                                                  reg sto_condition;
+    310             1                          2         always @(posedge clk or negedge nReset)
+    311                                                    if (~nReset)
+    312                                                    begin
+    313             1                    ***0***               sta_condition <= #1 1'b0;
+    314             1                    ***0***               sto_condition <= #1 1'b0;
+    315                                                    end
+    316                                                    else if (rst)
+    317                                                    begin
+    318             1                    ***0***               sta_condition <= #1 1'b0;
+    319             1                    ***0***               sto_condition <= #1 1'b0;
+    320                                                    end
+    321                                                    else
+    322                                                    begin
+    323             1                          2               sta_condition <= #1 ~sSDA &  dSDA & sSCL;
+    324             1                          2               sto_condition <= #1  sSDA & ~dSDA & sSCL;
+    325                                                    end
+    326                                              
+    327                                              
+    328                                                  // generate i2c bus busy signal
+    329             1                          2         always @(posedge clk or negedge nReset)
+    330             1                    ***0***           if      (!nReset) busy <= #1 1'b0;
+    331             1                    ***0***           else if (rst    ) busy <= #1 1'b0;
+    332             1                          2           else              busy <= #1 (sta_condition | busy) & ~sto_condition;
+    333                                              
+    334                                              
+    335                                                  // generate arbitration lost signal
+    336                                                  // aribitration lost when:
+    337                                                  // 1) master drives SDA high, but the i2c bus is low
+    338                                                  // 2) stop detected while not requested
+    339                                                  reg cmd_stop;
+    340             1                          2         always @(posedge clk or negedge nReset)
+    341                                                    if (~nReset)
+    342             1                    ***0***               cmd_stop <= #1 1'b0;
+    343                                                    else if (rst)
+    344             1                    ***0***               cmd_stop <= #1 1'b0;
+    345                                                    else if (clk_en)
+    346             1                          1               cmd_stop <= #1 cmd == `I2C_CMD_STOP;
+    347                                              
+    348             1                          2         always @(posedge clk or negedge nReset)
+    349                                                    if (~nReset)
+    350             1                    ***0***               al <= #1 1'b0;
+    351                                                    else if (rst)
+    352             1                    ***0***               al <= #1 1'b0;
+    353                                                    else
+    354             1                          2               al <= #1 (sda_chk & ~sSDA & sda_oen) | (|c_state & sto_condition & ~cmd_stop);
+    355                                              
+    356                                              
+    357                                                  // generate dout signal (store SDA on rising edge of SCL)
+    358             1                          2         always @(posedge clk)
+    359             1                    ***0***           if (sSCL & ~dSCL) dout <= #1 sSDA;
+    360                                              
+    361                                              
+    362                                                  // generate statemachine
+    363                                              
+    364                                                  // nxt_state decoder
+    365                                                  parameter [17:0] idle    = 18'b0_0000_0000_0000_0000;
+    366                                                  parameter [17:0] start_a = 18'b0_0000_0000_0000_0001;
+    367                                                  parameter [17:0] start_b = 18'b0_0000_0000_0000_0010;
+    368                                                  parameter [17:0] start_c = 18'b0_0000_0000_0000_0100;
+    369                                                  parameter [17:0] start_d = 18'b0_0000_0000_0000_1000;
+    370                                                  parameter [17:0] start_e = 18'b0_0000_0000_0001_0000;
+    371                                                  parameter [17:0] stop_a  = 18'b0_0000_0000_0010_0000;
+    372                                                  parameter [17:0] stop_b  = 18'b0_0000_0000_0100_0000;
+    373                                                  parameter [17:0] stop_c  = 18'b0_0000_0000_1000_0000;
+    374                                                  parameter [17:0] stop_d  = 18'b0_0000_0001_0000_0000;
+    375                                                  parameter [17:0] rd_a    = 18'b0_0000_0010_0000_0000;
+    376                                                  parameter [17:0] rd_b    = 18'b0_0000_0100_0000_0000;
+    377                                                  parameter [17:0] rd_c    = 18'b0_0000_1000_0000_0000;
+    378                                                  parameter [17:0] rd_d    = 18'b0_0001_0000_0000_0000;
+    379                                                  parameter [17:0] wr_a    = 18'b0_0010_0000_0000_0000;
+    380                                                  parameter [17:0] wr_b    = 18'b0_0100_0000_0000_0000;
+    381                                                  parameter [17:0] wr_c    = 18'b0_1000_0000_0000_0000;
+    382                                                  parameter [17:0] wr_d    = 18'b1_0000_0000_0000_0000;
+    383                                              
+    384             1                          2         always @(posedge clk or negedge nReset)
+    385                                                    if (!nReset)
+    386                                                    begin
+    387             1                    ***0***               c_state <= #1 idle;
+    388             1                    ***0***               cmd_ack <= #1 1'b0;
+    389             1                    ***0***               scl_oen <= #1 1'b1;
+    390             1                    ***0***               sda_oen <= #1 1'b1;
+    391             1                    ***0***               sda_chk <= #1 1'b0;
+    392                                                    end
+    393                                                    else if (rst | al)
+    394                                                    begin
+    395             1                    ***0***               c_state <= #1 idle;
+    396             1                    ***0***               cmd_ack <= #1 1'b0;
+    397             1                    ***0***               scl_oen <= #1 1'b1;
+    398             1                    ***0***               sda_oen <= #1 1'b1;
+    399             1                    ***0***               sda_chk <= #1 1'b0;
+    400                                                    end
+    401                                                    else
+    402                                                    begin
+    403                                                        //cmd_ack   <= #1 1'b0; // default no command acknowledge + assert cmd_ack only 1clk cycle
+    404                                                        // repair: ['insert(879,947)']
+    405                                              
+    406                                                        if (clk_en)
+    407                                                            case (c_state) // synopsys full_case parallel_case
+    408                                                                  // idle state
+    409                                                                  idle:
+    410                                                                  begin
+    411                                                                      case (cmd) // synopsys full_case parallel_case
+    412             1                    ***0***                                  `I2C_CMD_START: c_state <= #1 start_a;
+    413             1                    ***0***                                  `I2C_CMD_STOP:  c_state <= #1 stop_a;
+    414             1                    ***0***                                  `I2C_CMD_WRITE: c_state <= #1 wr_a;
+    415             1                    ***0***                                  `I2C_CMD_READ:  c_state <= #1 rd_a;
+    416             1                          1                                  default:        c_state <= #1 idle;
+    417                                                                      endcase
+    418                                              
+    419             1                          1                             scl_oen <= #1 scl_oen; // keep SCL in same state
+    420             1                          1                             sda_oen <= #1 sda_oen; // keep SDA in same state
+    421             1                          1                             sda_chk <= #1 1'b0;    // don't check SDA output
+    422                                                                  end
+    423                                              
+    424                                                                  // start
+    425                                                                  start_a:
+    426                                                                  begin
+    427             1                    ***0***                             c_state <= #1 start_b;
+    428             1                    ***0***                             scl_oen <= #1 scl_oen; // keep SCL in same state
+    429             1                    ***0***                             sda_oen <= #1 1'b1;    // set SDA high
+    430             1                    ***0***                             sda_chk <= #1 1'b0;    // don't check SDA output
+    431                                                                  end
+    432                                              
+    433                                                                  start_b:
+    434                                                                  begin
+    435             1                    ***0***                             c_state <= #1 start_c;
+    436             1                    ***0***                             scl_oen <= #1 1'b1; // set SCL high
+    437             1                    ***0***                             sda_oen <= #1 1'b1; // keep SDA high
+    438             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output
+    439                                                                  end
+    440                                              
+    441                                                                  start_c:
+    442                                                                  begin
+    443             1                    ***0***                             c_state <= #1 start_d;
+    444             1                    ***0***                             scl_oen <= #1 1'b1; // keep SCL high
+    445             1                    ***0***                             sda_oen <= #1 1'b0; // set SDA low
+    446             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output
+    447                                                                  end
+    448                                              
+    449                                                                  start_d:
+    450                                                                  begin
+    451             1                    ***0***                             c_state <= #1 start_e;
+    452             1                    ***0***                             scl_oen <= #1 1'b1; // keep SCL high
+    453             1                    ***0***                             sda_oen <= #1 1'b0; // keep SDA low
+    454             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output
+    455                                                                  end
+    456                                              
+    457                                                                  start_e:
+    458                                                                  begin
+    459             1                    ***0***                             c_state <= #1 idle;
+    460             1                    ***0***                             cmd_ack <= #1 1'b1;
+    461             1                    ***0***                             scl_oen <= #1 1'b0; // set SCL low
+    462             1                    ***0***                             sda_oen <= #1 1'b0; // keep SDA low
+    463             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output
+    464                                                                  end
+    465                                              
+    466                                                                  // stop
+    467                                                                  stop_a:
+    468                                                                  begin
+    469             1                    ***0***                             c_state <= #1 stop_b;
+    470             1                    ***0***                             scl_oen <= #1 1'b0; // keep SCL low
+    471             1                    ***0***                             sda_oen <= #1 1'b0; // set SDA low
+    472             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output
+    473                                                                  end
+    474                                              
+    475                                                                  stop_b:
+    476                                                                  begin
+    477             1                    ***0***                             c_state <= #1 stop_c;
+    478             1                    ***0***                             scl_oen <= #1 1'b1; // set SCL high
+    479             1                    ***0***                             sda_oen <= #1 1'b0; // keep SDA low
+    480             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output
+    481                                                                  end
+    482                                              
+    483                                                                  stop_c:
+    484                                                                  begin
+    485             1                    ***0***                             c_state <= #1 stop_d;
+    486             1                    ***0***                             scl_oen <= #1 1'b1; // keep SCL high
+    487             1                    ***0***                             sda_oen <= #1 1'b0; // keep SDA low
+    488             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output
+    489                                                                  end
+    490                                              
+    491                                                                  stop_d:
+    492                                                                  begin
+    493             1                    ***0***                             c_state <= #1 idle;
+    494             1                    ***0***                             cmd_ack <= #1 1'b1;
+    495             1                    ***0***                             scl_oen <= #1 1'b1; // keep SCL high
+    496             1                    ***0***                             sda_oen <= #1 1'b1; // set SDA high
+    497             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output
+    498                                                                  end
+    499                                              
+    500                                                                  // read
+    501                                                                  rd_a:
+    502                                                                  begin
+    503             1                    ***0***                             c_state <= #1 rd_b;
+    504             1                    ***0***                             scl_oen <= #1 1'b0; // keep SCL low
+    505             1                    ***0***                             sda_oen <= #1 1'b1; // tri-state SDA
+    506             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output
+    507                                                                  end
+    508                                              
+    509                                                                  rd_b:
+    510                                                                  begin
+    511             1                    ***0***                             c_state <= #1 rd_c;
+    512             1                    ***0***                             scl_oen <= #1 1'b1; // set SCL high
+    513             1                    ***0***                             sda_oen <= #1 1'b1; // keep SDA tri-stated
+    514             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output
+    515                                                                  end
+    516                                              
+    517                                                                  rd_c:
+    518                                                                  begin
+    519             1                    ***0***                             c_state <= #1 rd_d;
+    520             1                    ***0***                             scl_oen <= #1 1'b1; // keep SCL high
+    521             1                    ***0***                             sda_oen <= #1 1'b1; // keep SDA tri-stated
+    522             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output
+    523                                                                  end
+    524                                              
+    525                                                                  rd_d:
+    526                                                                  begin
+    527             1                    ***0***                             c_state <= #1 idle;
+    528             1                    ***0***                             cmd_ack <= #1 1'b1;
+    529             1                    ***0***                             scl_oen <= #1 1'b0; // set SCL low
+    530             1                    ***0***                             sda_oen <= #1 1'b1; // keep SDA tri-stated
+    531             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output
+    532                                                                  end
+    533                                              
+    534                                                                  // write
+    535                                                                  wr_a:
+    536                                                                  begin
+    537             1                    ***0***                             c_state <= #1 wr_b;
+    538             1                    ***0***                             scl_oen <= #1 1'b0; // keep SCL low
+    539             1                    ***0***                             sda_oen <= #1 din;  // set SDA
+    540             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output (SCL low)
+    541                                                                  end
+    542                                              
+    543                                                                  wr_b:
+    544                                                                  begin
+    545             1                    ***0***                             c_state <= #1 wr_c;
+    546             1                    ***0***                             scl_oen <= #1 1'b1; // set SCL high
+    547             1                    ***0***                             sda_oen <= #1 din;  // keep SDA
+    548             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output yet
+    549                                                                                          // allow some time for SDA and SCL to settle
+    550                                                                  end
+    551                                              
+    552                                                                  wr_c:
+    553                                                                  begin
+    554             1                    ***0***                             c_state <= #1 wr_d;
+    555             1                    ***0***                             scl_oen <= #1 1'b1; // keep SCL high
+    556             1                    ***0***                             sda_oen <= #1 din;
+    557             1                    ***0***                             sda_chk <= #1 1'b1; // check SDA output
+    558                                                                  end
+    559                                              
+    560                                                                  wr_d:
+    561                                                                  begin
+    562             1                    ***0***                             c_state <= #1 idle;
+    563             1                    ***0***                             cmd_ack <= #1 1'b1;
+    564             1                    ***0***                             scl_oen <= #1 1'b0; // set SCL low
+    565             1                    ***0***                             sda_oen <= #1 din;
+    566             1                    ***0***                             sda_chk <= #1 1'b0; // don't check SDA output (SCL low)
+    567                                                                  end
+    568                                              
+    569                                                            endcase
+    570                                                    end
+    571                                              
+    572                                              
+    573                                                  // assign scl and sda output (always gnd)
+    574             1                    ***0***         assign scl_o = 1'b0;
+    575             1                    ***0***         assign sda_o = 1'b0;
+    576                                              
+    577                                              endmodule
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        152         8       144     5.26%
+
+================================Toggle Details================================
+
+Toggle Coverage for File i2c_master_bit_ctrl_kgoliya_buggy1.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+        152                                cmd_ack           0           0        0.00 
+        153                                   busy           0           0        0.00 
+        154                                     al           0           0        0.00 
+        157                                   dout           0           0        0.00 
+        161                                scl_oen           0           0        0.00 
+        164                                sda_oen           0           0        0.00 
+        172                                cSDA[1]           0           0        0.00 
+        172                                cSDA[0]           0           0        0.00 
+        172                                cSCL[1]           0           0        0.00 
+        172                                cSCL[0]           0           0        0.00 
+        173                                fSDA[2]           0           0        0.00 
+        173                                fSDA[1]           0           0        0.00 
+        173                                fSDA[0]           0           0        0.00 
+        173                                fSCL[2]           0           0        0.00 
+        173                                fSCL[1]           0           0        0.00 
+        173                                fSCL[0]           0           0        0.00 
+        174                                   sSDA           0           0        0.00 
+        174                                   sSCL           0           0        0.00 
+        175                                   dSDA           0           0        0.00 
+        175                                   dSCL           0           0        0.00 
+        176                               dscl_oen           0           0        0.00 
+        177                                sda_chk           0           0        0.00 
+        178                                 clk_en           0           0        0.00 
+        179                             slave_wait           0           0        0.00 
+        180                                 cnt[9]           0           0        0.00 
+        180                                 cnt[8]           0           0        0.00 
+        180                                 cnt[7]           0           0        0.00 
+        180                                 cnt[6]           1           0       50.00 
+        180                                 cnt[5]           1           0       50.00 
+        180                                 cnt[4]           1           0       50.00 
+        180                                 cnt[3]           0           0        0.00 
+        180                                 cnt[2]           0           0        0.00 
+        180                                 cnt[1]           0           0        0.00 
+        180                                cnt[15]           0           0        0.00 
+        180                                cnt[14]           0           0        0.00 
+        180                                cnt[13]           0           0        0.00 
+        180                                cnt[12]           0           0        0.00 
+        180                                cnt[11]           0           0        0.00 
+        180                                cnt[10]           0           0        0.00 
+        180                                 cnt[0]           0           1       50.00 
+        181                          filter_cnt[9]           0           0        0.00 
+        181                          filter_cnt[8]           0           0        0.00 
+        181                          filter_cnt[7]           0           0        0.00 
+        181                          filter_cnt[6]           0           0        0.00 
+        181                          filter_cnt[5]           0           0        0.00 
+        181                          filter_cnt[4]           0           0        0.00 
+        181                          filter_cnt[3]           1           0       50.00 
+        181                          filter_cnt[2]           0           1       50.00 
+        181                          filter_cnt[1]           0           1       50.00 
+        181                         filter_cnt[13]           0           0        0.00 
+        181                         filter_cnt[12]           0           0        0.00 
+        181                         filter_cnt[11]           0           0        0.00 
+        181                         filter_cnt[10]           0           0        0.00 
+        181                          filter_cnt[0]           0           1       50.00 
+        185                             c_state[9]           0           0        0.00 
+        185                             c_state[8]           0           0        0.00 
+        185                             c_state[7]           0           0        0.00 
+        185                             c_state[6]           0           0        0.00 
+        185                             c_state[5]           0           0        0.00 
+        185                             c_state[4]           0           0        0.00 
+        185                             c_state[3]           0           0        0.00 
+        185                             c_state[2]           0           0        0.00 
+        185                             c_state[1]           0           0        0.00 
+        185                            c_state[17]           0           0        0.00 
+        185                            c_state[16]           0           0        0.00 
+        185                            c_state[15]           0           0        0.00 
+        185                            c_state[14]           0           0        0.00 
+        185                            c_state[13]           0           0        0.00 
+        185                            c_state[12]           0           0        0.00 
+        185                            c_state[11]           0           0        0.00 
+        185                            c_state[10]           0           0        0.00 
+        185                             c_state[0]           0           0        0.00 
+        204                               scl_sync           0           0        0.00 
+        308                          sta_condition           0           0        0.00 
+        309                          sto_condition           0           0        0.00 
+        339                               cmd_stop           0           0        0.00 
+
+Total Node Count     =         76 
+Toggled Node Count   =          0 
+Untoggled Node Count =         76 
+
+Toggle Coverage      =       5.26% (8 of 152 bins)
+
+
+Total Coverage By File (code coverage only, filtered view): 16.12%
+

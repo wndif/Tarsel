@@ -1,0 +1,67 @@
+m255
+K4
+z2
+!s11f vlog 2019.2 2019.04, Apr 17 2019
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/modeltech64_2019.2/examples/verilog_FL_3/lshift_reg/lshift_reg_kgoliya_buggy1
+T_opt
+!s110 1651836253
+V7O`Pna@[Y1H=N[;<@;NhM2
+04 2 4 work tb fast 0
+=1-2cf05d3424e2-6275055c-91-3dbc
+o-quiet -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2019.2;69
+R0
+vlshift_reg
+Z2 !s110 1651889362
+!i10b 1
+!s100 zkRWa;NHgjVSFGE=1V<og3
+!s11b foHmZAWlz6[naQC99i`;E2
+Im:az5T2`SSHgRoaSB1Y[02
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1641312281
+8lshift_reg_kgoliya_buggy1.v
+Flshift_reg_kgoliya_buggy1.v
+L0 1
+Z5 OL;L;2019.2;69
+r1
+!s85 0
+31
+Z6 !s108 1651889362.000000
+!s107 lshift_reg_kgoliya_buggy1.v|
+!s90 -reportprogress|300|lshift_reg_kgoliya_buggy1.v|+cover=sbcet|-coveropt|1|
+!i113 0
+Z7 !s102 +cover=sbcet -coveropt 1
+Z8 o+cover=sbcet -coveropt 1 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vtb
+R2
+!i10b 1
+!s100 G@RZ@JdM>4ZPl<Z97O5ao1
+!s11b [ifM5f3mc<Ta9PG5aYHFQ1
+IBhYhKh310_Te>:WNhDW@90
+R3
+R0
+R4
+8lshift_reg_tb_t1.v
+Flshift_reg_tb_t1.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 lshift_reg_tb_t1.v|
+!s90 -reportprogress|300|lshift_reg_tb_t1.v|+cover=sbcet|-coveropt|1|
+!i113 0
+R7
+R8
+R1
