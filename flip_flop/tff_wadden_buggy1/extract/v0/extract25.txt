@@ -1,7 +1,0 @@
-tff_wadden_buggy1-6-1 1
-tff_wadden_buggy1-9-1 1
-tff_wadden_buggy1-11-1 0
-tff_wadden_buggy1-13-1 0
-tff_wadden_buggy1-8-1 1
-tff_wadden_buggy1-10-1 0
-tff_wadden_buggy1-12-1 0

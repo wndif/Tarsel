@@ -1,7 +1,0 @@
-first_counter_overflow_kgoliya_buggy1-34-1 1
-first_counter_overflow_kgoliya_buggy1-40-1 0
-first_counter_overflow_kgoliya_buggy1-44-1 0
-first_counter_overflow_kgoliya_buggy1-50-1 0
-first_counter_overflow_kgoliya_buggy1-38-1 0
-first_counter_overflow_kgoliya_buggy1-43-1 0
-first_counter_overflow_kgoliya_buggy1-48-1 0

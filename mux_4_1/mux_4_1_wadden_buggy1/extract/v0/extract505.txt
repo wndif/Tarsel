@@ -1,2 +1,0 @@
-mux_4_1_wadden_buggy1-10-1 1
-mux_4_1_wadden_buggy1-12-1 0
