@@ -1,0 +1,48 @@
+===============================================================================
+Module : updown_counter
+===============================================================================
+SCORE  LINE   COND   FSM    BRANCH
+ 80.00  80.00  --     100.00 --
+
+Source File(s) :
+
+/work/updown_counter_buggy.v
+
+Module self-instances :
+
+SCORE  LINE   COND   FSM    BRANCH NAME
+ 80.00  80.00  --     100.00 --     updown_counter
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : updown_counter
+
+             Line No.   Total   Covered  Percent
+TOTAL                       10        8    80.00
+INITIAL            12       10        8    80.00
+
+12         1/1              always @(posedge clk or posedge rst) begin
+13         1/1                  if (rst) begin
+14         0/1                      count <= 8'd0;
+15         1/1                  end else if (load) begin
+16         0/1                      count <= data_in + 8'd1;
+17         1/1                  end else if (en) begin
+18         1/1                      if (up) begin
+19         1/1                      count <= count + 8'd1;
+21         0/1                      count <= count - 8'd1;
+23         1/1                  end
+24         1/1              end
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : updown_counter_tb
+
+             Line No.   Total   Covered  Percent
+TOTAL                        4        4   100.00
+
+4          1/1              reg clk = 0;
+5          1/1              reg rst = 1;
+6          1/1              reg en  = 0;
+7          1/1              reg up  = 1;
+
+-------------------------------------------------------------------------------

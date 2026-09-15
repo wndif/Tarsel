@@ -1,0 +1,40 @@
+# Tarsel2 example: 8-bit up/down counter with one injected fault.
+#
+#   updown_counter.v          reference source (only used to make golden_output.txt)
+#   updown_counter_buggy.v    design under localization (fault on line 20)
+#   updown_counter_tb.v       value-dump testbench (writes output.txt)
+#   golden_output.txt         output produced by the reference source
+#
+# Run inside the Tarsel2 container:
+#   tarsel2 localize --config examples/updown_counter/tarsel2.yaml --work-dir work
+
+project_name: updown_counter
+project_dir: .
+
+source_files:
+  - updown_counter_buggy.v
+testbench: updown_counter_tb.v
+
+golden_output: golden_output.txt
+output_filename: output.txt
+
+start_time: 0
+end_time: 200
+time_step: 10
+
+# onset   = sliding windows around divergence onsets
+# uniform = fixed windows over the whole run
+slice_strategy: onset
+slice_num: 20
+window_steps: 3
+n_windows: 3
+n_samples: 200
+
+# Optional matrix purification, applied in order.
+optimizers: []
+
+# Ground truth: enables EXAM score reporting.
+# The injected fault is `count <= data_in + 8'd1` on line 20 of
+# updown_counter_buggy.v (the parallel-load branch).
+fault_lines:
+  - updown_counter_buggy_20

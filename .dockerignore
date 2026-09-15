@@ -1,0 +1,16 @@
+.git
+.github
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+work
+build
+dist
+*.egg-info
+*.lic
+Synopsys.dat
+*.vdb
+csrc
+simv*

@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Tarsel2 run output
+work/
+*.vdb/
+csrc/
+simv*
+urgReport/
+
+# Never commit licensed EDA material or local configuration
+*.lic
+Synopsys.dat
+.env
+*.local.yaml
